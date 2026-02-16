@@ -342,7 +342,7 @@
 <h2>GET /v1/audio/voices<a class="headerlink" href="#get-v1-audio-voices" title="Link to this heading"></a></h2>
 <p>Retrieve a list of all available voices including predefined and cloned voices.</p>
 <p><strong>Request:</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span><span class="s2">&quot;http://localhost:5117/v1/audio/voices&quot;</span><span class="w"> </span><span class="se">\</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span><span class="s2">&quot;https://ori-tts-test.oriserve.com/v1/audio/voices&quot;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer your-api-token&quot;</span>
 </pre></div>
 </div>
@@ -432,7 +432,7 @@
 <h2>POST /v1/voice_clone<a class="headerlink" href="#post-v1-voice-clone" title="Link to this heading"></a></h2>
 <p>Clone a voice from an audio sample. The audio must be between 5 seconds and 5 minutes in duration.</p>
 <p><strong>Request:</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s2">&quot;http://localhost:5117/v1/voice_clone&quot;</span><span class="w"> </span><span class="se">\</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s2">&quot;https://ori-tts-test.oriserve.com/v1/voice_clone&quot;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer your-api-token&quot;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-F<span class="w"> </span><span class="s2">&quot;speaker_name=my_voice&quot;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-F<span class="w"> </span><span class="s2">&quot;user_id=user123&quot;</span><span class="w"> </span><span class="se">\</span>
@@ -511,7 +511,7 @@
 
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;sample.wav&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">audio_file</span><span class="p">:</span>
     <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
-        <span class="s2">&quot;http://localhost:5117/v1/voice_clone&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;https://ori-tts-test.oriserve.com/v1/voice_clone&quot;</span><span class="p">,</span>
         <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="s2">&quot;Bearer your-api-token&quot;</span><span class="p">},</span>
         <span class="n">files</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;audio&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;sample.wav&quot;</span><span class="p">,</span> <span class="n">audio_file</span><span class="p">,</span> <span class="s2">&quot;audio/wav&quot;</span><span class="p">)},</span>
         <span class="n">data</span><span class="o">=</span><span class="p">{</span>
@@ -526,10 +526,10 @@
 </pre></div>
 </div>
 <p><strong>Using the Cloned Voice:</strong></p>
-<p>Once cloned, use the <code class="docutils literal notranslate"><span class="pre">voice_id</span></code> in your TTS requests:</p>
+<p>Once cloned, use the <code class="docutils literal notranslate"><span class="pre">voice_id</span></code> and <code class="docutils literal notranslate"><span class="pre">user_id</span></code> in your TTS requests:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># HTTP endpoint</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
-    <span class="s2">&quot;http://localhost:5117/v1/audio/speech&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;https://ori-tts-test.oriserve.com/v1/audio/speech&quot;</span><span class="p">,</span>
     <span class="n">headers</span><span class="o">=</span><span class="p">{</span>
         <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="s2">&quot;Bearer your-api-token&quot;</span><span class="p">,</span>
         <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span>
@@ -537,6 +537,7 @@
     <span class="n">json</span><span class="o">=</span><span class="p">{</span>
         <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;Hello with my custom voice!&quot;</span><span class="p">,</span>
         <span class="s2">&quot;voice&quot;</span><span class="p">:</span> <span class="n">voice_id</span><span class="p">,</span>  <span class="c1"># Use the cloned voice ID</span>
+        <span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="s2">&quot;user123&quot;</span><span class="p">,</span> <span class="c1"># required to used cloned voices</span>
         <span class="s2">&quot;language&quot;</span><span class="p">:</span> <span class="s2">&quot;en-IN&quot;</span>
     <span class="p">}</span>
 <span class="p">)</span>

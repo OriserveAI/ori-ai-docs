@@ -45,11 +45,9 @@ Unauthorized requests will receive a ``401 Unauthorized`` response:
 Base URL
 --------
 
-The default server runs on port ``5117``:
-
 .. code-block:: text
 
-   http://localhost:5117
+   https://ori-tts-test.oriserve.com
 
 Supported Languages
 -------------------

@@ -12,7 +12,7 @@ Retrieve a list of all available voices including predefined and cloned voices.
 
 .. code-block:: bash
 
-   curl -X GET "http://localhost:5117/v1/audio/voices" \
+   curl -X GET "https://ori-tts-test.oriserve.com/v1/audio/voices" \
      -H "Authorization: Bearer your-api-token"
 
 **Response:**
@@ -89,7 +89,7 @@ Clone a voice from an audio sample. The audio must be between 5 seconds and 5 mi
 
 .. code-block:: bash
 
-   curl -X POST "http://localhost:5117/v1/voice_clone" \
+   curl -X POST "https://ori-tts-test.oriserve.com/v1/voice_clone" \
      -H "Authorization: Bearer your-api-token" \
      -F "speaker_name=my_voice" \
      -F "user_id=user123" \
@@ -166,7 +166,7 @@ Clone a voice from an audio sample. The audio must be between 5 seconds and 5 mi
 
    with open("sample.wav", "rb") as audio_file:
        response = requests.post(
-           "http://localhost:5117/v1/voice_clone",
+           "https://ori-tts-test.oriserve.com/v1/voice_clone",
            headers={"Authorization": "Bearer your-api-token"},
            files={"audio": ("sample.wav", audio_file, "audio/wav")},
            data={
@@ -181,13 +181,13 @@ Clone a voice from an audio sample. The audio must be between 5 seconds and 5 mi
 
 **Using the Cloned Voice:**
 
-Once cloned, use the ``voice_id`` in your TTS requests:
+Once cloned, use the ``voice_id`` and ``user_id`` in your TTS requests:
 
 .. code-block:: python
 
    # HTTP endpoint
    response = requests.post(
-       "http://localhost:5117/v1/audio/speech",
+       "https://ori-tts-test.oriserve.com/v1/audio/speech",
        headers={
            "Authorization": "Bearer your-api-token",
            "Content-Type": "application/json"
@@ -195,6 +195,7 @@ Once cloned, use the ``voice_id`` in your TTS requests:
        json={
            "input": "Hello with my custom voice!",
            "voice": voice_id,  # Use the cloned voice ID
+           "user_id": "user123", # required to used cloned voices
            "language": "en-IN"
        }
    )

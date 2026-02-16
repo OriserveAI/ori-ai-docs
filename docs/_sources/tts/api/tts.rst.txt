@@ -12,7 +12,7 @@ Generate speech from text using the OpenAI-compatible HTTP endpoint. Returns a s
 
 .. code-block:: bash
 
-   curl -X POST "http://localhost:5117/v1/audio/speech" \
+   curl -X POST "https://ori-tts-test.oriserve.com/v1/audio/speech" \
      -H "Authorization: Bearer your-api-token" \
      -H "Content-Type: application/json" \
      -d '{
@@ -118,7 +118,7 @@ Returns a streaming audio response with the appropriate content type based on th
    import requests
 
    response = requests.post(
-       "http://localhost:5117/v1/audio/speech",
+       "https://ori-tts-test.oriserve.com/v1/audio/speech",
        headers={
            "Authorization": "Bearer your-api-token",
            "Content-Type": "application/json"
@@ -146,7 +146,7 @@ Real-time text-to-speech streaming via WebSocket connection.
 
 .. code-block:: text
 
-   ws://localhost:5117/ori_tts_socket
+   wss://ori-tts-test.oriserve.com/ori_tts_socket
 
 Include authentication in the WebSocket handshake headers:
 
@@ -290,7 +290,7 @@ The server will ignore ping messages and not send a response.
    import base64
 
    async def stream_tts(text, voice_id, language="hi"):
-       uri = "ws://localhost:5117/ori_tts_socket"
+       uri = "wss://ori-tts-test.oriserve.com/ori_tts_socket"
        headers = {"Authorization": "Bearer your-api-token"}
 
        async with websockets.connect(uri, extra_headers=headers) as ws:
@@ -338,7 +338,7 @@ On error, the WebSocket connection will be closed with an appropriate close code
 
 .. code-block:: javascript
 
-   const ws = new WebSocket('ws://localhost:5117/ori_tts_socket', [], {
+   const ws = new WebSocket('wss://ori-tts-test.oriserve.com/ori_tts_socket', [], {
      headers: { 'Authorization': 'Bearer your-api-token' }
    });
 
