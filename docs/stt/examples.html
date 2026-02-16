@@ -1,0 +1,579 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Examples &mdash; Oriserve AI Services 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Troubleshooting" href="troubleshooting.html" />
+    <link rel="prev" title="Python Client" href="python_client.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Oriserve AI Services
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Speech-to-Text (STT)</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">OriSTT Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html">Quick Start Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="quickstart.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quickstart.html#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quickstart.html#configuration">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quickstart.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quickstart.html#connection-parameters">Connection Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quickstart.html#authentication">Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quickstart.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference.html">API Reference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_reference.html#connection-details">Connection Details</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api_reference.html#connection-type">Connection Type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api_reference.html#websocket-url-format">WebSocket URL Format</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api_reference.html#query-parameters">Query Parameters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api_reference.html#required-parameters">Required Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api_reference.html#optional-parameters">Optional Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api_reference.html#parameter-details">Parameter Details</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api_reference.html#input-format">Input Format</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api_reference.html#input-message-schema">Input Message Schema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api_reference.html#audio-chunk-requirements">Audio Chunk Requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api_reference.html#output-format">Output Format</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api_reference.html#output-message-schema">Output Message Schema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api_reference.html#response-status-values">Response Status Values</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api_reference.html#response-data-values">Response Data Values</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api_reference.html#authentication">Authentication</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api_reference.html#api-key-header">API Key Header</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api_reference.html#rate-limits">Rate Limits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_reference.html#error-handling">Error Handling</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="python_client.html">Python Client</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="python_client.html#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_client.html#client-code">Client Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_client.html#usage-example">Usage Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_client.html#command-line-usage">Command Line Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_client.html#library-usage">Library Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_client.html#configuration-options">Configuration Options</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="python_client.html#audio-settings">Audio Settings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python_client.html#model-settings">Model Settings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python_client.html#connection-settings">Connection Settings</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="python_client.html#features">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_client.html#dependencies">Dependencies</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basic-transcription">Basic Transcription</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hinglish-transcription">Hinglish Transcription</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#with-noise-reduction">With Noise Reduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#word-boosting">Word Boosting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#law-encoding">μ-law Encoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#error-handling">Error Handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#performance-monitoring">Performance Monitoring</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="troubleshooting.html#common-issues">Common Issues</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="troubleshooting.html#connection-errors">Connection Errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="troubleshooting.html#audio-format-issues">Audio Format Issues</a></li>
+<li class="toctree-l4"><a class="reference internal" href="troubleshooting.html#parameter-validation">Parameter Validation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="troubleshooting.html#json-schema-issues">JSON Schema Issues</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="troubleshooting.html#debugging-checklist">Debugging Checklist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="troubleshooting.html#enable-detailed-logging">Enable Detailed Logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="troubleshooting.html#verify-audio-processing">Verify Audio Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="troubleshooting.html#connection-test">Connection Test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="troubleshooting.html#performance-issues">Performance Issues</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="troubleshooting.html#slow-transcription">Slow Transcription</a></li>
+<li class="toctree-l4"><a class="reference internal" href="troubleshooting.html#memory-issues">Memory Issues</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="troubleshooting.html#getting-help">Getting Help</a></li>
+<li class="toctree-l3"><a class="reference internal" href="troubleshooting.html#error-code-reference">Error Code Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#supported-languages">Supported Languages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#supported-models">Supported Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#contact">Contact</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#indices-and-tables">Indices and tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#connection-parameters">Connection Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#authentication">Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_reference.html#connection-details">Connection Details</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_reference.html#connection-type">Connection Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_reference.html#websocket-url-format">WebSocket URL Format</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference.html#query-parameters">Query Parameters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_reference.html#required-parameters">Required Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_reference.html#optional-parameters">Optional Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_reference.html#parameter-details">Parameter Details</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference.html#input-format">Input Format</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_reference.html#input-message-schema">Input Message Schema</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_reference.html#audio-chunk-requirements">Audio Chunk Requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference.html#output-format">Output Format</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_reference.html#output-message-schema">Output Message Schema</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_reference.html#response-status-values">Response Status Values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_reference.html#response-data-values">Response Data Values</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference.html#authentication">Authentication</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_reference.html#api-key-header">API Key Header</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference.html#rate-limits">Rate Limits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference.html#error-handling">Error Handling</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="python_client.html">Python Client</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="python_client.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_client.html#client-code">Client Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_client.html#usage-example">Usage Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_client.html#command-line-usage">Command Line Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_client.html#library-usage">Library Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_client.html#configuration-options">Configuration Options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="python_client.html#audio-settings">Audio Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_client.html#model-settings">Model Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_client.html#connection-settings">Connection Settings</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="python_client.html#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_client.html#dependencies">Dependencies</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#basic-transcription">Basic Transcription</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hinglish-transcription">Hinglish Transcription</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#with-noise-reduction">With Noise Reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#word-boosting">Word Boosting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#law-encoding">μ-law Encoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#error-handling">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#performance-monitoring">Performance Monitoring</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#common-issues">Common Issues</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="troubleshooting.html#connection-errors">Connection Errors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="troubleshooting.html#audio-format-issues">Audio Format Issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="troubleshooting.html#parameter-validation">Parameter Validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="troubleshooting.html#json-schema-issues">JSON Schema Issues</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#debugging-checklist">Debugging Checklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#enable-detailed-logging">Enable Detailed Logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#verify-audio-processing">Verify Audio Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#connection-test">Connection Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#performance-issues">Performance Issues</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="troubleshooting.html#slow-transcription">Slow Transcription</a></li>
+<li class="toctree-l3"><a class="reference internal" href="troubleshooting.html#memory-issues">Memory Issues</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#getting-help">Getting Help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#error-code-reference">Error Code Reference</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Text-to-Speech (TTS)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tts/index.html">Ori TTS API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tts/index.html#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tts/index.html#contents">Contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tts/quickstart.html">Quickstart</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../tts/quickstart.html#authentication">Authentication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tts/quickstart.html#basic-http-example">Basic HTTP Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tts/quickstart.html#websocket-example">WebSocket Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tts/quickstart.html#voice-cloning-example">Voice Cloning Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tts/quickstart.html#listing-available-voices">Listing Available Voices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tts/quickstart.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../tts/api/index.html">API Reference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../tts/api/index.html#endpoints-overview">Endpoints Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tts/api/index.html#authentication">Authentication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tts/api/index.html#base-url">Base URL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tts/api/index.html#supported-languages">Supported Languages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tts/api/index.html#supported-audio-formats">Supported Audio Formats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tts/api/index.html#detailed-documentation">Detailed Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../tts/api/tts.html">Text-to-Speech Endpoints</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../tts/api/tts.html#post-v1-audio-speech">POST /v1/audio/speech</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tts/api/tts.html#websocket-ori-tts-socket">WebSocket /ori_tts_socket</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../tts/api/voice.html">Voice Management Endpoints</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../tts/api/voice.html#get-v1-audio-voices">GET /v1/audio/voices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tts/api/voice.html#post-v1-voice-clone">POST /v1/voice_clone</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/index.html#indices-and-tables">Indices and tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/quickstart.html">Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tts/quickstart.html#authentication">Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tts/quickstart.html#basic-http-example">Basic HTTP Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tts/quickstart.html#websocket-example">WebSocket Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tts/quickstart.html#voice-cloning-example">Voice Cloning Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tts/quickstart.html#listing-available-voices">Listing Available Voices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tts/quickstart.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/api/index.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tts/api/index.html#endpoints-overview">Endpoints Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tts/api/index.html#authentication">Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tts/api/index.html#base-url">Base URL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tts/api/index.html#supported-languages">Supported Languages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tts/api/index.html#supported-audio-formats">Supported Audio Formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tts/api/index.html#detailed-documentation">Detailed Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tts/api/tts.html">Text-to-Speech Endpoints</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../tts/api/tts.html#post-v1-audio-speech">POST /v1/audio/speech</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tts/api/tts.html#websocket-ori-tts-socket">WebSocket /ori_tts_socket</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../tts/api/voice.html">Voice Management Endpoints</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../tts/api/voice.html#get-v1-audio-voices">GET /v1/audio/voices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tts/api/voice.html#post-v1-voice-clone">POST /v1/voice_clone</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/api/tts.html">Text-to-Speech Endpoints</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tts/api/tts.html#post-v1-audio-speech">POST /v1/audio/speech</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tts/api/tts.html#websocket-ori-tts-socket">WebSocket /ori_tts_socket</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/api/voice.html">Voice Management Endpoints</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tts/api/voice.html#get-v1-audio-voices">GET /v1/audio/voices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tts/api/voice.html#post-v1-voice-clone">POST /v1/voice_clone</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Oriserve AI Services</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">OriSTT Documentation</a></li>
+      <li class="breadcrumb-item active">Examples</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/stt/examples.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="examples">
+<h1>Examples<a class="headerlink" href="#examples" title="Link to this heading"></a></h1>
+<p>This section provides practical examples for common use cases.</p>
+<section id="basic-transcription">
+<h2>Basic Transcription<a class="headerlink" href="#basic-transcription" title="Link to this heading"></a></h2>
+<p>Transcribe a Hindi audio file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">client</span><span class="w"> </span><span class="kn">import</span> <span class="n">process_and_stream_audio</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">transcribe_hindi</span><span class="p">():</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;wss://ori-asr-test.oriserve.com/connect&quot;</span>
+        <span class="s2">&quot;?model=ori-prime-v2.3&quot;</span>
+        <span class="s2">&quot;&amp;sample_rate=16000&quot;</span>
+        <span class="s2">&quot;&amp;language=hi&quot;</span>
+    <span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">process_and_stream_audio</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="s2">&quot;hindi_audio.wav&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Transcription: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">transcribe_hindi</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="hinglish-transcription">
+<h2>Hinglish Transcription<a class="headerlink" href="#hinglish-transcription" title="Link to this heading"></a></h2>
+<p>Transcribe Hinglish (Hindi-English mixed) audio:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">client</span><span class="w"> </span><span class="kn">import</span> <span class="n">process_and_stream_audio</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">transcribe_hinglish</span><span class="p">():</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;wss://ori-asr-test.oriserve.com/connect&quot;</span>
+        <span class="s2">&quot;?model=ori-prime-v2.3&quot;</span>
+        <span class="s2">&quot;&amp;sample_rate=16000&quot;</span>
+        <span class="s2">&quot;&amp;language=en&quot;</span>
+    <span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">process_and_stream_audio</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="s2">&quot;hinglish_audio.wav&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Transcription: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">transcribe_hinglish</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="with-noise-reduction">
+<h2>With Noise Reduction<a class="headerlink" href="#with-noise-reduction" title="Link to this heading"></a></h2>
+<p>Enable noise filtering for better quality in noisy environments:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">client</span><span class="w"> </span><span class="kn">import</span> <span class="n">process_and_stream_audio</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">transcribe_with_filter</span><span class="p">():</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;wss://ori-asr-test.oriserve.com/connect&quot;</span>
+        <span class="s2">&quot;?model=ori-prime-v2.3&quot;</span>
+        <span class="s2">&quot;&amp;sample_rate=16000&quot;</span>
+        <span class="s2">&quot;&amp;language=hi&quot;</span>
+        <span class="s2">&quot;&amp;filter=true&quot;</span>
+    <span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">process_and_stream_audio</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="s2">&quot;noisy_audio.wav&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Transcription: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">transcribe_with_filter</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="word-boosting">
+<h2>Word Boosting<a class="headerlink" href="#word-boosting" title="Link to this heading"></a></h2>
+<p>Boost recognition of specific vocabulary (max 5 words):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">client</span><span class="w"> </span><span class="kn">import</span> <span class="n">process_and_stream_audio</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">urllib.parse</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">transcribe_with_boosting</span><span class="p">():</span>
+    <span class="c1"># Define words to boost</span>
+    <span class="n">keywords</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;payment&quot;</span><span class="p">,</span> <span class="s2">&quot;account&quot;</span><span class="p">,</span> <span class="s2">&quot;bank&quot;</span><span class="p">]</span>
+    <span class="n">prompt</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">quote</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">keywords</span><span class="p">))</span>
+
+    <span class="n">url</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;wss://ori-asr-test.oriserve.com/connect&quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;?model=ori-prime-v2.3&quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;&amp;sample_rate=16000&quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;&amp;language=hi&quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;&amp;prompt=</span><span class="si">{</span><span class="n">prompt</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">process_and_stream_audio</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="s2">&quot;banking_call.wav&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Transcription: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">transcribe_with_boosting</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="law-encoding">
+<h2>μ-law Encoding<a class="headerlink" href="#law-encoding" title="Link to this heading"></a></h2>
+<p>Use μ-law encoding for bandwidth efficiency:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">client</span><span class="w"> </span><span class="kn">import</span> <span class="n">process_and_stream_audio</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">transcribe_mulaw</span><span class="p">():</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;wss://ori-asr-test.oriserve.com/connect&quot;</span>
+        <span class="s2">&quot;?model=ori-prime-v2.3&quot;</span>
+        <span class="s2">&quot;&amp;sample_rate=16000&quot;</span>
+        <span class="s2">&quot;&amp;language=hi&quot;</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Use mulaw encoding (half the bandwidth of linear16)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">process_and_stream_audio</span><span class="p">(</span>
+        <span class="n">url</span><span class="p">,</span>
+        <span class="s2">&quot;audio.wav&quot;</span><span class="p">,</span>
+        <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;mulaw&quot;</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Transcription: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">transcribe_mulaw</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="error-handling">
+<h2>Error Handling<a class="headerlink" href="#error-handling" title="Link to this heading"></a></h2>
+<p>Implement robust error handling:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">websockets</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">client</span><span class="w"> </span><span class="kn">import</span> <span class="n">process_and_stream_audio</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">transcribe_with_retry</span><span class="p">(</span><span class="n">audio_path</span><span class="p">,</span> <span class="n">max_retries</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Transcribe with automatic retry on failure.&quot;&quot;&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;wss://ori-asr-test.oriserve.com/connect&quot;</span>
+        <span class="s2">&quot;?model=ori-prime-v2.3&quot;</span>
+        <span class="s2">&quot;&amp;sample_rate=16000&quot;</span>
+        <span class="s2">&quot;&amp;language=hi&quot;</span>
+    <span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">attempt</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_retries</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">process_and_stream_audio</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">audio_path</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">result</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">result</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Attempt </span><span class="si">{</span><span class="n">attempt</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2"> failed, retrying...&quot;</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="n">websockets</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">WebSocketException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;WebSocket error on attempt </span><span class="si">{</span><span class="n">attempt</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">attempt</span> <span class="o">&lt;</span> <span class="n">max_retries</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="n">attempt</span><span class="p">)</span>  <span class="c1"># Exponential backoff</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unexpected error on attempt </span><span class="si">{</span><span class="n">attempt</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">attempt</span> <span class="o">&lt;</span> <span class="n">max_retries</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="n">attempt</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="kc">None</span>
+
+<span class="c1"># Usage</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">transcribe_with_retry</span><span class="p">(</span><span class="s2">&quot;audio.wav&quot;</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">result</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Success: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Failed after all retries&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="performance-monitoring">
+<h2>Performance Monitoring<a class="headerlink" href="#performance-monitoring" title="Link to this heading"></a></h2>
+<p>Monitor transcription performance:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">client</span><span class="w"> </span><span class="kn">import</span> <span class="n">process_and_stream_audio</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">transcribe_with_metrics</span><span class="p">(</span><span class="n">audio_path</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Transcribe and collect performance metrics.&quot;&quot;&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;wss://ori-asr-test.oriserve.com/connect&quot;</span>
+        <span class="s2">&quot;?model=ori-prime-v2.3&quot;</span>
+        <span class="s2">&quot;&amp;sample_rate=16000&quot;</span>
+        <span class="s2">&quot;&amp;language=hi&quot;</span>
+    <span class="p">)</span>
+
+    <span class="n">metrics</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;start_time&quot;</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span>
+        <span class="s2">&quot;audio_file&quot;</span><span class="p">:</span> <span class="n">audio_path</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">process_and_stream_audio</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">audio_path</span><span class="p">)</span>
+        <span class="n">metrics</span><span class="p">[</span><span class="s2">&quot;end_time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="n">metrics</span><span class="p">[</span><span class="s2">&quot;duration&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">metrics</span><span class="p">[</span><span class="s2">&quot;end_time&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">metrics</span><span class="p">[</span><span class="s2">&quot;start_time&quot;</span><span class="p">]</span>
+        <span class="n">metrics</span><span class="p">[</span><span class="s2">&quot;success&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+        <span class="n">metrics</span><span class="p">[</span><span class="s2">&quot;transcription&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span>
+
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">metrics</span><span class="p">[</span><span class="s2">&quot;end_time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="n">metrics</span><span class="p">[</span><span class="s2">&quot;duration&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">metrics</span><span class="p">[</span><span class="s2">&quot;end_time&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">metrics</span><span class="p">[</span><span class="s2">&quot;start_time&quot;</span><span class="p">]</span>
+        <span class="n">metrics</span><span class="p">[</span><span class="s2">&quot;success&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">metrics</span><span class="p">[</span><span class="s2">&quot;error&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">metrics</span>
+
+<span class="c1"># Usage</span>
+<span class="n">metrics</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">transcribe_with_metrics</span><span class="p">(</span><span class="s2">&quot;audio.wav&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Transcription took </span><span class="si">{</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> seconds which include forced timeout duration&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Success: </span><span class="si">{</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;success&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="python_client.html" class="btn btn-neutral float-left" title="Python Client" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="troubleshooting.html" class="btn btn-neutral float-right" title="Troubleshooting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Oriserve AI Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
