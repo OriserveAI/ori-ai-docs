@@ -8,6 +8,12 @@ POST /v1/audio/speech
 
 Generate speech from text using the OpenAI-compatible HTTP endpoint. Returns a streaming audio response.
 
+.. note::
+
+   The base URL depends on the language. Use ``https://ori-tts-test.oriserve.com`` for ``hi`` and ``en-IN``.
+   Use ``https://ori-tts-multi-test.oriserve.com`` for all other languages (``bho``, ``ml``, ``mag``, ``mai``,
+   ``mr``, ``gu``, ``hne``, ``ta``, ``te``, ``kn``, ``bn``). See :doc:`index` for the full language table.
+
 **Request:**
 
 .. code-block:: bash
@@ -141,6 +147,12 @@ WebSocket /ori_tts_socket
 -------------------------
 
 Real-time text-to-speech streaming via WebSocket connection.
+
+.. note::
+
+   The base URL depends on the language. Use ``wss://ori-tts-test.oriserve.com`` for ``hi`` and ``en-IN``.
+   Use ``wss://ori-tts-multi-test.oriserve.com`` for all other languages (``bho``, ``ml``, ``mag``, ``mai``,
+   ``mr``, ``gu``, ``hne``, ``ta``, ``te``, ``kn``, ``bn``). See :doc:`index` for the full language table.
 
 **Connection:**
 

@@ -20,21 +20,19 @@ Retrieve a list of all available voices including predefined and cloned voices.
 .. code-block:: json
 
    {
-     "message": "Success",
-     "speakers": [
-       {
-         "voice_id": "0fQopeE3S42LxYNQSllH",
-         "name": "default_voice",
-         "type": "predefined"
-       },
-       {
-         "voice_id": "abc123xyz",
-         "name": "my_custom_voice",
-         "type": "cloned",
-         "user_id": "user123"
-       }
-     ]
+     "0fQopeE3S42LxYNQSllH": {
+       "voice_name": "default_voice",
+       "primary_languages": ["hi", "en-IN"],
+       "custom": false
+     },
+     "abc123xyz": {
+       "voice_name": "my_custom_voice",
+       "primary_languages": ["hi"],
+       "custom": true
+     }
    }
+
+The response is a dict keyed by ``speaker_id``. Each value is a voice object with the following fields:
 
 **Response Fields:**
 
@@ -45,34 +43,15 @@ Retrieve a list of all available voices including predefined and cloned voices.
    * - Field
      - Type
      - Description
-   * - ``message``
-     - string
-     - Status message
-   * - ``speakers``
-     - array
-     - Array of available speaker objects
-
-**Speaker Object:**
-
-.. list-table::
-   :header-rows: 1
-   :widths: 20 15 65
-
-   * - Field
-     - Type
-     - Description
-   * - ``voice_id``
-     - string
-     - Unique identifier for the voice
-   * - ``name``
+   * - ``voice_name``
      - string
      - Human-readable name of the voice
-   * - ``type``
-     - string
-     - Voice type (``predefined`` or ``cloned``)
-   * - ``user_id``
-     - string
-     - Owner user ID (for cloned voices only)
+   * - ``primary_languages``
+     - array
+     - List of language codes supported by this voice
+   * - ``custom``
+     - boolean
+     - ``true`` for cloned voices, ``false`` for predefined voices
 
 **Status Codes:**
 
@@ -199,4 +178,3 @@ Once cloned, use the ``voice_id`` and ``user_id`` in your TTS requests:
            "language": "en-IN"
        }
    )
-

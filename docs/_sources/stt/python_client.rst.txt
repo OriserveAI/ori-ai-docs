@@ -50,7 +50,7 @@ Complete Python client implementation:
         """
         logger = logging.getLogger("websockets")
         ori_asr_key = os.getenv("ASR_API_KEY")
-        
+
         print("Processing audio...")
         sending_sample_rate = 16000
         CHUNK_SIZE = sending_sample_rate // 1000 * 20  # 20 ms chunks
@@ -183,9 +183,9 @@ Basic usage with command-line arguments:
            required=True,
            help="Input audio file path"
        )
-       
+
        args = parser.parse_args()
-       
+
        # Configuration
        sending_sample_rate = 16000
        language = 'hi'
@@ -193,7 +193,7 @@ Basic usage with command-line arguments:
        call_id = "sample_test_asr"
        encoding = "linear16"
        temperature = 0.0
-       
+
        URL = (
            'wss://ori-asr-test.oriserve.com/connect?'
            f'model={model_name}'
@@ -202,13 +202,13 @@ Basic usage with command-line arguments:
            f'&temperature={temperature}'
            f'&call_id={call_id}'
        )
-       
+
        print(f"Processing audio file: {args.filepath}")
        print(f"WebSocket URI: {URL}")
        print("-" * 50)
-       
+
        start_time = time.perf_counter()
-       
+
        try:
            result = await process_and_stream_audio(
                URL, args.filepath, encoding
@@ -217,10 +217,10 @@ Basic usage with command-line arguments:
                print(f"\nTranscription successful!")
            else:
                print(f"\nTranscription failed!")
-           
+
        except Exception as e:
            print(f"Connection error: {e}")
-       
+
        end_time = time.perf_counter()
        print(f"\nTotal execution time: {end_time - start_time:.2f} seconds")
 

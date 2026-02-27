@@ -1,371 +1,179 @@
-
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../../">
+<html lang="en" data-accent-color="violet" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Voice Management Endpoints &mdash; Oriserve AI Services 1.0.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
-
-  
-      <script src="../../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../_static/documentation_options.js?v=8d563738"></script>
-      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
-      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
-    <script src="../../_static/js/theme.js"></script>
-    <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="Text-to-Speech Endpoints" href="tts.html" /> 
-</head>
-
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-
-          
-          
-          <a href="../../index.html" class="icon icon-home">
-            Oriserve AI Services
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Voice Management Endpoints - Oriserve AI Services Documentation 1.0.0 documentation</title><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="prev" title="Text-to-Speech Endpoints" href="tts.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=e1a1ceaf" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=44020203" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    <meta property="og:type" content="website"/><meta property="og:title" content="Voice Management Endpoints"/>
+    <meta name="twitter:card" content="summary"/>
+  </head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="../../index.html">
+      
+      
+      <strong>Oriserve AI Services Documentation</strong>
+    </a>
+    <div class="sy-head-nav" id="head-nav">
+      <nav class="sy-head-links"></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="head-nav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2"></span>
+          <span class="hamburger_3"></span>
+        </div>
+      </button>
+    </div>
+  </div>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Speech-to-Text (STT)</span></p>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><p class="caption" role="heading" aria-level="3"><span class="caption-text">Speech-to-Text (STT)</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../stt/index.html">OriSTT Documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/quickstart.html">Quick Start Guide</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/quickstart.html#prerequisites">Prerequisites</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/quickstart.html#installation">Installation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/quickstart.html#configuration">Configuration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/quickstart.html#basic-usage">Basic Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/quickstart.html#connection-parameters">Connection Parameters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/quickstart.html#authentication">Authentication</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/quickstart.html#next-steps">Next Steps</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/api_reference.html">API Reference</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/api_reference.html#connection-details">Connection Details</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../stt/api_reference.html#connection-type">Connection Type</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../stt/api_reference.html#websocket-url-format">WebSocket URL Format</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/api_reference.html#query-parameters">Query Parameters</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../stt/api_reference.html#required-parameters">Required Parameters</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../stt/api_reference.html#optional-parameters">Optional Parameters</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../stt/api_reference.html#parameter-details">Parameter Details</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/api_reference.html#input-format">Input Format</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../stt/api_reference.html#input-message-schema">Input Message Schema</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../stt/api_reference.html#audio-chunk-requirements">Audio Chunk Requirements</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/api_reference.html#output-format">Output Format</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../stt/api_reference.html#output-message-schema">Output Message Schema</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../stt/api_reference.html#response-status-values">Response Status Values</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../stt/api_reference.html#response-data-values">Response Data Values</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/api_reference.html#authentication">Authentication</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../stt/api_reference.html#api-key-header">API Key Header</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/api_reference.html#rate-limits">Rate Limits</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/api_reference.html#error-handling">Error Handling</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/python_client.html">Python Client</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/python_client.html#installation">Installation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/python_client.html#client-code">Client Code</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/python_client.html#usage-example">Usage Example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/python_client.html#command-line-usage">Command Line Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/python_client.html#library-usage">Library Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/python_client.html#configuration-options">Configuration Options</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../stt/python_client.html#audio-settings">Audio Settings</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../stt/python_client.html#model-settings">Model Settings</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../stt/python_client.html#connection-settings">Connection Settings</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/python_client.html#features">Features</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/python_client.html#dependencies">Dependencies</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/examples.html">Examples</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/examples.html#basic-transcription">Basic Transcription</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/examples.html#hinglish-transcription">Hinglish Transcription</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/examples.html#with-noise-reduction">With Noise Reduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/examples.html#word-boosting">Word Boosting</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/examples.html#law-encoding">μ-law Encoding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/examples.html#error-handling">Error Handling</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/examples.html#performance-monitoring">Performance Monitoring</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/troubleshooting.html">Troubleshooting</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/troubleshooting.html#common-issues">Common Issues</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../stt/troubleshooting.html#connection-errors">Connection Errors</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../stt/troubleshooting.html#audio-format-issues">Audio Format Issues</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../stt/troubleshooting.html#parameter-validation">Parameter Validation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../stt/troubleshooting.html#json-schema-issues">JSON Schema Issues</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/troubleshooting.html#debugging-checklist">Debugging Checklist</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/troubleshooting.html#enable-detailed-logging">Enable Detailed Logging</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/troubleshooting.html#verify-audio-processing">Verify Audio Processing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/troubleshooting.html#connection-test">Connection Test</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/troubleshooting.html#performance-issues">Performance Issues</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../stt/troubleshooting.html#slow-transcription">Slow Transcription</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../stt/troubleshooting.html#memory-issues">Memory Issues</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/troubleshooting.html#getting-help">Getting Help</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/troubleshooting.html#error-code-reference">Error Code Reference</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/index.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/index.html#supported-languages">Supported Languages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/index.html#supported-models">Supported Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/index.html#getting-started">Getting Started</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/index.html#contact">Contact</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../stt/quickstart.html">Quick Start Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../stt/api_reference.html">API Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../stt/python_client.html">Python Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../stt/examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../stt/troubleshooting.html">Troubleshooting</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../stt/index.html#indices-and-tables">Indices and tables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../stt/quickstart.html">Quick Start Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/quickstart.html#prerequisites">Prerequisites</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/quickstart.html#installation">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/quickstart.html#configuration">Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/quickstart.html#basic-usage">Basic Usage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/quickstart.html#connection-parameters">Connection Parameters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/quickstart.html#authentication">Authentication</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/quickstart.html#next-steps">Next Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stt/quickstart.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stt/api_reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stt/python_client.html">Python Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stt/examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stt/troubleshooting.html">Troubleshooting</a></li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../stt/api_reference.html">API Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/api_reference.html#connection-details">Connection Details</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/api_reference.html#connection-type">Connection Type</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/api_reference.html#websocket-url-format">WebSocket URL Format</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/api_reference.html#query-parameters">Query Parameters</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/api_reference.html#required-parameters">Required Parameters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/api_reference.html#optional-parameters">Optional Parameters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/api_reference.html#parameter-details">Parameter Details</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/api_reference.html#input-format">Input Format</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/api_reference.html#input-message-schema">Input Message Schema</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/api_reference.html#audio-chunk-requirements">Audio Chunk Requirements</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/api_reference.html#output-format">Output Format</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/api_reference.html#output-message-schema">Output Message Schema</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/api_reference.html#response-status-values">Response Status Values</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/api_reference.html#response-data-values">Response Data Values</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/api_reference.html#authentication">Authentication</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/api_reference.html#api-key-header">API Key Header</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/api_reference.html#rate-limits">Rate Limits</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/api_reference.html#error-handling">Error Handling</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../stt/python_client.html">Python Client</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/python_client.html#installation">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/python_client.html#client-code">Client Code</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/python_client.html#usage-example">Usage Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/python_client.html#command-line-usage">Command Line Usage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/python_client.html#library-usage">Library Usage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/python_client.html#configuration-options">Configuration Options</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/python_client.html#audio-settings">Audio Settings</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/python_client.html#model-settings">Model Settings</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/python_client.html#connection-settings">Connection Settings</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/python_client.html#features">Features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/python_client.html#dependencies">Dependencies</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../stt/examples.html">Examples</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/examples.html#basic-transcription">Basic Transcription</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/examples.html#hinglish-transcription">Hinglish Transcription</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/examples.html#with-noise-reduction">With Noise Reduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/examples.html#word-boosting">Word Boosting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/examples.html#law-encoding">μ-law Encoding</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/examples.html#error-handling">Error Handling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/examples.html#performance-monitoring">Performance Monitoring</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../stt/troubleshooting.html">Troubleshooting</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/troubleshooting.html#common-issues">Common Issues</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/troubleshooting.html#connection-errors">Connection Errors</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/troubleshooting.html#audio-format-issues">Audio Format Issues</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/troubleshooting.html#parameter-validation">Parameter Validation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/troubleshooting.html#json-schema-issues">JSON Schema Issues</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/troubleshooting.html#debugging-checklist">Debugging Checklist</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/troubleshooting.html#enable-detailed-logging">Enable Detailed Logging</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/troubleshooting.html#verify-audio-processing">Verify Audio Processing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/troubleshooting.html#connection-test">Connection Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/troubleshooting.html#performance-issues">Performance Issues</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/troubleshooting.html#slow-transcription">Slow Transcription</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../stt/troubleshooting.html#memory-issues">Memory Issues</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/troubleshooting.html#getting-help">Getting Help</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../stt/troubleshooting.html#error-code-reference">Error Code Reference</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Text-to-Speech (TTS)</span></p>
+<p class="caption" role="heading" aria-level="3"><span class="caption-text">Text-to-Speech (TTS)</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Ori TTS API Documentation</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../index.html#features">Features</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../index.html#contents">Contents</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../quickstart.html">Quickstart</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../quickstart.html#authentication">Authentication</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../quickstart.html#basic-http-example">Basic HTTP Example</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../quickstart.html#websocket-example">WebSocket Example</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../quickstart.html#voice-cloning-example">Voice Cloning Example</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../quickstart.html#listing-available-voices">Listing Available Voices</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../quickstart.html#next-steps">Next Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html">Quickstart</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">API Reference</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="tts.html">Text-to-Speech Endpoints</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Voice Management Endpoints</a></li>
 </ul>
 </li>
-<li class="toctree-l3 current"><a class="reference internal" href="index.html">API Reference</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="index.html#endpoints-overview">Endpoints Overview</a></li>
-<li class="toctree-l4"><a class="reference internal" href="index.html#authentication">Authentication</a></li>
-<li class="toctree-l4"><a class="reference internal" href="index.html#base-url">Base URL</a></li>
-<li class="toctree-l4"><a class="reference internal" href="index.html#supported-languages">Supported Languages</a></li>
-<li class="toctree-l4"><a class="reference internal" href="index.html#supported-audio-formats">Supported Audio Formats</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="index.html#detailed-documentation">Detailed Documentation</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="tts.html">Text-to-Speech Endpoints</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="tts.html#post-v1-audio-speech">POST /v1/audio/speech</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tts.html#websocket-ori-tts-socket">WebSocket /ori_tts_socket</a></li>
-</ul>
-</li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Voice Management Endpoints</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#get-v1-audio-voices">GET /v1/audio/voices</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#post-v1-voice-clone">POST /v1/voice_clone</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="tts.html">Text-to-Speech Endpoints</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Voice Management Endpoints</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../index.html#indices-and-tables">Indices and tables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#authentication">Authentication</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#basic-http-example">Basic HTTP Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#websocket-example">WebSocket Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#voice-cloning-example">Voice Cloning Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#listing-available-voices">Listing Available Voices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#next-steps">Next Steps</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">API Reference</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="index.html#endpoints-overview">Endpoints Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#authentication">Authentication</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#base-url">Base URL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#supported-languages">Supported Languages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#supported-audio-formats">Supported Audio Formats</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="index.html#detailed-documentation">Detailed Documentation</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="tts.html">Text-to-Speech Endpoints</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="tts.html#post-v1-audio-speech">POST /v1/audio/speech</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tts.html#websocket-ori-tts-socket">WebSocket /ori_tts_socket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tts.html">Text-to-Speech Endpoints</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Voice Management Endpoints</a></li>
 </ul>
 </li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Voice Management Endpoints</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#get-v1-audio-voices">GET /v1/audio/voices</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#post-v1-voice-clone">POST /v1/voice_clone</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="tts.html">Text-to-Speech Endpoints</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tts.html#post-v1-audio-speech">POST /v1/audio/speech</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tts.html#websocket-ori-tts-socket">WebSocket /ori_tts_socket</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Voice Management Endpoints</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#get-v1-audio-voices">GET /v1/audio/voices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#post-v1-voice-clone">POST /v1/voice_clone</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="tts.html">Text-to-Speech Endpoints</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Voice Management Endpoints</a></li>
 </ul>
 
         </div>
       </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">Oriserve AI Services</a>
-      </nav>
-
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../index.html">Ori TTS API Documentation</a></li>
-          <li class="breadcrumb-item"><a href="index.html">API Reference</a></li>
-      <li class="breadcrumb-item active">Voice Management Endpoints</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="../../_sources/tts/api/voice.rst.txt" rel="nofollow"> View page source</a>
-      </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
-  <section id="voice-management-endpoints">
-<h1>Voice Management Endpoints<a class="headerlink" href="#voice-management-endpoints" title="Link to this heading"></a></h1>
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-lucide close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>On this page</h3><ul>
+<li><a class="reference internal" href="#get-v1-audio-voices">GET /v1/audio/voices</a></li>
+<li><a class="reference internal" href="#post-v1-voice-clone">POST /v1/voice_clone</a></li>
+</ul>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div></div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+<div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-lucide menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../../index.html"><span itemprop="name">Oriserve AI Services Documentation</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../index.html"><span itemprop="name">Ori TTS API Documentation</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="2" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="index.html"><span itemprop="name">API Reference</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="3" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name">Voice Management Endpoints</strong>
+        <meta itemprop="position" content="4" />
+      </li></ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-lucide outdent"></i>
+      </button>
+    </div>
+  </div>
+</div><div class="flex flex-col break-words justify-between">
+      <div class="relative min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+  <article class="yue" role="main">
+          <section id="voice-management-endpoints">
+<h1>Voice Management Endpoints<a class="headerlink" href="#voice-management-endpoints" title="Link to this heading">¶</a></h1>
 <p>These endpoints allow you to list available voices and create custom voice clones.</p>
 <section id="get-v1-audio-voices">
-<h2>GET /v1/audio/voices<a class="headerlink" href="#get-v1-audio-voices" title="Link to this heading"></a></h2>
+<h2>GET /v1/audio/voices<a class="headerlink" href="#get-v1-audio-voices" title="Link to this heading">¶</a></h2>
 <p>Retrieve a list of all available voices including predefined and cloned voices.</p>
 <p><strong>Request:</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span><span class="s2">&quot;https://ori-tts-test.oriserve.com/v1/audio/voices&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer your-api-token&quot;</span>
-</pre></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span><span class="s2">&quot;https://ori-tts-test.oriserve.com/v1/audio/voices&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span data-line="2"><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer your-api-token&quot;</span>
+</span></pre></div>
 </div>
 <p><strong>Response:</strong></p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Success&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;speakers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;voice_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0fQopeE3S42LxYNQSllH&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default_voice&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;predefined&quot;</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;voice_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;abc123xyz&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my_custom_voice&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cloned&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;user_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user123&quot;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">]</span>
-<span class="p">}</span>
-</pre></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="p">{</span>
+</span><span data-line="2"><span class="w">  </span><span class="nt">&quot;0fQopeE3S42LxYNQSllH&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span data-line="3"><span class="w">    </span><span class="nt">&quot;voice_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default_voice&quot;</span><span class="p">,</span>
+</span><span data-line="4"><span class="w">    </span><span class="nt">&quot;primary_languages&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;hi&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;en-IN&quot;</span><span class="p">],</span>
+</span><span data-line="5"><span class="w">    </span><span class="nt">&quot;custom&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+</span><span data-line="6"><span class="w">  </span><span class="p">},</span>
+</span><span data-line="7"><span class="w">  </span><span class="nt">&quot;abc123xyz&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span data-line="8"><span class="w">    </span><span class="nt">&quot;voice_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my_custom_voice&quot;</span><span class="p">,</span>
+</span><span data-line="9"><span class="w">    </span><span class="nt">&quot;primary_languages&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;hi&quot;</span><span class="p">],</span>
+</span><span data-line="10"><span class="w">    </span><span class="nt">&quot;custom&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+</span><span data-line="11"><span class="w">  </span><span class="p">}</span>
+</span><span data-line="12"><span class="p">}</span>
+</span></pre></div>
 </div>
+<p>The response is a dict keyed by <code class="docutils literal notranslate"><span class="pre">speaker_id</span></code>. Each value is a voice object with the following fields:</p>
 <p><strong>Response Fields:</strong></p>
+<div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 20.0%" />
@@ -379,48 +187,21 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">message</span></code></p></td>
-<td><p>string</p></td>
-<td><p>Status message</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">speakers</span></code></p></td>
-<td><p>array</p></td>
-<td><p>Array of available speaker objects</p></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Speaker Object:</strong></p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 20.0%" />
-<col style="width: 15.0%" />
-<col style="width: 65.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Field</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">voice_id</span></code></p></td>
-<td><p>string</p></td>
-<td><p>Unique identifier for the voice</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">voice_name</span></code></p></td>
 <td><p>string</p></td>
 <td><p>Human-readable name of the voice</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">type</span></code></p></td>
-<td><p>string</p></td>
-<td><p>Voice type (<code class="docutils literal notranslate"><span class="pre">predefined</span></code> or <code class="docutils literal notranslate"><span class="pre">cloned</span></code>)</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">primary_languages</span></code></p></td>
+<td><p>array</p></td>
+<td><p>List of language codes supported by this voice</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">user_id</span></code></p></td>
-<td><p>string</p></td>
-<td><p>Owner user ID (for cloned voices only)</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">custom</span></code></p></td>
+<td><p>boolean</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code> for cloned voices, <code class="docutils literal notranslate"><span class="pre">false</span></code> for predefined voices</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 <p><strong>Status Codes:</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code>: Success</p></li>
@@ -429,17 +210,18 @@
 </ul>
 </section>
 <section id="post-v1-voice-clone">
-<h2>POST /v1/voice_clone<a class="headerlink" href="#post-v1-voice-clone" title="Link to this heading"></a></h2>
+<h2>POST /v1/voice_clone<a class="headerlink" href="#post-v1-voice-clone" title="Link to this heading">¶</a></h2>
 <p>Clone a voice from an audio sample. The audio must be between 5 seconds and 5 minutes in duration.</p>
 <p><strong>Request:</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s2">&quot;https://ori-tts-test.oriserve.com/v1/voice_clone&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer your-api-token&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-F<span class="w"> </span><span class="s2">&quot;speaker_name=my_voice&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-F<span class="w"> </span><span class="s2">&quot;user_id=user123&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-F<span class="w"> </span><span class="s2">&quot;audio=@sample.wav&quot;</span>
-</pre></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s2">&quot;https://ori-tts-test.oriserve.com/v1/voice_clone&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span data-line="2"><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer your-api-token&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span data-line="3"><span class="w">  </span>-F<span class="w"> </span><span class="s2">&quot;speaker_name=my_voice&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span data-line="4"><span class="w">  </span>-F<span class="w"> </span><span class="s2">&quot;user_id=user123&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span data-line="5"><span class="w">  </span>-F<span class="w"> </span><span class="s2">&quot;audio=@sample.wav&quot;</span>
+</span></pre></div>
 </div>
 <p><strong>Request Parameters (multipart/form-data):</strong></p>
+<div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 20.0%" />
@@ -472,6 +254,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p><strong>Audio Requirements:</strong></p>
 <ul class="simple">
 <li><p><strong>Minimum duration</strong>: 5 seconds</p></li>
@@ -479,25 +262,25 @@
 <li><p><strong>Format</strong>: WAV recommended, other formats supported via librosa</p></li>
 </ul>
 <p><strong>Response (Success):</strong></p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Voice Clone ID: abc123xyz\n (PLEASE SAVE THIS FOR LATER USAGE,YOU WON&#39;T BE ABLE TO SEE THIS MESSAGE AGAIN)&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;user_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user123&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;speaker_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my_voice&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;voice_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;abc123xyz&quot;</span>
-<span class="p">}</span>
-</pre></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="p">{</span>
+</span><span data-line="2"><span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Voice Clone ID: abc123xyz\n (PLEASE SAVE THIS FOR LATER USAGE,YOU WON&#39;T BE ABLE TO SEE THIS MESSAGE AGAIN)&quot;</span><span class="p">,</span>
+</span><span data-line="3"><span class="w">  </span><span class="nt">&quot;user_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user123&quot;</span><span class="p">,</span>
+</span><span data-line="4"><span class="w">  </span><span class="nt">&quot;speaker_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my_voice&quot;</span><span class="p">,</span>
+</span><span data-line="5"><span class="w">  </span><span class="nt">&quot;voice_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;abc123xyz&quot;</span>
+</span><span data-line="6"><span class="p">}</span>
+</span></pre></div>
 </div>
 <p><strong>Response (Error - Duration too short):</strong></p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Audio duration is too small &lt; 5 seconds could not clone audio&quot;</span>
-<span class="p">}</span>
-</pre></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="p">{</span>
+</span><span data-line="2"><span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Audio duration is too small &lt; 5 seconds could not clone audio&quot;</span>
+</span><span data-line="3"><span class="p">}</span>
+</span></pre></div>
 </div>
 <p><strong>Response (Error - Duration too long):</strong></p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Audio duration is too long &gt; 5 minutes could not clone audio&quot;</span>
-<span class="p">}</span>
-</pre></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="p">{</span>
+</span><span data-line="2"><span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Audio duration is too long &gt; 5 minutes could not clone audio&quot;</span>
+</span><span data-line="3"><span class="p">}</span>
+</span></pre></div>
 </div>
 <p><strong>Status Codes:</strong></p>
 <ul class="simple">
@@ -507,73 +290,79 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">422</span> <span class="pre">Unprocessable</span> <span class="pre">Entity</span></code>: Audio duration out of range</p></li>
 </ul>
 <p><strong>Python Example:</strong></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
-
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;sample.wav&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">audio_file</span><span class="p">:</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
-        <span class="s2">&quot;https://ori-tts-test.oriserve.com/v1/voice_clone&quot;</span><span class="p">,</span>
-        <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="s2">&quot;Bearer your-api-token&quot;</span><span class="p">},</span>
-        <span class="n">files</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;audio&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;sample.wav&quot;</span><span class="p">,</span> <span class="n">audio_file</span><span class="p">,</span> <span class="s2">&quot;audio/wav&quot;</span><span class="p">)},</span>
-        <span class="n">data</span><span class="o">=</span><span class="p">{</span>
-            <span class="s2">&quot;speaker_name&quot;</span><span class="p">:</span> <span class="s2">&quot;my_custom_voice&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="s2">&quot;user123&quot;</span>
-        <span class="p">}</span>
-    <span class="p">)</span>
-
-<span class="n">result</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-<span class="n">voice_id</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;voice_id&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Created voice with ID: </span><span class="si">{</span><span class="n">voice_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+</span><span data-line="2">
+</span><span data-line="3"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;sample.wav&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">audio_file</span><span class="p">:</span>
+</span><span data-line="4">    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+</span><span data-line="5">        <span class="s2">&quot;https://ori-tts-test.oriserve.com/v1/voice_clone&quot;</span><span class="p">,</span>
+</span><span data-line="6">        <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="s2">&quot;Bearer your-api-token&quot;</span><span class="p">},</span>
+</span><span data-line="7">        <span class="n">files</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;audio&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;sample.wav&quot;</span><span class="p">,</span> <span class="n">audio_file</span><span class="p">,</span> <span class="s2">&quot;audio/wav&quot;</span><span class="p">)},</span>
+</span><span data-line="8">        <span class="n">data</span><span class="o">=</span><span class="p">{</span>
+</span><span data-line="9">            <span class="s2">&quot;speaker_name&quot;</span><span class="p">:</span> <span class="s2">&quot;my_custom_voice&quot;</span><span class="p">,</span>
+</span><span data-line="10">            <span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="s2">&quot;user123&quot;</span>
+</span><span data-line="11">        <span class="p">}</span>
+</span><span data-line="12">    <span class="p">)</span>
+</span><span data-line="13">
+</span><span data-line="14"><span class="n">result</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</span><span data-line="15"><span class="n">voice_id</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;voice_id&quot;</span><span class="p">)</span>
+</span><span data-line="16"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Created voice with ID: </span><span class="si">{</span><span class="n">voice_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span></pre></div>
 </div>
 <p><strong>Using the Cloned Voice:</strong></p>
 <p>Once cloned, use the <code class="docutils literal notranslate"><span class="pre">voice_id</span></code> and <code class="docutils literal notranslate"><span class="pre">user_id</span></code> in your TTS requests:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># HTTP endpoint</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
-    <span class="s2">&quot;https://ori-tts-test.oriserve.com/v1/audio/speech&quot;</span><span class="p">,</span>
-    <span class="n">headers</span><span class="o">=</span><span class="p">{</span>
-        <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="s2">&quot;Bearer your-api-token&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span>
-    <span class="p">},</span>
-    <span class="n">json</span><span class="o">=</span><span class="p">{</span>
-        <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;Hello with my custom voice!&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;voice&quot;</span><span class="p">:</span> <span class="n">voice_id</span><span class="p">,</span>  <span class="c1"># Use the cloned voice ID</span>
-        <span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="s2">&quot;user123&quot;</span><span class="p">,</span> <span class="c1"># required to used cloned voices</span>
-        <span class="s2">&quot;language&quot;</span><span class="p">:</span> <span class="s2">&quot;en-IN&quot;</span>
-    <span class="p">}</span>
-<span class="p">)</span>
-</pre></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="c1"># HTTP endpoint</span>
+</span><span data-line="2"><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+</span><span data-line="3">    <span class="s2">&quot;https://ori-tts-test.oriserve.com/v1/audio/speech&quot;</span><span class="p">,</span>
+</span><span data-line="4">    <span class="n">headers</span><span class="o">=</span><span class="p">{</span>
+</span><span data-line="5">        <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="s2">&quot;Bearer your-api-token&quot;</span><span class="p">,</span>
+</span><span data-line="6">        <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span>
+</span><span data-line="7">    <span class="p">},</span>
+</span><span data-line="8">    <span class="n">json</span><span class="o">=</span><span class="p">{</span>
+</span><span data-line="9">        <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;Hello with my custom voice!&quot;</span><span class="p">,</span>
+</span><span data-line="10">        <span class="s2">&quot;voice&quot;</span><span class="p">:</span> <span class="n">voice_id</span><span class="p">,</span>  <span class="c1"># Use the cloned voice ID</span>
+</span><span data-line="11">        <span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="s2">&quot;user123&quot;</span><span class="p">,</span> <span class="c1"># required to used cloned voices</span>
+</span><span data-line="12">        <span class="s2">&quot;language&quot;</span><span class="p">:</span> <span class="s2">&quot;en-IN&quot;</span>
+</span><span data-line="13">    <span class="p">}</span>
+</span><span data-line="14"><span class="p">)</span>
+</span></pre></div>
 </div>
 </section>
 </section>
 
-
-           </div>
-          </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="tts.html" class="btn btn-neutral float-left" title="Text-to-Speech Endpoints" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        </article><button class="back-to-top" type="button">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+  </svg>
+  <span>Back to top</span>
+</button><div class="navigation flex print:hidden"><div class="navigation-prev">
+    <a href="tts.html">
+      <i class="i-lucide chevron-left"></i>
+      <div class="page-info">
+        <span>Previous</span><div class="title">Text-to-Speech Endpoints</div></div>
+    </a>
+  </div></div></div>
     </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2026, Oriserve AI Team.</p>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2026, Oriserve AI Team</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
   </div>
-
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
-
 </footer>
-        </div>
-      </div>
-    </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
-
-</body>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/shibuya.js?v=cac61aee"></script></body>
 </html>

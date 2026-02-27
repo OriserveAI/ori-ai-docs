@@ -10,6 +10,15 @@ Authentication
 
    Authorization: Bearer <your-api-token>
 
+.. note::
+
+   The API has two base URLs depending on the language:
+
+   - ``https://ori-tts-test.oriserve.com`` — for ``hi`` (Hindi) and ``en-IN`` (English, India)
+   - ``https://ori-tts-multi-test.oriserve.com`` — for ``bho``, ``ml``, ``mag``, ``mai``, ``mr``, ``gu``, ``hne``, ``ta``, ``te``, ``kn``, ``bn``
+
+   See :doc:`api/index` for the full language table.
+
 Basic HTTP Example
 ------------------
 
@@ -100,8 +109,8 @@ For real-time streaming, use the WebSocket endpoint:
         channel_bytes = np.array([channels], dtype=np.int16).tobytes()
         sample_rate_bytes= np.array([sample_rate], dtype=np.int32).tobytes()
         byte_rate = np.array([sample_rate*channels*bits_per_sample / 8], dtype=np.int32).tobytes()
-        # 8 represents mono stereo ## needs more investigation if crash 
-        bytes_in_frame = np.array([channels*bits_per_sample/8], dtype=np.int16).tobytes() 
+        # 8 represents mono stereo ## needs more investigation if crash
+        bytes_in_frame = np.array([channels*bits_per_sample/8], dtype=np.int16).tobytes()
         bits_per_sample_bytes = np.array([bits_per_sample], dtype=np.int16).tobytes()
         data_bytes = b"data"
         file_size = np.array([audio_duration], dtype=np.int32).tobytes()
@@ -115,7 +124,7 @@ For real-time streaming, use the WebSocket endpoint:
         sr = int(encoding.split('_')[-1])
         import uuid
         input_text = "यूनियन बजट 2026 की तारीख जैसे-जैसे नजदीक आ रही है कुछ सालों से भारी टैक्स और सख्त नियमों की मार झेल रहे इस सेक्टर को अब उम्मीद है कि वित्त मंत्री निर्मला सीतारमण इस बार कोई बड़ा ऐलान कर सकती हैं। लोगों का सवाल यही है कि क्या बजट 2026 में क्रिप्टो इन्वेस्टर्स को 30% टैक्स से राहत मिलेगी या सरकार का पूरा फोकस डिजिटल रुपयायानी CBDC को आगे बढ़ाने पर ही रहेगा हालांकि सरकार और RBI का नजरिया अब भी सतर्क है। ajaj.ali@gamil.com नीति-निर्माताओं की चिंता प्राइवेट क्रिप्टोकरेंसी की वोलैटिलिटी, मनी लॉन्ड्रिंग और ऑफशोर  प्लेटफॉर्म्स पर ट्रैकिंग की दिक्कतों को लेकर है। यही वजह है कि सरकार डिजिटल रुपया यानी CBDC को तेजी से आगे बढ़ा रही है। RBI समर्थित डिजिटल रुपया को सुरक्षित, रेगुलेटेड और भरोसेमंद ऑप्शन के तौर पर पेश किया जा रहा है। माना जा रहा है कि बजट 2026 में CBDC से जुड़े पायलट प्रोजेक्ट्स, टेक्नोलॉजी और यूज-केस के लिए एक्स्ट्रा  फंडिंग और इंसेंटिव्स मिल सकते हैं। कुल मिलाकर, बजट 2026 क्रिप्टो निवेशकों के लिए उम्मीद और अनिश्चितता का मिश्रण है। वित्त मंत्रीनिर्मला सीतारमण की 1 फरवरी की घोषणा"
-            
+
         async with websockets.connect(
                                 "wss://ori-tts-test.oriserve.com/ori_tts_socket",
                                 additional_headers={

@@ -62,14 +62,14 @@ Here's a minimal example to transcribe an audio file:
            "&sample_rate=8000"
            "&language=hi"
        )
-       
+
        # Connect to WebSocket
        headers = {"Authorization": f"Bearer {api_key}"}
        async with websockets.connect(ws_url, additional_headers=headers) as ws:
            # Load and process audio
            audio, sr = sf.read(audio_path)
            # ... (send audio chunks and receive transcription)
-           
+
    # Run
    asyncio.run(transcribe_audio("your_audio.wav"))
 

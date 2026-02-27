@@ -90,7 +90,7 @@ Parameter Details
 
 **model**
   The speech recognition model to use. Currently supported:
-  
+
   * ``ori-prime-v2.3`` - Latest production model
 
 **filter**
@@ -98,19 +98,19 @@ Parameter Details
 
 **language**
   Supported languages:
-  
+
   * ``hi`` - Hindi
   * ``en`` - Hinglish (Hindi-English code-mixed)
 
 **sample_rate**
   Audio sample rate in Hertz. Common values:
-  
+
   * ``8000`` - Telephone quality
   * ``16000`` - Standard quality (recommended)
 
 **prompt**
   A text prompt for word boosting to improve recognition of specific vocabulary. Maximum 5 words, URL-encoded.
-  
+
   Example: ``brandname%20entity%20specific-word``
 
 Input Format
@@ -142,7 +142,7 @@ Input Message Schema
      - Base64-encoded audio chunk
    * - ``time``
      - float
-     - 
+     -
      - Timestamp of the audio chunk (optional)
 
 Audio Chunk Requirements
@@ -150,12 +150,12 @@ Audio Chunk Requirements
 
 * **Chunk duration**: Exactly 20 milliseconds
 * **Chunk size** (LINEAR16 encoding):
-  
+
   * 8 kHz: 160 bytes (80 samples × 2 bytes)
   * 16 kHz: 320 bytes (160 samples × 2 bytes)
 
 * **Chunk size** (μ-law encoding):
-  
+
   * 8 kHz: 80 bytes
   * 16 kHz: 160 bytes
 
@@ -202,7 +202,7 @@ Output Message Schema
      - ``true`` or ``false`` from STT model (can be ignored for now)
    * - ``start``
      - float
-     - Audio segment start timestamp in milliseconds for ``recognized`` messages 
+     - Audio segment start timestamp in milliseconds for ``recognized`` messages
    * - ``end``
      - float
      - Audio segment end timestamp in milliseconds for ``recognized`` messages

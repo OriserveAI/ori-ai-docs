@@ -20,7 +20,7 @@ Transcribe a Hindi audio file:
            "&sample_rate=16000"
            "&language=hi"
        )
-       
+
        result = await process_and_stream_audio(url, "hindi_audio.wav")
        print(f"Transcription: {result}")
 
@@ -43,7 +43,7 @@ Transcribe Hinglish (Hindi-English mixed) audio:
            "&sample_rate=16000"
            "&language=en"
        )
-       
+
        result = await process_and_stream_audio(url, "hinglish_audio.wav")
        print(f"Transcription: {result}")
 
@@ -67,7 +67,7 @@ Enable noise filtering for better quality in noisy environments:
            "&language=hi"
            "&filter=true"
        )
-       
+
        result = await process_and_stream_audio(url, "noisy_audio.wav")
        print(f"Transcription: {result}")
 
@@ -88,7 +88,7 @@ Boost recognition of specific vocabulary (max 5 words):
        # Define words to boost
        keywords = ["payment", "account", "bank"]
        prompt = urllib.parse.quote(" ".join(keywords))
-       
+
        url = (
            "wss://ori-asr-test.oriserve.com/connect"
            f"?model=ori-prime-v2.3"
@@ -96,7 +96,7 @@ Boost recognition of specific vocabulary (max 5 words):
            f"&language=hi"
            f"&prompt={prompt}"
        )
-       
+
        result = await process_and_stream_audio(url, "banking_call.wav")
        print(f"Transcription: {result}")
 
@@ -119,7 +119,7 @@ Use μ-law encoding for bandwidth efficiency:
            "&sample_rate=16000"
            "&language=hi"
        )
-       
+
        # Use mulaw encoding (half the bandwidth of linear16)
        result = await process_and_stream_audio(
            url,
@@ -149,7 +149,7 @@ Implement robust error handling:
            "&sample_rate=16000"
            "&language=hi"
        )
-       
+
        for attempt in range(max_retries):
            try:
                result = await process_and_stream_audio(url, audio_path)
@@ -157,17 +157,17 @@ Implement robust error handling:
                    return result
                else:
                    print(f"Attempt {attempt + 1} failed, retrying...")
-           
+
            except websockets.exceptions.WebSocketException as e:
                print(f"WebSocket error on attempt {attempt + 1}: {e}")
                if attempt < max_retries - 1:
                    await asyncio.sleep(2 ** attempt)  # Exponential backoff
-           
+
            except Exception as e:
                print(f"Unexpected error on attempt {attempt + 1}: {e}")
                if attempt < max_retries - 1:
                    await asyncio.sleep(2 ** attempt)
-       
+
        return None
 
    # Usage
@@ -196,25 +196,25 @@ Monitor transcription performance:
            "&sample_rate=16000"
            "&language=hi"
        )
-       
+
        metrics = {
            "start_time": time.time(),
            "audio_file": audio_path,
        }
-       
+
        try:
            result = await process_and_stream_audio(url, audio_path)
            metrics["end_time"] = time.time()
            metrics["duration"] = metrics["end_time"] - metrics["start_time"]
            metrics["success"] = result is not None
            metrics["transcription"] = result
-           
+
        except Exception as e:
            metrics["end_time"] = time.time()
            metrics["duration"] = metrics["end_time"] - metrics["start_time"]
            metrics["success"] = False
            metrics["error"] = str(e)
-       
+
        return metrics
 
    # Usage

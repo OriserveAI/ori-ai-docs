@@ -1,347 +1,169 @@
-
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../">
+<html lang="en" data-accent-color="violet" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Troubleshooting &mdash; Oriserve AI Services 1.0.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
-
-  
-      <script src="../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=8d563738"></script>
-      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
-      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
-    <script src="../_static/js/theme.js"></script>
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Ori TTS API Documentation" href="../tts/index.html" />
-    <link rel="prev" title="Examples" href="examples.html" /> 
-</head>
-
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-
-          
-          
-          <a href="../index.html" class="icon icon-home">
-            Oriserve AI Services
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Troubleshooting - Oriserve AI Services Documentation 1.0.0 documentation</title><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Ori TTS API Documentation" href="../tts/index.html" /><link rel="prev" title="Examples" href="examples.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=e1a1ceaf" />
+    <link rel="stylesheet" type="text/css" href="../_static/shibuya.css?v=44020203" />
+    <link media="print" rel="stylesheet" type="text/css" href="../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    <meta property="og:type" content="website"/><meta property="og:title" content="Troubleshooting"/>
+    <meta name="twitter:card" content="summary"/>
+  </head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="../index.html">
+      
+      
+      <strong>Oriserve AI Services Documentation</strong>
+    </a>
+    <div class="sy-head-nav" id="head-nav">
+      <nav class="sy-head-links"></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="head-nav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2"></span>
+          <span class="hamburger_3"></span>
+        </div>
+      </button>
+    </div>
+  </div>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Speech-to-Text (STT)</span></p>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><p class="caption" role="heading" aria-level="3"><span class="caption-text">Speech-to-Text (STT)</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">OriSTT Documentation</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html">Quick Start Guide</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="quickstart.html#prerequisites">Prerequisites</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quickstart.html#installation">Installation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quickstart.html#configuration">Configuration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quickstart.html#basic-usage">Basic Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quickstart.html#connection-parameters">Connection Parameters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quickstart.html#authentication">Authentication</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quickstart.html#next-steps">Next Steps</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="api_reference.html">API Reference</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="api_reference.html#connection-details">Connection Details</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="api_reference.html#connection-type">Connection Type</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api_reference.html#websocket-url-format">WebSocket URL Format</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="api_reference.html#query-parameters">Query Parameters</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="api_reference.html#required-parameters">Required Parameters</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api_reference.html#optional-parameters">Optional Parameters</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api_reference.html#parameter-details">Parameter Details</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="api_reference.html#input-format">Input Format</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="api_reference.html#input-message-schema">Input Message Schema</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api_reference.html#audio-chunk-requirements">Audio Chunk Requirements</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="api_reference.html#output-format">Output Format</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="api_reference.html#output-message-schema">Output Message Schema</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api_reference.html#response-status-values">Response Status Values</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api_reference.html#response-data-values">Response Data Values</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="api_reference.html#authentication">Authentication</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="api_reference.html#api-key-header">API Key Header</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="api_reference.html#rate-limits">Rate Limits</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api_reference.html#error-handling">Error Handling</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="python_client.html">Python Client</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="python_client.html#installation">Installation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="python_client.html#client-code">Client Code</a></li>
-<li class="toctree-l3"><a class="reference internal" href="python_client.html#usage-example">Usage Example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="python_client.html#command-line-usage">Command Line Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="python_client.html#library-usage">Library Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="python_client.html#configuration-options">Configuration Options</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="python_client.html#audio-settings">Audio Settings</a></li>
-<li class="toctree-l4"><a class="reference internal" href="python_client.html#model-settings">Model Settings</a></li>
-<li class="toctree-l4"><a class="reference internal" href="python_client.html#connection-settings">Connection Settings</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="python_client.html#features">Features</a></li>
-<li class="toctree-l3"><a class="reference internal" href="python_client.html#dependencies">Dependencies</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="examples.html">Examples</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="examples.html#basic-transcription">Basic Transcription</a></li>
-<li class="toctree-l3"><a class="reference internal" href="examples.html#hinglish-transcription">Hinglish Transcription</a></li>
-<li class="toctree-l3"><a class="reference internal" href="examples.html#with-noise-reduction">With Noise Reduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="examples.html#word-boosting">Word Boosting</a></li>
-<li class="toctree-l3"><a class="reference internal" href="examples.html#law-encoding">μ-law Encoding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="examples.html#error-handling">Error Handling</a></li>
-<li class="toctree-l3"><a class="reference internal" href="examples.html#performance-monitoring">Performance Monitoring</a></li>
-</ul>
-</li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Troubleshooting</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#common-issues">Common Issues</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#connection-errors">Connection Errors</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#audio-format-issues">Audio Format Issues</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#parameter-validation">Parameter Validation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#json-schema-issues">JSON Schema Issues</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#debugging-checklist">Debugging Checklist</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#enable-detailed-logging">Enable Detailed Logging</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#verify-audio-processing">Verify Audio Processing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#connection-test">Connection Test</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#performance-issues">Performance Issues</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#slow-transcription">Slow Transcription</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#memory-issues">Memory Issues</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#getting-help">Getting Help</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#error-code-reference">Error Code Reference</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#supported-languages">Supported Languages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#supported-models">Supported Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#getting-started">Getting Started</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#contact">Contact</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html">Quick Start Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference.html">API Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_client.html">Python Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Troubleshooting</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="index.html#indices-and-tables">Indices and tables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#prerequisites">Prerequisites</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#installation">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#configuration">Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#basic-usage">Basic Usage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#connection-parameters">Connection Parameters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#authentication">Authentication</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#next-steps">Next Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_client.html">Python Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Troubleshooting</a></li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference.html">API Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api_reference.html#connection-details">Connection Details</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="api_reference.html#connection-type">Connection Type</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api_reference.html#websocket-url-format">WebSocket URL Format</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="api_reference.html#query-parameters">Query Parameters</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="api_reference.html#required-parameters">Required Parameters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api_reference.html#optional-parameters">Optional Parameters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api_reference.html#parameter-details">Parameter Details</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="api_reference.html#input-format">Input Format</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="api_reference.html#input-message-schema">Input Message Schema</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api_reference.html#audio-chunk-requirements">Audio Chunk Requirements</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="api_reference.html#output-format">Output Format</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="api_reference.html#output-message-schema">Output Message Schema</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api_reference.html#response-status-values">Response Status Values</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api_reference.html#response-data-values">Response Data Values</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="api_reference.html#authentication">Authentication</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="api_reference.html#api-key-header">API Key Header</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="api_reference.html#rate-limits">Rate Limits</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_reference.html#error-handling">Error Handling</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="python_client.html">Python Client</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="python_client.html#installation">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python_client.html#client-code">Client Code</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python_client.html#usage-example">Usage Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python_client.html#command-line-usage">Command Line Usage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python_client.html#library-usage">Library Usage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python_client.html#configuration-options">Configuration Options</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="python_client.html#audio-settings">Audio Settings</a></li>
-<li class="toctree-l3"><a class="reference internal" href="python_client.html#model-settings">Model Settings</a></li>
-<li class="toctree-l3"><a class="reference internal" href="python_client.html#connection-settings">Connection Settings</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="python_client.html#features">Features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python_client.html#dependencies">Dependencies</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="examples.html#basic-transcription">Basic Transcription</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples.html#hinglish-transcription">Hinglish Transcription</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples.html#with-noise-reduction">With Noise Reduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples.html#word-boosting">Word Boosting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples.html#law-encoding">μ-law Encoding</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples.html#error-handling">Error Handling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples.html#performance-monitoring">Performance Monitoring</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Troubleshooting</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#common-issues">Common Issues</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#connection-errors">Connection Errors</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#audio-format-issues">Audio Format Issues</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#parameter-validation">Parameter Validation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#json-schema-issues">JSON Schema Issues</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#debugging-checklist">Debugging Checklist</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#enable-detailed-logging">Enable Detailed Logging</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#verify-audio-processing">Verify Audio Processing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#connection-test">Connection Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#performance-issues">Performance Issues</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#slow-transcription">Slow Transcription</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#memory-issues">Memory Issues</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#getting-help">Getting Help</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#error-code-reference">Error Code Reference</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Text-to-Speech (TTS)</span></p>
+<p class="caption" role="heading" aria-level="3"><span class="caption-text">Text-to-Speech (TTS)</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../tts/index.html">Ori TTS API Documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tts/index.html#features">Features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tts/index.html#contents">Contents</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../tts/quickstart.html">Quickstart</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../tts/quickstart.html#authentication">Authentication</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../tts/quickstart.html#basic-http-example">Basic HTTP Example</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../tts/quickstart.html#websocket-example">WebSocket Example</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../tts/quickstart.html#voice-cloning-example">Voice Cloning Example</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../tts/quickstart.html#listing-available-voices">Listing Available Voices</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../tts/quickstart.html#next-steps">Next Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tts/quickstart.html">Quickstart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tts/api/index.html">API Reference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tts/api/tts.html">Text-to-Speech Endpoints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tts/api/voice.html">Voice Management Endpoints</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../tts/api/index.html">API Reference</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../tts/api/index.html#endpoints-overview">Endpoints Overview</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../tts/api/index.html#authentication">Authentication</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../tts/api/index.html#base-url">Base URL</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../tts/api/index.html#supported-languages">Supported Languages</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../tts/api/index.html#supported-audio-formats">Supported Audio Formats</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../tts/api/index.html#detailed-documentation">Detailed Documentation</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../tts/api/tts.html">Text-to-Speech Endpoints</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../tts/api/tts.html#post-v1-audio-speech">POST /v1/audio/speech</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../tts/api/tts.html#websocket-ori-tts-socket">WebSocket /ori_tts_socket</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../tts/api/voice.html">Voice Management Endpoints</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../tts/api/voice.html#get-v1-audio-voices">GET /v1/audio/voices</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../tts/api/voice.html#post-v1-voice-clone">POST /v1/voice_clone</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../tts/api/tts.html">Text-to-Speech Endpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tts/api/voice.html">Voice Management Endpoints</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../tts/index.html#indices-and-tables">Indices and tables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tts/quickstart.html">Quickstart</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tts/quickstart.html#authentication">Authentication</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tts/quickstart.html#basic-http-example">Basic HTTP Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tts/quickstart.html#websocket-example">WebSocket Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tts/quickstart.html#voice-cloning-example">Voice Cloning Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tts/quickstart.html#listing-available-voices">Listing Available Voices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tts/quickstart.html#next-steps">Next Steps</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tts/api/index.html">API Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tts/api/index.html#endpoints-overview">Endpoints Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tts/api/index.html#authentication">Authentication</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tts/api/index.html#base-url">Base URL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tts/api/index.html#supported-languages">Supported Languages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tts/api/index.html#supported-audio-formats">Supported Audio Formats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tts/api/index.html#detailed-documentation">Detailed Documentation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../tts/api/tts.html">Text-to-Speech Endpoints</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../tts/api/tts.html#post-v1-audio-speech">POST /v1/audio/speech</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../tts/api/tts.html#websocket-ori-tts-socket">WebSocket /ori_tts_socket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tts/api/tts.html">Text-to-Speech Endpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tts/api/voice.html">Voice Management Endpoints</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../tts/api/voice.html">Voice Management Endpoints</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../tts/api/voice.html#get-v1-audio-voices">GET /v1/audio/voices</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../tts/api/voice.html#post-v1-voice-clone">POST /v1/voice_clone</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../tts/api/tts.html">Text-to-Speech Endpoints</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tts/api/tts.html#post-v1-audio-speech">POST /v1/audio/speech</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tts/api/tts.html#websocket-ori-tts-socket">WebSocket /ori_tts_socket</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../tts/api/voice.html">Voice Management Endpoints</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tts/api/voice.html#get-v1-audio-voices">GET /v1/audio/voices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tts/api/voice.html#post-v1-voice-clone">POST /v1/voice_clone</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/api/tts.html">Text-to-Speech Endpoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/api/voice.html">Voice Management Endpoints</a></li>
 </ul>
 
         </div>
       </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Oriserve AI Services</a>
-      </nav>
-
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="index.html">OriSTT Documentation</a></li>
-      <li class="breadcrumb-item active">Troubleshooting</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/stt/troubleshooting.rst.txt" rel="nofollow"> View page source</a>
-      </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
-  <section id="troubleshooting">
-<h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h1>
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-lucide close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>On this page</h3><ul>
+<li><a class="reference internal" href="#common-issues">Common Issues</a><ul>
+<li><a class="reference internal" href="#connection-errors">Connection Errors</a></li>
+<li><a class="reference internal" href="#audio-format-issues">Audio Format Issues</a></li>
+<li><a class="reference internal" href="#parameter-validation">Parameter Validation</a></li>
+<li><a class="reference internal" href="#json-schema-issues">JSON Schema Issues</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#debugging-checklist">Debugging Checklist</a></li>
+<li><a class="reference internal" href="#enable-detailed-logging">Enable Detailed Logging</a></li>
+<li><a class="reference internal" href="#verify-audio-processing">Verify Audio Processing</a></li>
+<li><a class="reference internal" href="#connection-test">Connection Test</a></li>
+<li><a class="reference internal" href="#performance-issues">Performance Issues</a><ul>
+<li><a class="reference internal" href="#slow-transcription">Slow Transcription</a></li>
+<li><a class="reference internal" href="#memory-issues">Memory Issues</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#getting-help">Getting Help</a></li>
+<li><a class="reference internal" href="#error-code-reference">Error Code Reference</a></li>
+</ul>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div></div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+<div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-lucide menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../index.html"><span itemprop="name">Oriserve AI Services Documentation</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="index.html"><span itemprop="name">OriSTT Documentation</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="2" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name">Troubleshooting</strong>
+        <meta itemprop="position" content="3" />
+      </li></ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-lucide outdent"></i>
+      </button>
+    </div>
+  </div>
+</div><div class="flex flex-col break-words justify-between">
+      <div class="relative min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+  <article class="yue" role="main">
+          <section id="troubleshooting">
+<h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading">¶</a></h1>
 <p>This guide helps you diagnose and resolve common issues with OriSTT.</p>
 <section id="common-issues">
-<h2>Common Issues<a class="headerlink" href="#common-issues" title="Link to this heading"></a></h2>
+<h2>Common Issues<a class="headerlink" href="#common-issues" title="Link to this heading">¶</a></h2>
 <section id="connection-errors">
-<h3>Connection Errors<a class="headerlink" href="#connection-errors" title="Link to this heading"></a></h3>
+<h3>Connection Errors<a class="headerlink" href="#connection-errors" title="Link to this heading">¶</a></h3>
 <p><strong>Problem</strong>: Cannot connect to WebSocket server</p>
 <p><strong>Possible Causes</strong>:</p>
 <ol class="arabic simple">
@@ -367,21 +189,21 @@
 </li>
 </ol>
 <p><strong>Solution</strong>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">dotenv</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_dotenv</span>
-
-<span class="n">load_dotenv</span><span class="p">()</span>
-<span class="n">api_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;ASR_API_KEY&quot;</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="ow">not</span> <span class="n">api_key</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR: ASR_API_KEY not found in environment&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Using API key: </span><span class="si">{</span><span class="n">api_key</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
-</pre></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+</span><span data-line="2"><span class="kn">from</span><span class="w"> </span><span class="nn">dotenv</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_dotenv</span>
+</span><span data-line="3">
+</span><span data-line="4"><span class="n">load_dotenv</span><span class="p">()</span>
+</span><span data-line="5"><span class="n">api_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;ASR_API_KEY&quot;</span><span class="p">)</span>
+</span><span data-line="6">
+</span><span data-line="7"><span class="k">if</span> <span class="ow">not</span> <span class="n">api_key</span><span class="p">:</span>
+</span><span data-line="8">    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR: ASR_API_KEY not found in environment&quot;</span><span class="p">)</span>
+</span><span data-line="9"><span class="k">else</span><span class="p">:</span>
+</span><span data-line="10">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Using API key: </span><span class="si">{</span><span class="n">api_key</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+</span></pre></div>
 </div>
 </section>
 <section id="audio-format-issues">
-<h3>Audio Format Issues<a class="headerlink" href="#audio-format-issues" title="Link to this heading"></a></h3>
+<h3>Audio Format Issues<a class="headerlink" href="#audio-format-issues" title="Link to this heading">¶</a></h3>
 <p><strong>Problem</strong>: No transcription or poor quality results</p>
 <p><strong>Possible Causes</strong>:</p>
 <ol class="arabic">
@@ -408,118 +230,118 @@
 </li>
 </ol>
 <p><strong>Solution</strong>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">base64</span>
-
-<span class="n">sample_rate</span> <span class="o">=</span> <span class="mi">8000</span>
-<span class="n">chunk_duration_ms</span> <span class="o">=</span> <span class="mi">20</span>
-<span class="n">samples_per_chunk</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sample_rate</span> <span class="o">*</span> <span class="p">(</span><span class="n">chunk_duration_ms</span> <span class="o">/</span> <span class="mf">1000.0</span><span class="p">))</span>
-
-<span class="c1"># For LINEAR16</span>
-<span class="n">bytes_per_chunk</span> <span class="o">=</span> <span class="n">samples_per_chunk</span> <span class="o">*</span> <span class="mi">2</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expected chunk size: </span><span class="si">{</span><span class="n">bytes_per_chunk</span><span class="si">}</span><span class="s2"> bytes&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Samples per chunk: </span><span class="si">{</span><span class="n">samples_per_chunk</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</span><span data-line="2"><span class="kn">import</span><span class="w"> </span><span class="nn">base64</span>
+</span><span data-line="3">
+</span><span data-line="4"><span class="n">sample_rate</span> <span class="o">=</span> <span class="mi">8000</span>
+</span><span data-line="5"><span class="n">chunk_duration_ms</span> <span class="o">=</span> <span class="mi">20</span>
+</span><span data-line="6"><span class="n">samples_per_chunk</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sample_rate</span> <span class="o">*</span> <span class="p">(</span><span class="n">chunk_duration_ms</span> <span class="o">/</span> <span class="mf">1000.0</span><span class="p">))</span>
+</span><span data-line="7">
+</span><span data-line="8"><span class="c1"># For LINEAR16</span>
+</span><span data-line="9"><span class="n">bytes_per_chunk</span> <span class="o">=</span> <span class="n">samples_per_chunk</span> <span class="o">*</span> <span class="mi">2</span>
+</span><span data-line="10">
+</span><span data-line="11"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expected chunk size: </span><span class="si">{</span><span class="n">bytes_per_chunk</span><span class="si">}</span><span class="s2"> bytes&quot;</span><span class="p">)</span>
+</span><span data-line="12"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Samples per chunk: </span><span class="si">{</span><span class="n">samples_per_chunk</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span></pre></div>
 </div>
 </section>
 <section id="parameter-validation">
-<h3>Parameter Validation<a class="headerlink" href="#parameter-validation" title="Link to this heading"></a></h3>
+<h3>Parameter Validation<a class="headerlink" href="#parameter-validation" title="Link to this heading">¶</a></h3>
 <p><strong>Problem</strong>: Connection fails with parameter errors</p>
 <p><strong>Required Parameters</strong>:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">model</span></code> - Must be <code class="docutils literal notranslate"><span class="pre">ori-prime-v2.3</span></code></p></li>
 </ul>
 <p><strong>Valid Parameter Values</strong>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">valid_params</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;ori-prime-v2.3&quot;</span><span class="p">],</span>
-    <span class="s2">&quot;language&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;hi&quot;</span><span class="p">,</span> <span class="s2">&quot;en&quot;</span><span class="p">],</span>
-    <span class="s2">&quot;sample_rate&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">8000</span><span class="p">,</span> <span class="mi">16000</span><span class="p">],</span>
-    <span class="s2">&quot;filter&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;true&quot;</span><span class="p">,</span> <span class="s2">&quot;false&quot;</span><span class="p">],</span>
-    <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="s2">&quot;float between 0.0 and 1.0&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;interruption_words&quot;</span><span class="p">:</span> <span class="s2">&quot;integer &gt;= 1&quot;</span>
-<span class="p">}</span>
-</pre></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">valid_params</span> <span class="o">=</span> <span class="p">{</span>
+</span><span data-line="2">    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;ori-prime-v2.3&quot;</span><span class="p">],</span>
+</span><span data-line="3">    <span class="s2">&quot;language&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;hi&quot;</span><span class="p">,</span> <span class="s2">&quot;en&quot;</span><span class="p">],</span>
+</span><span data-line="4">    <span class="s2">&quot;sample_rate&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">8000</span><span class="p">,</span> <span class="mi">16000</span><span class="p">],</span>
+</span><span data-line="5">    <span class="s2">&quot;filter&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;true&quot;</span><span class="p">,</span> <span class="s2">&quot;false&quot;</span><span class="p">],</span>
+</span><span data-line="6">    <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="s2">&quot;float between 0.0 and 1.0&quot;</span><span class="p">,</span>
+</span><span data-line="7">    <span class="s2">&quot;interruption_words&quot;</span><span class="p">:</span> <span class="s2">&quot;integer &gt;= 1&quot;</span>
+</span><span data-line="8"><span class="p">}</span>
+</span></pre></div>
 </div>
 <p><strong>Check Parameters</strong>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">validate_url_params</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Validate WebSocket URL parameters.&quot;&quot;&quot;</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">urllib.parse</span><span class="w"> </span><span class="kn">import</span> <span class="n">urlparse</span><span class="p">,</span> <span class="n">parse_qs</span>
-
-    <span class="n">parsed</span> <span class="o">=</span> <span class="n">urlparse</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-    <span class="n">params</span> <span class="o">=</span> <span class="n">parse_qs</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">query</span><span class="p">)</span>
-
-    <span class="c1"># Check required parameters</span>
-    <span class="k">if</span> <span class="s1">&#39;model&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">params</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR: &#39;model&#39; parameter is required&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="kc">False</span>
-
-    <span class="c1"># Check model value</span>
-    <span class="k">if</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;ori-prime-v2.3&#39;</span><span class="p">]:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ERROR: Invalid model &#39;</span><span class="si">{</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="kc">False</span>
-
-    <span class="c1"># Check language</span>
-    <span class="k">if</span> <span class="s1">&#39;language&#39;</span> <span class="ow">in</span> <span class="n">params</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;language&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;hi&#39;</span><span class="p">,</span> <span class="s1">&#39;en&#39;</span><span class="p">]:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ERROR: Invalid language &#39;</span><span class="si">{</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;language&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
-            <span class="k">return</span> <span class="kc">False</span>
-
-    <span class="c1"># Check sample rate</span>
-    <span class="k">if</span> <span class="s1">&#39;sample_rate&#39;</span> <span class="ow">in</span> <span class="n">params</span><span class="p">:</span>
-        <span class="n">sr</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;sample_rate&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
-        <span class="k">if</span> <span class="n">sr</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">8000</span><span class="p">,</span> <span class="mi">16000</span><span class="p">]:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ERROR: Invalid sample_rate &#39;</span><span class="si">{</span><span class="n">sr</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
-            <span class="k">return</span> <span class="kc">False</span>
-
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✓ URL parameters are valid&quot;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="kc">True</span>
-</pre></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="k">def</span><span class="w"> </span><span class="nf">validate_url_params</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+</span><span data-line="2"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Validate WebSocket URL parameters.&quot;&quot;&quot;</span>
+</span><span data-line="3">    <span class="kn">from</span><span class="w"> </span><span class="nn">urllib.parse</span><span class="w"> </span><span class="kn">import</span> <span class="n">urlparse</span><span class="p">,</span> <span class="n">parse_qs</span>
+</span><span data-line="4">
+</span><span data-line="5">    <span class="n">parsed</span> <span class="o">=</span> <span class="n">urlparse</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</span><span data-line="6">    <span class="n">params</span> <span class="o">=</span> <span class="n">parse_qs</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">query</span><span class="p">)</span>
+</span><span data-line="7">
+</span><span data-line="8">    <span class="c1"># Check required parameters</span>
+</span><span data-line="9">    <span class="k">if</span> <span class="s1">&#39;model&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">params</span><span class="p">:</span>
+</span><span data-line="10">        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR: &#39;model&#39; parameter is required&quot;</span><span class="p">)</span>
+</span><span data-line="11">        <span class="k">return</span> <span class="kc">False</span>
+</span><span data-line="12">
+</span><span data-line="13">    <span class="c1"># Check model value</span>
+</span><span data-line="14">    <span class="k">if</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;ori-prime-v2.3&#39;</span><span class="p">]:</span>
+</span><span data-line="15">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ERROR: Invalid model &#39;</span><span class="si">{</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+</span><span data-line="16">        <span class="k">return</span> <span class="kc">False</span>
+</span><span data-line="17">
+</span><span data-line="18">    <span class="c1"># Check language</span>
+</span><span data-line="19">    <span class="k">if</span> <span class="s1">&#39;language&#39;</span> <span class="ow">in</span> <span class="n">params</span><span class="p">:</span>
+</span><span data-line="20">        <span class="k">if</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;language&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;hi&#39;</span><span class="p">,</span> <span class="s1">&#39;en&#39;</span><span class="p">]:</span>
+</span><span data-line="21">            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ERROR: Invalid language &#39;</span><span class="si">{</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;language&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+</span><span data-line="22">            <span class="k">return</span> <span class="kc">False</span>
+</span><span data-line="23">
+</span><span data-line="24">    <span class="c1"># Check sample rate</span>
+</span><span data-line="25">    <span class="k">if</span> <span class="s1">&#39;sample_rate&#39;</span> <span class="ow">in</span> <span class="n">params</span><span class="p">:</span>
+</span><span data-line="26">        <span class="n">sr</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;sample_rate&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+</span><span data-line="27">        <span class="k">if</span> <span class="n">sr</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">8000</span><span class="p">,</span> <span class="mi">16000</span><span class="p">]:</span>
+</span><span data-line="28">            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ERROR: Invalid sample_rate &#39;</span><span class="si">{</span><span class="n">sr</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+</span><span data-line="29">            <span class="k">return</span> <span class="kc">False</span>
+</span><span data-line="30">
+</span><span data-line="31">    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✓ URL parameters are valid&quot;</span><span class="p">)</span>
+</span><span data-line="32">    <span class="k">return</span> <span class="kc">True</span>
+</span></pre></div>
 </div>
 </section>
 <section id="json-schema-issues">
-<h3>JSON Schema Issues<a class="headerlink" href="#json-schema-issues" title="Link to this heading"></a></h3>
+<h3>JSON Schema Issues<a class="headerlink" href="#json-schema-issues" title="Link to this heading">¶</a></h3>
 <p><strong>Problem</strong>: Server rejects messages</p>
 <p><strong>Input Schema Validation</strong>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">validate_input_message</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Validate input message format.&quot;&quot;&quot;</span>
-    <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
-
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="n">msg</span>
-    <span class="k">except</span> <span class="n">json</span><span class="o">.</span><span class="n">JSONDecodeError</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR: Invalid JSON format&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="kc">False</span>
-
-    <span class="c1"># Check required fields</span>
-    <span class="k">if</span> <span class="s2">&quot;audio&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR: &#39;audio&#39; field is required&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="kc">False</span>
-
-    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;audio&quot;</span><span class="p">],</span> <span class="nb">str</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR: &#39;audio&#39; must be a string (base64-encoded)&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="kc">False</span>
-
-    <span class="c1"># Check optional fields</span>
-    <span class="k">if</span> <span class="s2">&quot;time&quot;</span> <span class="ow">in</span> <span class="n">data</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">],</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR: &#39;time&#39; must be a number&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="kc">False</span>
-
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✓ Input message is valid&quot;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="kc">True</span>
-</pre></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="k">def</span><span class="w"> </span><span class="nf">validate_input_message</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
+</span><span data-line="2"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Validate input message format.&quot;&quot;&quot;</span>
+</span><span data-line="3">    <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+</span><span data-line="4">
+</span><span data-line="5">    <span class="k">try</span><span class="p">:</span>
+</span><span data-line="6">        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="n">msg</span>
+</span><span data-line="7">    <span class="k">except</span> <span class="n">json</span><span class="o">.</span><span class="n">JSONDecodeError</span><span class="p">:</span>
+</span><span data-line="8">        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR: Invalid JSON format&quot;</span><span class="p">)</span>
+</span><span data-line="9">        <span class="k">return</span> <span class="kc">False</span>
+</span><span data-line="10">
+</span><span data-line="11">    <span class="c1"># Check required fields</span>
+</span><span data-line="12">    <span class="k">if</span> <span class="s2">&quot;audio&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+</span><span data-line="13">        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR: &#39;audio&#39; field is required&quot;</span><span class="p">)</span>
+</span><span data-line="14">        <span class="k">return</span> <span class="kc">False</span>
+</span><span data-line="15">
+</span><span data-line="16">    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;audio&quot;</span><span class="p">],</span> <span class="nb">str</span><span class="p">):</span>
+</span><span data-line="17">        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR: &#39;audio&#39; must be a string (base64-encoded)&quot;</span><span class="p">)</span>
+</span><span data-line="18">        <span class="k">return</span> <span class="kc">False</span>
+</span><span data-line="19">
+</span><span data-line="20">    <span class="c1"># Check optional fields</span>
+</span><span data-line="21">    <span class="k">if</span> <span class="s2">&quot;time&quot;</span> <span class="ow">in</span> <span class="n">data</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">],</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)):</span>
+</span><span data-line="22">        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR: &#39;time&#39; must be a number&quot;</span><span class="p">)</span>
+</span><span data-line="23">        <span class="k">return</span> <span class="kc">False</span>
+</span><span data-line="24">
+</span><span data-line="25">    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✓ Input message is valid&quot;</span><span class="p">)</span>
+</span><span data-line="26">    <span class="k">return</span> <span class="kc">True</span>
+</span></pre></div>
 </div>
 <p><strong>Example Valid Input</strong>:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;audio&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BASE64_ENCODED_AUDIO_DATA_HERE&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1718184093.435</span>
-<span class="p">}</span>
-</pre></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="p">{</span>
+</span><span data-line="2"><span class="w">  </span><span class="nt">&quot;audio&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BASE64_ENCODED_AUDIO_DATA_HERE&quot;</span><span class="p">,</span>
+</span><span data-line="3"><span class="w">  </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1718184093.435</span>
+</span><span data-line="4"><span class="p">}</span>
+</span></pre></div>
 </div>
 </section>
 </section>
 <section id="debugging-checklist">
-<h2>Debugging Checklist<a class="headerlink" href="#debugging-checklist" title="Link to this heading"></a></h2>
+<h2>Debugging Checklist<a class="headerlink" href="#debugging-checklist" title="Link to this heading">¶</a></h2>
 <p>Before reporting an issue, verify the following:</p>
 <ol class="arabic simple">
 <li><p>☐ WebSocket URL is correct and matches server configuration</p></li>
@@ -535,132 +357,132 @@
 </ol>
 </section>
 <section id="enable-detailed-logging">
-<h2>Enable Detailed Logging<a class="headerlink" href="#enable-detailed-logging" title="Link to this heading"></a></h2>
+<h2>Enable Detailed Logging<a class="headerlink" href="#enable-detailed-logging" title="Link to this heading">¶</a></h2>
 <p>Add logging to diagnose issues:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
-
-<span class="c1"># Enable WebSocket debug logging</span>
-<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
-    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
-    <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> - </span><span class="si">%(name)s</span><span class="s1"> - </span><span class="si">%(levelname)s</span><span class="s1"> - </span><span class="si">%(message)s</span><span class="s1">&#39;</span>
-<span class="p">)</span>
-
-<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;websockets&quot;</span><span class="p">)</span>
-<span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
-</pre></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+</span><span data-line="2">
+</span><span data-line="3"><span class="c1"># Enable WebSocket debug logging</span>
+</span><span data-line="4"><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+</span><span data-line="5">    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
+</span><span data-line="6">    <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> - </span><span class="si">%(name)s</span><span class="s1"> - </span><span class="si">%(levelname)s</span><span class="s1"> - </span><span class="si">%(message)s</span><span class="s1">&#39;</span>
+</span><span data-line="7"><span class="p">)</span>
+</span><span data-line="8">
+</span><span data-line="9"><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;websockets&quot;</span><span class="p">)</span>
+</span><span data-line="10"><span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+</span></pre></div>
 </div>
 </section>
 <section id="verify-audio-processing">
-<h2>Verify Audio Processing<a class="headerlink" href="#verify-audio-processing" title="Link to this heading"></a></h2>
+<h2>Verify Audio Processing<a class="headerlink" href="#verify-audio-processing" title="Link to this heading">¶</a></h2>
 <p>Test your audio processing pipeline:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">soundfile</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sf</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">base64</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">verify_audio_processing</span><span class="p">(</span><span class="n">audio_path</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Verify audio file processing.&quot;&quot;&quot;</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Checking: </span><span class="si">{</span><span class="n">audio_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-    <span class="c1"># Load audio</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">audio</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">audio_path</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✓ Loaded audio: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">audio</span><span class="p">)</span><span class="si">}</span><span class="s2"> samples at </span><span class="si">{</span><span class="n">sr</span><span class="si">}</span><span class="s2"> Hz&quot;</span><span class="p">)</span>
-    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✗ Error loading audio: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="kc">False</span>
-
-    <span class="c1"># Check duration</span>
-    <span class="n">duration</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">audio</span><span class="p">)</span> <span class="o">/</span> <span class="n">sr</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✓ Duration: </span><span class="si">{</span><span class="n">duration</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
-
-    <span class="c1"># Check format</span>
-    <span class="k">if</span> <span class="n">audio</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span> <span class="ow">and</span> <span class="n">audio</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;⚠ Unusual audio format: </span><span class="si">{</span><span class="n">audio</span><span class="o">.</span><span class="n">dtype</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-    <span class="c1"># Simulate processing</span>
-    <span class="n">target_sr</span> <span class="o">=</span> <span class="mi">8000</span>
-    <span class="n">chunk_size</span> <span class="o">=</span> <span class="n">target_sr</span> <span class="o">//</span> <span class="mi">1000</span> <span class="o">*</span> <span class="mi">20</span>  <span class="c1"># 20ms</span>
-
-    <span class="c1"># Convert to int16</span>
-    <span class="k">if</span> <span class="n">audio</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span> <span class="ow">or</span> <span class="n">audio</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">:</span>
-        <span class="n">audio_int16</span> <span class="o">=</span> <span class="p">(</span><span class="n">audio</span> <span class="o">*</span> <span class="mi">32767</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">audio_int16</span> <span class="o">=</span> <span class="n">audio</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">)</span>
-
-    <span class="c1"># Create first chunk</span>
-    <span class="n">first_chunk</span> <span class="o">=</span> <span class="n">audio_int16</span><span class="p">[:</span><span class="n">chunk_size</span><span class="p">]</span><span class="o">.</span><span class="n">tobytes</span><span class="p">()</span>
-    <span class="n">encoded</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">first_chunk</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
-
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✓ First chunk size: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">first_chunk</span><span class="p">)</span><span class="si">}</span><span class="s2"> bytes&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✓ Base64 length: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">encoded</span><span class="p">)</span><span class="si">}</span><span class="s2"> characters&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✓ Expected chunks: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">audio_int16</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">chunk_size</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="kc">True</span>
-
-<span class="c1"># Usage</span>
-<span class="n">verify_audio_processing</span><span class="p">(</span><span class="s2">&quot;test_audio.wav&quot;</span><span class="p">)</span>
-</pre></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="kn">import</span><span class="w"> </span><span class="nn">soundfile</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sf</span>
+</span><span data-line="2"><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</span><span data-line="3"><span class="kn">import</span><span class="w"> </span><span class="nn">base64</span>
+</span><span data-line="4">
+</span><span data-line="5"><span class="k">def</span><span class="w"> </span><span class="nf">verify_audio_processing</span><span class="p">(</span><span class="n">audio_path</span><span class="p">):</span>
+</span><span data-line="6"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Verify audio file processing.&quot;&quot;&quot;</span>
+</span><span data-line="7">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Checking: </span><span class="si">{</span><span class="n">audio_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span data-line="8">
+</span><span data-line="9">    <span class="c1"># Load audio</span>
+</span><span data-line="10">    <span class="k">try</span><span class="p">:</span>
+</span><span data-line="11">        <span class="n">audio</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">audio_path</span><span class="p">)</span>
+</span><span data-line="12">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✓ Loaded audio: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">audio</span><span class="p">)</span><span class="si">}</span><span class="s2"> samples at </span><span class="si">{</span><span class="n">sr</span><span class="si">}</span><span class="s2"> Hz&quot;</span><span class="p">)</span>
+</span><span data-line="13">    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span><span data-line="14">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✗ Error loading audio: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span data-line="15">        <span class="k">return</span> <span class="kc">False</span>
+</span><span data-line="16">
+</span><span data-line="17">    <span class="c1"># Check duration</span>
+</span><span data-line="18">    <span class="n">duration</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">audio</span><span class="p">)</span> <span class="o">/</span> <span class="n">sr</span>
+</span><span data-line="19">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✓ Duration: </span><span class="si">{</span><span class="n">duration</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+</span><span data-line="20">
+</span><span data-line="21">    <span class="c1"># Check format</span>
+</span><span data-line="22">    <span class="k">if</span> <span class="n">audio</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span> <span class="ow">and</span> <span class="n">audio</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">:</span>
+</span><span data-line="23">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;⚠ Unusual audio format: </span><span class="si">{</span><span class="n">audio</span><span class="o">.</span><span class="n">dtype</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span data-line="24">
+</span><span data-line="25">    <span class="c1"># Simulate processing</span>
+</span><span data-line="26">    <span class="n">target_sr</span> <span class="o">=</span> <span class="mi">8000</span>
+</span><span data-line="27">    <span class="n">chunk_size</span> <span class="o">=</span> <span class="n">target_sr</span> <span class="o">//</span> <span class="mi">1000</span> <span class="o">*</span> <span class="mi">20</span>  <span class="c1"># 20ms</span>
+</span><span data-line="28">
+</span><span data-line="29">    <span class="c1"># Convert to int16</span>
+</span><span data-line="30">    <span class="k">if</span> <span class="n">audio</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span> <span class="ow">or</span> <span class="n">audio</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">:</span>
+</span><span data-line="31">        <span class="n">audio_int16</span> <span class="o">=</span> <span class="p">(</span><span class="n">audio</span> <span class="o">*</span> <span class="mi">32767</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">)</span>
+</span><span data-line="32">    <span class="k">else</span><span class="p">:</span>
+</span><span data-line="33">        <span class="n">audio_int16</span> <span class="o">=</span> <span class="n">audio</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">)</span>
+</span><span data-line="34">
+</span><span data-line="35">    <span class="c1"># Create first chunk</span>
+</span><span data-line="36">    <span class="n">first_chunk</span> <span class="o">=</span> <span class="n">audio_int16</span><span class="p">[:</span><span class="n">chunk_size</span><span class="p">]</span><span class="o">.</span><span class="n">tobytes</span><span class="p">()</span>
+</span><span data-line="37">    <span class="n">encoded</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">first_chunk</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+</span><span data-line="38">
+</span><span data-line="39">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✓ First chunk size: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">first_chunk</span><span class="p">)</span><span class="si">}</span><span class="s2"> bytes&quot;</span><span class="p">)</span>
+</span><span data-line="40">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✓ Base64 length: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">encoded</span><span class="p">)</span><span class="si">}</span><span class="s2"> characters&quot;</span><span class="p">)</span>
+</span><span data-line="41">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✓ Expected chunks: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">audio_int16</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">chunk_size</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span data-line="42">
+</span><span data-line="43">    <span class="k">return</span> <span class="kc">True</span>
+</span><span data-line="44">
+</span><span data-line="45"><span class="c1"># Usage</span>
+</span><span data-line="46"><span class="n">verify_audio_processing</span><span class="p">(</span><span class="s2">&quot;test_audio.wav&quot;</span><span class="p">)</span>
+</span></pre></div>
 </div>
 </section>
 <section id="connection-test">
-<h2>Connection Test<a class="headerlink" href="#connection-test" title="Link to this heading"></a></h2>
+<h2>Connection Test<a class="headerlink" href="#connection-test" title="Link to this heading">¶</a></h2>
 <p>Test basic WebSocket connectivity:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">websockets</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
-
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">test_connection</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">api_key</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Test WebSocket connection.&quot;&quot;&quot;</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Testing connection to: </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">}</span>
-        <span class="k">async</span> <span class="k">with</span> <span class="n">websockets</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
-            <span class="n">url</span><span class="p">,</span>
-            <span class="n">additional_headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
-            <span class="n">ping_interval</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
-            <span class="n">ping_timeout</span><span class="o">=</span><span class="mi">10</span>
-        <span class="p">)</span> <span class="k">as</span> <span class="n">ws</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✓ Connected successfully&quot;</span><span class="p">)</span>
-
-            <span class="c1"># Send test message</span>
-            <span class="n">test_msg</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="s2">&quot;audio&quot;</span><span class="p">:</span> <span class="s2">&quot;dGVzdA==&quot;</span><span class="p">,</span>  <span class="c1"># base64 &quot;test&quot;</span>
-                <span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="mf">0.0</span>
-            <span class="p">}</span>
-            <span class="k">await</span> <span class="n">ws</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">test_msg</span><span class="p">))</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✓ Sent test message&quot;</span><span class="p">)</span>
-
-            <span class="c1"># Wait for response</span>
-            <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">wait_for</span><span class="p">(</span><span class="n">ws</span><span class="o">.</span><span class="n">recv</span><span class="p">(),</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✓ Received response: </span><span class="si">{</span><span class="n">response</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-            <span class="k">return</span> <span class="kc">True</span>
-
-    <span class="k">except</span> <span class="n">websockets</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">InvalidStatusCode</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✗ Connection failed with status: </span><span class="si">{</span><span class="n">e</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">401</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  → Check your API key&quot;</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">e</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">404</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  → Check your WebSocket URL&quot;</span><span class="p">)</span>
-    <span class="k">except</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">TimeoutError</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✗ Connection timeout&quot;</span><span class="p">)</span>
-    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✗ Connection error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="kc">False</span>
-
-<span class="c1"># Usage</span>
-<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;wss://ori-asr-test.oriserve.com/connect?model=ori-prime-v2.3&amp;sample_rate=8000&amp;language=hi&quot;</span>
-<span class="n">api_key</span> <span class="o">=</span> <span class="s2">&quot;your_api_key_here&quot;</span>
-<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">test_connection</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">api_key</span><span class="p">))</span>
-</pre></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+</span><span data-line="2"><span class="kn">import</span><span class="w"> </span><span class="nn">websockets</span>
+</span><span data-line="3"><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+</span><span data-line="4">
+</span><span data-line="5"><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">test_connection</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">api_key</span><span class="p">):</span>
+</span><span data-line="6"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Test WebSocket connection.&quot;&quot;&quot;</span>
+</span><span data-line="7">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Testing connection to: </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span data-line="8">
+</span><span data-line="9">    <span class="k">try</span><span class="p">:</span>
+</span><span data-line="10">        <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">}</span>
+</span><span data-line="11">        <span class="k">async</span> <span class="k">with</span> <span class="n">websockets</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
+</span><span data-line="12">            <span class="n">url</span><span class="p">,</span>
+</span><span data-line="13">            <span class="n">additional_headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
+</span><span data-line="14">            <span class="n">ping_interval</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+</span><span data-line="15">            <span class="n">ping_timeout</span><span class="o">=</span><span class="mi">10</span>
+</span><span data-line="16">        <span class="p">)</span> <span class="k">as</span> <span class="n">ws</span><span class="p">:</span>
+</span><span data-line="17">            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✓ Connected successfully&quot;</span><span class="p">)</span>
+</span><span data-line="18">
+</span><span data-line="19">            <span class="c1"># Send test message</span>
+</span><span data-line="20">            <span class="n">test_msg</span> <span class="o">=</span> <span class="p">{</span>
+</span><span data-line="21">                <span class="s2">&quot;audio&quot;</span><span class="p">:</span> <span class="s2">&quot;dGVzdA==&quot;</span><span class="p">,</span>  <span class="c1"># base64 &quot;test&quot;</span>
+</span><span data-line="22">                <span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="mf">0.0</span>
+</span><span data-line="23">            <span class="p">}</span>
+</span><span data-line="24">            <span class="k">await</span> <span class="n">ws</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">test_msg</span><span class="p">))</span>
+</span><span data-line="25">            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✓ Sent test message&quot;</span><span class="p">)</span>
+</span><span data-line="26">
+</span><span data-line="27">            <span class="c1"># Wait for response</span>
+</span><span data-line="28">            <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">wait_for</span><span class="p">(</span><span class="n">ws</span><span class="o">.</span><span class="n">recv</span><span class="p">(),</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</span><span data-line="29">            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✓ Received response: </span><span class="si">{</span><span class="n">response</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span data-line="30">
+</span><span data-line="31">            <span class="k">return</span> <span class="kc">True</span>
+</span><span data-line="32">
+</span><span data-line="33">    <span class="k">except</span> <span class="n">websockets</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">InvalidStatusCode</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span><span data-line="34">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✗ Connection failed with status: </span><span class="si">{</span><span class="n">e</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span data-line="35">        <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">401</span><span class="p">:</span>
+</span><span data-line="36">            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  → Check your API key&quot;</span><span class="p">)</span>
+</span><span data-line="37">        <span class="k">elif</span> <span class="n">e</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">404</span><span class="p">:</span>
+</span><span data-line="38">            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  → Check your WebSocket URL&quot;</span><span class="p">)</span>
+</span><span data-line="39">    <span class="k">except</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">TimeoutError</span><span class="p">:</span>
+</span><span data-line="40">        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✗ Connection timeout&quot;</span><span class="p">)</span>
+</span><span data-line="41">    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span><span data-line="42">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✗ Connection error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span data-line="43">
+</span><span data-line="44">    <span class="k">return</span> <span class="kc">False</span>
+</span><span data-line="45">
+</span><span data-line="46"><span class="c1"># Usage</span>
+</span><span data-line="47"><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;wss://ori-asr-test.oriserve.com/connect?model=ori-prime-v2.3&amp;sample_rate=8000&amp;language=hi&quot;</span>
+</span><span data-line="48"><span class="n">api_key</span> <span class="o">=</span> <span class="s2">&quot;your_api_key_here&quot;</span>
+</span><span data-line="49"><span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">test_connection</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">api_key</span><span class="p">))</span>
+</span></pre></div>
 </div>
 </section>
 <section id="performance-issues">
-<h2>Performance Issues<a class="headerlink" href="#performance-issues" title="Link to this heading"></a></h2>
+<h2>Performance Issues<a class="headerlink" href="#performance-issues" title="Link to this heading">¶</a></h2>
 <section id="slow-transcription">
-<h3>Slow Transcription<a class="headerlink" href="#slow-transcription" title="Link to this heading"></a></h3>
+<h3>Slow Transcription<a class="headerlink" href="#slow-transcription" title="Link to this heading">¶</a></h3>
 <p><strong>Possible Causes</strong>:</p>
 <ol class="arabic simple">
 <li><p>Network latency</p></li>
@@ -676,32 +498,32 @@
 </ul>
 </section>
 <section id="memory-issues">
-<h3>Memory Issues<a class="headerlink" href="#memory-issues" title="Link to this heading"></a></h3>
+<h3>Memory Issues<a class="headerlink" href="#memory-issues" title="Link to this heading">¶</a></h3>
 <p><strong>Problem</strong>: High memory usage or out-of-memory errors</p>
 <p><strong>Solutions</strong>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Process audio in streaming fashion</span>
-<span class="c1"># instead of loading entire file into memory</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">process_large_file_streaming</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Stream large audio files in chunks.&quot;&quot;&quot;</span>
-    <span class="kn">import</span><span class="w"> </span><span class="nn">soundfile</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sf</span>
-
-    <span class="n">chunk_frames</span> <span class="o">=</span> <span class="mi">8000</span> <span class="o">*</span> <span class="mi">5</span>  <span class="c1"># 5 seconds at 8kHz</span>
-
-    <span class="k">with</span> <span class="n">sf</span><span class="o">.</span><span class="n">SoundFile</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span> <span class="k">as</span> <span class="n">audio_file</span><span class="p">:</span>
-        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-            <span class="n">chunk</span> <span class="o">=</span> <span class="n">audio_file</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">chunk_frames</span><span class="p">)</span>
-            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="k">break</span>
-
-            <span class="c1"># Process chunk</span>
-            <span class="k">yield</span> <span class="n">chunk</span>
-</pre></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="c1"># Process audio in streaming fashion</span>
+</span><span data-line="2"><span class="c1"># instead of loading entire file into memory</span>
+</span><span data-line="3">
+</span><span data-line="4"><span class="k">def</span><span class="w"> </span><span class="nf">process_large_file_streaming</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
+</span><span data-line="5"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Stream large audio files in chunks.&quot;&quot;&quot;</span>
+</span><span data-line="6">    <span class="kn">import</span><span class="w"> </span><span class="nn">soundfile</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sf</span>
+</span><span data-line="7">
+</span><span data-line="8">    <span class="n">chunk_frames</span> <span class="o">=</span> <span class="mi">8000</span> <span class="o">*</span> <span class="mi">5</span>  <span class="c1"># 5 seconds at 8kHz</span>
+</span><span data-line="9">
+</span><span data-line="10">    <span class="k">with</span> <span class="n">sf</span><span class="o">.</span><span class="n">SoundFile</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span> <span class="k">as</span> <span class="n">audio_file</span><span class="p">:</span>
+</span><span data-line="11">        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span><span data-line="12">            <span class="n">chunk</span> <span class="o">=</span> <span class="n">audio_file</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">chunk_frames</span><span class="p">)</span>
+</span><span data-line="13">            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span><span data-line="14">                <span class="k">break</span>
+</span><span data-line="15">
+</span><span data-line="16">            <span class="c1"># Process chunk</span>
+</span><span data-line="17">            <span class="k">yield</span> <span class="n">chunk</span>
+</span></pre></div>
 </div>
 </section>
 </section>
 <section id="getting-help">
-<h2>Getting Help<a class="headerlink" href="#getting-help" title="Link to this heading"></a></h2>
+<h2>Getting Help<a class="headerlink" href="#getting-help" title="Link to this heading">¶</a></h2>
 <p>If you continue to experience issues:</p>
 <ol class="arabic simple">
 <li><p><strong>Check this troubleshooting guide</strong></p></li>
@@ -719,7 +541,8 @@
 </ol>
 </section>
 <section id="error-code-reference">
-<h2>Error Code Reference<a class="headerlink" href="#error-code-reference" title="Link to this heading"></a></h2>
+<h2>Error Code Reference<a class="headerlink" href="#error-code-reference" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 15.0%" />
@@ -757,38 +580,52 @@
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 
-
-           </div>
-          </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="examples.html" class="btn btn-neutral float-left" title="Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../tts/index.html" class="btn btn-neutral float-right" title="Ori TTS API Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2026, Oriserve AI Team.</p>
-  </div>
-
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
-
-</footer>
-        </div>
+        </article><button class="back-to-top" type="button">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+  </svg>
+  <span>Back to top</span>
+</button><div class="navigation flex print:hidden"><div class="navigation-prev">
+    <a href="examples.html">
+      <i class="i-lucide chevron-left"></i>
+      <div class="page-info">
+        <span>Previous</span><div class="title">Examples</div></div>
+    </a>
+  </div><div class="navigation-next">
+    <a href="../tts/index.html">
+      <div class="page-info">
+        <span>Next</span>
+        <div class="title">Ori TTS API Documentation</div>
       </div>
-    </section>
+      <i class="i-lucide chevron-right"></i>
+    </a>
+  </div></div></div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2026, Oriserve AI Team</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
   </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
-
-</body>
+</footer>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/shibuya.js?v=cac61aee"></script></body>
 </html>
