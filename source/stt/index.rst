@@ -57,9 +57,3 @@ Contact
 -------
 
 For API access and the WebSocket URL, please contact the Oriserve AI Team.
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`search`

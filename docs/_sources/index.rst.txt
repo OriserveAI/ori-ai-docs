@@ -24,8 +24,3 @@ Welcome to the Oriserve AI Services documentation. This unified documentation co
    tts/api/tts
    tts/api/voice
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`search`

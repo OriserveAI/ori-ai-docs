@@ -28,9 +28,3 @@ Contents
    api/index
    api/tts
    api/voice
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`search`
