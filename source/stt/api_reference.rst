@@ -1,0 +1,258 @@
+API Reference
+=============
+
+Connection Details
+------------------
+
+Connection Type
+~~~~~~~~~~~~~~~
+
+OriSTT uses **Raw WebSockets** for real-time audio streaming.
+
+WebSocket URL Format
+~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: text
+
+   wss://{url}/connect?{query_parameters}
+
+**Note**: Contact the Oriserve AI Team for the ``{url}`` value.
+
+Example:
+
+.. code-block:: text
+
+   wss://example.oriserve.com/connect?model=ori-prime-v2.3&sample_rate=8000&language=hi
+
+Query Parameters
+----------------
+
+All query parameters are passed in the WebSocket connection URL.
+
+Required Parameters
+~~~~~~~~~~~~~~~~~~~
+
+.. list-table::
+   :header-rows: 1
+   :widths: 20 15 15 50
+
+   * - Parameter
+     - Type
+     - Required
+     - Description
+   * - ``model``
+     - string
+     - ✓
+     - Model identifier (e.g., ``ori-prime-v2.3``)
+
+Optional Parameters
+~~~~~~~~~~~~~~~~~~~
+
+.. list-table::
+   :header-rows: 1
+   :widths: 20 15 15 50
+
+   * - Parameter
+     - Type
+     - Default
+     - Description
+   * - ``filter``
+     - boolean
+     - ``false``
+     - Enable noise reduction (``true`` or ``false``)
+   * - ``call_id``
+     - string
+     - ``default``
+     - Unique call identifier for logging
+   * - ``language``
+     - string
+     - ``en``
+     - Language code: ``hi`` (Hindi) or ``en`` (Hinglish)
+   * - ``sample_rate``
+     - integer
+     - ``16000``
+     - Audio sample rate in Hz (``8000`` or ``16000``)
+   * - ``interruption_words``
+     - integer
+     - ``2``
+     - Number of words required for interruption detection
+   * - ``temperature``
+     - float
+     - ``0.0``
+     - Decoding temperature (0.0 = deterministic)
+   * - ``prompt``
+     - string
+     - empty
+     - Word boosting prompt (max 5 words, URL-encoded)
+
+Parameter Details
+~~~~~~~~~~~~~~~~~
+
+**model**
+  The speech recognition model to use. Currently supported:
+
+  * ``ori-prime-v2.3`` - Latest production model
+
+**filter**
+  Enable audio noise reduction for improved transcription quality in noisy environments.
+
+**language**
+  Supported languages:
+
+  * ``hi`` - Hindi
+  * ``en`` - Hinglish (Hindi-English code-mixed)
+
+**sample_rate**
+  Audio sample rate in Hertz. Common values:
+
+  * ``8000`` - Telephone quality
+  * ``16000`` - Standard quality (recommended)
+
+**prompt**
+  A text prompt for word boosting to improve recognition of specific vocabulary. Maximum 5 words, URL-encoded.
+
+  Example: ``brandname%20entity%20specific-word``
+
+Input Format
+------------
+
+Audio chunks must be sent as JSON messages via the WebSocket connection.
+
+Input Message Schema
+~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: json
+
+   {
+     "audio": "base64_encoded_audio_chunk",
+     "time": 1718184093.435
+   }
+
+.. list-table::
+   :header-rows: 1
+   :widths: 20 15 15 50
+
+   * - Field
+     - Type
+     - Required
+     - Description
+   * - ``audio``
+     - string
+     - ✓
+     - Base64-encoded audio chunk
+   * - ``time``
+     - float
+     -
+     - Timestamp of the audio chunk (optional)
+
+Audio Chunk Requirements
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+* **Chunk duration**: Exactly 20 milliseconds
+* **Chunk size** (LINEAR16 encoding):
+
+  * 8 kHz: 160 bytes (80 samples × 2 bytes)
+  * 16 kHz: 320 bytes (160 samples × 2 bytes)
+
+* **Chunk size** (μ-law encoding):
+
+  * 8 kHz: 80 bytes
+  * 16 kHz: 160 bytes
+
+* **Encoding**: Base64 string
+* **Format**: 16-bit PCM or μ-law
+
+Output Format
+-------------
+
+The server sends transcription results as JSON messages.
+
+Output Message Schema
+~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: json
+
+   {
+     "data": "transcribed text",
+     "status": "recognized",
+     "time": 1718184093.435,
+     "final": "false",
+     "start": 1500,
+     "end": 3000
+   }
+
+.. list-table::
+   :header-rows: 1
+   :widths: 20 15 65
+
+   * - Field
+     - Type
+     - Description
+   * - ``data``
+     - string
+     - Transcribed text (may be ``None``, ``nan``, partial, or complete)
+   * - ``status``
+     - string
+     - ``recognizing`` (interim) or ``recognized`` (final)
+   * - ``time``
+     - float or None
+     - Mirrors input timestamp (present in first chunk or final message)
+   * - ``final``
+     - string
+     - ``true`` or ``false`` from STT model (can be ignored for now)
+   * - ``start``
+     - float
+     - Audio segment start timestamp in milliseconds for ``recognized`` messages
+   * - ``end``
+     - float
+     - Audio segment end timestamp in milliseconds for ``recognized`` messages
+
+Response Status Values
+~~~~~~~~~~~~~~~~~~~~~~
+
+**recognizing**
+  Interim transcription result. The transcription is in progress and may change as more audio is processed. Results are streamed until the number of ``interruption_words`` is reached.
+
+**recognized**
+  Final transcription result. The ``data`` field contains a complete, stable transcription.
+
+Response Data Values
+~~~~~~~~~~~~~~~~~~~~
+
+The ``data`` field may contain:
+
+* ``None`` or ``nan`` - No transcription available
+* Streaming chunk - Partial transcription text
+* Complete message - Full transcription (when ``status`` is ``recognized``)
+
+Authentication
+--------------
+
+API Key Header
+~~~~~~~~~~~~~~
+
+Include your API key in the WebSocket connection headers:
+
+.. code-block:: python
+
+   headers = {"Authorization": f"Bearer {api_key}"}
+   async with websockets.connect(url, additional_headers=headers) as ws:
+       # Connection established
+
+Rate Limits
+-----------
+
+Contact the Oriserve AI Team for information about rate limits and quotas.
+
+Error Handling
+--------------
+
+WebSocket connection errors may occur due to:
+
+* Invalid or expired API key
+* Incorrect WebSocket URL
+* Missing required parameters
+* Invalid audio format
+* Network connectivity issues
+
+See :doc:`troubleshooting` for detailed debugging information.

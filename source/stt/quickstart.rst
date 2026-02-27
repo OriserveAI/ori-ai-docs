@@ -1,0 +1,114 @@
+Quick Start Guide
+=================
+
+This guide will help you get started with OriSTT in minutes.
+
+Prerequisites
+-------------
+
+* Python 3.7 or higher
+* WebSocket client library (``websockets``)
+* Audio processing libraries (``numpy``, ``soundfile``, ``librosa``)
+* API key from Oriserve AI Team
+* WebSocket URL from Oriserve AI Team
+
+Installation
+------------
+
+Install the required Python packages:
+
+.. code-block:: bash
+
+   pip install websockets numpy soundfile librosa samplerate python-dotenv
+
+Configuration
+-------------
+
+1. **Set up your API key**
+
+   Create a ``.env`` file in your project directory:
+
+   .. code-block:: text
+
+      ASR_API_KEY=your_api_key_here
+
+2. **Obtain the WebSocket URL**
+
+   Contact the Oriserve AI Team to get your WebSocket server URL.
+
+Basic Usage
+-----------
+
+Here's a minimal example to transcribe an audio file:
+
+.. code-block:: python
+
+   import asyncio
+   import websockets
+   import json
+   import base64
+   import soundfile as sf
+   import os
+   from dotenv import load_dotenv
+
+   load_dotenv()
+
+   async def transcribe_audio(audio_path):
+       # Configuration
+       api_key = os.getenv("ASR_API_KEY")
+       ws_url = (
+           "wss://ori-asr-test.oriserve.com/connect"
+           "?model=ori-prime-v2.3"
+           "&sample_rate=8000"
+           "&language=hi"
+       )
+
+       # Connect to WebSocket
+       headers = {"Authorization": f"Bearer {api_key}"}
+       async with websockets.connect(ws_url, additional_headers=headers) as ws:
+           # Load and process audio
+           audio, sr = sf.read(audio_path)
+           # ... (send audio chunks and receive transcription)
+
+   # Run
+   asyncio.run(transcribe_audio("your_audio.wav"))
+
+Connection Parameters
+---------------------
+
+Minimum required parameters:
+
+.. list-table::
+   :header-rows: 1
+   :widths: 20 60 20
+
+   * - Parameter
+     - Description
+     - Example
+   * - ``model``
+     - Model name (required)
+     - ``ori-prime-v2.3``
+   * - ``sample_rate``
+     - Audio sample rate (default: 16000)
+     - ``8000`` or ``16000``
+   * - ``language``
+     - Transcription language (default: en)
+     - ``hi`` or ``en``
+
+Authentication
+--------------
+
+Include your API key in the WebSocket connection headers:
+
+.. code-block:: python
+
+   headers = {"Authorization": f"Bearer {your_api_key}"}
+   async with websockets.connect(url, additional_headers=headers) as ws:
+       # Your code here
+
+Next Steps
+----------
+
+* :doc:`api_reference` - Learn about all available parameters
+* :doc:`python_client` - Use the full-featured Python client
+* :doc:`examples` - See complete working examples

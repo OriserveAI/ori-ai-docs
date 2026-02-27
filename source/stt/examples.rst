@@ -1,0 +1,223 @@
+Examples
+========
+
+This section provides practical examples for common use cases.
+
+Basic Transcription
+-------------------
+
+Transcribe a Hindi audio file:
+
+.. code-block:: python
+
+   import asyncio
+   from client import process_and_stream_audio
+
+   async def transcribe_hindi():
+       url = (
+           "wss://ori-asr-test.oriserve.com/connect"
+           "?model=ori-prime-v2.3"
+           "&sample_rate=16000"
+           "&language=hi"
+       )
+
+       result = await process_and_stream_audio(url, "hindi_audio.wav")
+       print(f"Transcription: {result}")
+
+   asyncio.run(transcribe_hindi())
+
+Hinglish Transcription
+----------------------
+
+Transcribe Hinglish (Hindi-English mixed) audio:
+
+.. code-block:: python
+
+   import asyncio
+   from client import process_and_stream_audio
+
+   async def transcribe_hinglish():
+       url = (
+           "wss://ori-asr-test.oriserve.com/connect"
+           "?model=ori-prime-v2.3"
+           "&sample_rate=16000"
+           "&language=en"
+       )
+
+       result = await process_and_stream_audio(url, "hinglish_audio.wav")
+       print(f"Transcription: {result}")
+
+   asyncio.run(transcribe_hinglish())
+
+With Noise Reduction
+--------------------
+
+Enable noise filtering for better quality in noisy environments:
+
+.. code-block:: python
+
+   import asyncio
+   from client import process_and_stream_audio
+
+   async def transcribe_with_filter():
+       url = (
+           "wss://ori-asr-test.oriserve.com/connect"
+           "?model=ori-prime-v2.3"
+           "&sample_rate=16000"
+           "&language=hi"
+           "&filter=true"
+       )
+
+       result = await process_and_stream_audio(url, "noisy_audio.wav")
+       print(f"Transcription: {result}")
+
+   asyncio.run(transcribe_with_filter())
+
+Word Boosting
+-------------
+
+Boost recognition of specific vocabulary (max 5 words):
+
+.. code-block:: python
+
+   import asyncio
+   from client import process_and_stream_audio
+   import urllib.parse
+
+   async def transcribe_with_boosting():
+       # Define words to boost
+       keywords = ["payment", "account", "bank"]
+       prompt = urllib.parse.quote(" ".join(keywords))
+
+       url = (
+           "wss://ori-asr-test.oriserve.com/connect"
+           f"?model=ori-prime-v2.3"
+           f"&sample_rate=16000"
+           f"&language=hi"
+           f"&prompt={prompt}"
+       )
+
+       result = await process_and_stream_audio(url, "banking_call.wav")
+       print(f"Transcription: {result}")
+
+   asyncio.run(transcribe_with_boosting())
+
+μ-law Encoding
+--------------
+
+Use μ-law encoding for bandwidth efficiency:
+
+.. code-block:: python
+
+   import asyncio
+   from client import process_and_stream_audio
+
+   async def transcribe_mulaw():
+       url = (
+           "wss://ori-asr-test.oriserve.com/connect"
+           "?model=ori-prime-v2.3"
+           "&sample_rate=16000"
+           "&language=hi"
+       )
+
+       # Use mulaw encoding (half the bandwidth of linear16)
+       result = await process_and_stream_audio(
+           url,
+           "audio.wav",
+           encoding="mulaw"
+       )
+       print(f"Transcription: {result}")
+
+   asyncio.run(transcribe_mulaw())
+
+Error Handling
+--------------
+
+Implement robust error handling:
+
+.. code-block:: python
+
+   import asyncio
+   import websockets
+   from client import process_and_stream_audio
+
+   async def transcribe_with_retry(audio_path, max_retries=3):
+       """Transcribe with automatic retry on failure."""
+       url = (
+           "wss://ori-asr-test.oriserve.com/connect"
+           "?model=ori-prime-v2.3"
+           "&sample_rate=16000"
+           "&language=hi"
+       )
+
+       for attempt in range(max_retries):
+           try:
+               result = await process_and_stream_audio(url, audio_path)
+               if result:
+                   return result
+               else:
+                   print(f"Attempt {attempt + 1} failed, retrying...")
+
+           except websockets.exceptions.WebSocketException as e:
+               print(f"WebSocket error on attempt {attempt + 1}: {e}")
+               if attempt < max_retries - 1:
+                   await asyncio.sleep(2 ** attempt)  # Exponential backoff
+
+           except Exception as e:
+               print(f"Unexpected error on attempt {attempt + 1}: {e}")
+               if attempt < max_retries - 1:
+                   await asyncio.sleep(2 ** attempt)
+
+       return None
+
+   # Usage
+   result = asyncio.run(transcribe_with_retry("audio.wav"))
+   if result:
+       print(f"Success: {result}")
+   else:
+       print("Failed after all retries")
+
+Performance Monitoring
+----------------------
+
+Monitor transcription performance:
+
+.. code-block:: python
+
+   import asyncio
+   import time
+   from client import process_and_stream_audio
+
+   async def transcribe_with_metrics(audio_path):
+       """Transcribe and collect performance metrics."""
+       url = (
+           "wss://ori-asr-test.oriserve.com/connect"
+           "?model=ori-prime-v2.3"
+           "&sample_rate=16000"
+           "&language=hi"
+       )
+
+       metrics = {
+           "start_time": time.time(),
+           "audio_file": audio_path,
+       }
+
+       try:
+           result = await process_and_stream_audio(url, audio_path)
+           metrics["end_time"] = time.time()
+           metrics["duration"] = metrics["end_time"] - metrics["start_time"]
+           metrics["success"] = result is not None
+           metrics["transcription"] = result
+
+       except Exception as e:
+           metrics["end_time"] = time.time()
+           metrics["duration"] = metrics["end_time"] - metrics["start_time"]
+           metrics["success"] = False
+           metrics["error"] = str(e)
+
+       return metrics
+
+   # Usage
+   metrics = asyncio.run(transcribe_with_metrics("audio.wav"))
+   print(f"Transcription took {metrics['duration']:.2f} seconds which include forced timeout duration")
+   print(f"Success: {metrics['success']}")

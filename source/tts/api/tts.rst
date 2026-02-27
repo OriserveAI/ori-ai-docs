@@ -1,0 +1,376 @@
+Text-to-Speech Endpoints
+========================
+
+These endpoints provide text-to-speech synthesis capabilities.
+
+POST /v1/audio/speech
+---------------------
+
+Generate speech from text using the OpenAI-compatible HTTP endpoint. Returns a streaming audio response.
+
+.. note::
+
+   The base URL depends on the language. Use ``https://ori-tts-test.oriserve.com`` for ``hi`` and ``en-IN``.
+   Use ``https://ori-tts-multi-test.oriserve.com`` for all other languages (``bho``, ``ml``, ``mag``, ``mai``,
+   ``mr``, ``gu``, ``hne``, ``ta``, ``te``, ``kn``, ``bn``). See :doc:`index` for the full language table.
+
+**Request:**
+
+.. code-block:: bash
+
+   curl -X POST "https://ori-tts-test.oriserve.com/v1/audio/speech" \
+     -H "Authorization: Bearer your-api-token" \
+     -H "Content-Type: application/json" \
+     -d '{
+       "input": "Hello, this is a test.",
+       "voice": "0fQopeE3S42LxYNQSllH",
+       "language": "hi",
+       "response_format": "mp3_44100_128"
+     }'
+
+**Request Body Parameters:**
+
+.. list-table::
+   :header-rows: 1
+   :widths: 20 15 10 55
+
+   * - Parameter
+     - Type
+     - Required
+     - Description
+   * - ``input``
+     - string
+     - Yes
+     - The text to convert to speech
+   * - ``voice``
+     - string
+     - Yes
+     - Voice ID to use for synthesis
+   * - ``language``
+     - string
+     - Yes
+     - Language code (``hi`` or ``en-IN``)
+   * - ``model``
+     - string
+     - No
+     - Model name (default: ``ori-tts-v2``)
+   * - ``response_format``
+     - string
+     - No
+     - Audio format (default: ``pcm_24000``). See :doc:`index` for supported formats.
+   * - ``speed``
+     - float
+     - No
+     - Speech rate multiplier (default: ``1.0``)
+   * - ``expressive``
+     - float
+     - No
+     - Expressiveness/temperature (default: ``0.1``)
+   * - ``stability``
+     - integer
+     - No
+     - Stability/top_k parameter (default: ``1``)
+   * - ``clarity``
+     - float
+     - No
+     - Clarity/top_p parameter (default: ``0.1``)
+   * - ``volume_level``
+     - float
+     - No
+     - Volume multiplier (default: ``1.0``)
+   * - ``pronunciation_dict``
+     - object
+     - No
+     - Custom pronunciation mappings (default: ``{}``)
+   * - ``stitch_request``
+     - boolean
+     - No
+     - Enable request stitching for long texts (default: ``false``)
+   * - ``speechReqId``
+     - string
+     - No
+     - Custom request ID for tracking
+   * - ``user_id``
+     - string
+     - No
+     - User identifier
+
+**Response:**
+
+Returns a streaming audio response with the appropriate content type based on the format:
+
+- MP3: ``audio/mpeg``
+- PCM: ``audio/pcm`` with sample rate header
+- μ-law: ``audio/basic``
+
+**Response Headers:**
+
+.. code-block:: text
+
+   Content-Type: audio/mpeg
+   Cache-Control: no-cache
+   X-Accel-Buffering: no
+
+**Status Codes:**
+
+- ``200 OK``: Streaming audio response
+- ``401 Unauthorized``: Invalid or missing authentication
+- ``422 Unprocessable Entity``: Invalid request parameters
+
+**Example with Python:**
+
+.. code-block:: python
+
+   import requests
+
+   response = requests.post(
+       "https://ori-tts-test.oriserve.com/v1/audio/speech",
+       headers={
+           "Authorization": "Bearer your-api-token",
+           "Content-Type": "application/json"
+       },
+       json={
+           "input": "Hello, this is Ori TTS.",
+           "voice": "0fQopeE3S42LxYNQSllH",
+           "language": "hi",
+           "response_format": "mp3_44100_128",
+           "speed": 1.0
+       },
+       stream=True
+   )
+
+   with open("output.mp3", "wb") as f:
+       for chunk in response.iter_content(chunk_size=8192):
+           f.write(chunk)
+
+WebSocket /ori_tts_socket
+-------------------------
+
+Real-time text-to-speech streaming via WebSocket connection.
+
+.. note::
+
+   The base URL depends on the language. Use ``wss://ori-tts-test.oriserve.com`` for ``hi`` and ``en-IN``.
+   Use ``wss://ori-tts-multi-test.oriserve.com`` for all other languages (``bho``, ``ml``, ``mag``, ``mai``,
+   ``mr``, ``gu``, ``hne``, ``ta``, ``te``, ``kn``, ``bn``). See :doc:`index` for the full language table.
+
+**Connection:**
+
+.. code-block:: text
+
+   wss://ori-tts-test.oriserve.com/ori_tts_socket
+
+Include authentication in the WebSocket handshake headers:
+
+.. code-block:: text
+
+   Authorization: Bearer your-api-token
+
+**Request Message:**
+
+Send a JSON message with the following structure:
+
+.. code-block:: json
+
+   {
+     "text": "Hello, this is a streaming example.",
+     "voice_id": "0fQopeE3S42LxYNQSllH",
+     "language": "hi",
+     "encoding": "pcm_24000",
+     "speech_rate": 1.0,
+     "expressive": 0.1,
+     "stability": 1,
+     "clarity": 0.1,
+     "volume_level": 1.0,
+     "pronunciation_dict": {},
+     "stitch_request": false,
+     "speechReqId": "custom-request-id",
+     "user_id": "user123"
+   }
+
+**Request Parameters:**
+
+.. list-table::
+   :header-rows: 1
+   :widths: 20 15 10 55
+
+   * - Parameter
+     - Type
+     - Required
+     - Description
+   * - ``text``
+     - string
+     - Yes
+     - The text to convert to speech
+   * - ``voice_id``
+     - string
+     - Yes
+     - Voice ID to use for synthesis
+   * - ``language``
+     - string
+     - Yes
+     - Language code (``hi`` or ``en-IN``)
+   * - ``encoding``
+     - string
+     - No
+     - Audio format (default: ``pcm_24000``)
+   * - ``speech_rate``
+     - float
+     - No
+     - Speech rate multiplier (default: ``1.0``)
+   * - ``expressive``
+     - float
+     - No
+     - Expressiveness/temperature (default: ``0.1``)
+   * - ``stability``
+     - integer
+     - No
+     - Stability/top_k parameter (default: ``1``)
+   * - ``clarity``
+     - float
+     - No
+     - Clarity/top_p parameter (default: ``0.1``)
+   * - ``volume_level``
+     - float
+     - No
+     - Volume multiplier (default: ``1.0``)
+   * - ``pronunciation_dict``
+     - object
+     - No
+     - Custom pronunciation mappings
+   * - ``stitch_request``
+     - boolean
+     - No
+     - Enable request stitching
+   * - ``speechReqId``
+     - string
+     - No
+     - Custom request ID
+   * - ``user_id``
+     - string
+     - No
+     - User identifier
+
+**Response Messages:**
+
+The server sends JSON messages containing audio chunks:
+
+.. code-block:: json
+
+   {
+     "audio_chunks": ["base64-encoded-audio-data"],
+     "audio_streaming_complete": false,
+     "speechReqId": "custom-request-id"
+   }
+
+**Response Fields:**
+
+.. list-table::
+   :header-rows: 1
+   :widths: 25 15 60
+
+   * - Field
+     - Type
+     - Description
+   * - ``audio_chunks``
+     - array
+     - Array of base64-encoded audio chunks
+   * - ``audio_streaming_complete``
+     - boolean
+     - ``true`` when streaming is complete
+   * - ``speechReqId``
+     - string
+     - The request ID from the original request
+
+**Keep-Alive:**
+
+Send a ping message to keep the connection alive:
+
+.. code-block:: json
+
+   {"PING": true}
+
+The server will ignore ping messages and not send a response.
+
+**Complete Python Example:**
+
+.. code-block:: python
+
+   import asyncio
+   import websockets
+   import json
+   import base64
+
+   async def stream_tts(text, voice_id, language="hi"):
+       uri = "wss://ori-tts-test.oriserve.com/ori_tts_socket"
+       headers = {"Authorization": "Bearer your-api-token"}
+
+       async with websockets.connect(uri, extra_headers=headers) as ws:
+           # Send TTS request
+           request = {
+               "text": text,
+               "voice_id": voice_id,
+               "language": language,
+               "encoding": "pcm_24000",
+               "speech_rate": 1.0
+           }
+           await ws.send(json.dumps(request))
+
+           # Collect audio chunks
+           audio_data = b""
+           while True:
+               response = await ws.recv()
+               data = json.loads(response)
+
+               for chunk in data.get("audio_chunks", []):
+                   audio_data += base64.b64decode(chunk)
+
+               if data.get("audio_streaming_complete"):
+                   break
+
+           return audio_data
+
+   # Usage
+   audio = asyncio.run(stream_tts(
+       "Hello, world!",
+       "0fQopeE3S42LxYNQSllH"
+   ))
+
+   with open("output.pcm", "wb") as f:
+       f.write(audio)
+
+**Error Handling:**
+
+On error, the WebSocket connection will be closed with an appropriate close code:
+
+- ``1007``: Invalid request (e.g., invalid voice ID, language, or encoding)
+- ``1006``: Internal error during processing
+
+**JavaScript Example:**
+
+.. code-block:: javascript
+
+   const ws = new WebSocket('wss://ori-tts-test.oriserve.com/ori_tts_socket', [], {
+     headers: { 'Authorization': 'Bearer your-api-token' }
+   });
+
+   ws.onopen = () => {
+     ws.send(JSON.stringify({
+       text: 'Hello from JavaScript!',
+       voice_id: '0fQopeE3S42LxYNQSllH',
+       language: 'hi',
+       encoding: 'pcm_24000'
+     }));
+   };
+
+   const audioChunks = [];
+   ws.onmessage = (event) => {
+     const data = JSON.parse(event.data);
+     data.audio_chunks.forEach(chunk => {
+       audioChunks.push(atob(chunk));
+     });
+     if (data.audio_streaming_complete) {
+       console.log('Streaming complete');
+       ws.close();
+     }
+   };
