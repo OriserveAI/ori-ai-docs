@@ -93,7 +93,7 @@ Generate speech from text using the OpenAI-compatible HTTP endpoint. Returns a s
    * - ``user_id``
      - string
      - No
-     - User identifier for logging
+     - User identifier
 
 **Response:**
 

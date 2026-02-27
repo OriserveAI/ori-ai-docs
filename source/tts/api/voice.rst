@@ -20,18 +20,20 @@ Retrieve a list of all available voices including predefined and cloned voices.
 .. code-block:: json
 
    {
-     "0fQopeE3S42LxYNQSllH": {
-       "voice_name": "default_voice",
-       "primary_languages": ["hi", "en-IN"],
-       "custom": false
-     },
-     "abc123xyz": {
-       "voice_name": "my_custom_voice",
-       "primary_languages": ["hi"],
-       "custom": true
+     "message": "Success",
+     "speakers": {
+       "0fQopeE3S42LxYNQSllH": {
+         "voice_name": "default_voice",
+         "primary_languages": ["hi", "en-IN"],
+         "custom": false
+       },
+       "abc123xyz": {
+         "voice_name": "my_custom_voice",
+         "primary_languages": ["hi"],
+         "custom": true
+       }
      }
    }
-
 The response is a dict keyed by ``speaker_id``. Each value is a voice object with the following fields:
 
 **Response Fields:**
