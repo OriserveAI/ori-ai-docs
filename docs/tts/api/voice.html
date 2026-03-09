@@ -64,7 +64,6 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="../../stt/troubleshooting.html">Troubleshooting</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../stt/index.html#indices-and-tables">Indices and tables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../stt/quickstart.html">Quick Start Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../stt/api_reference.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../stt/python_client.html">Python Client</a></li>
@@ -84,7 +83,6 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Voice Management Endpoints</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../index.html#indices-and-tables">Indices and tables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">API Reference</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="tts.html">Text-to-Speech Endpoints</a></li>
@@ -152,8 +150,12 @@ data-aria-dark="Switch to auto color mode">
 <h2>GET /v1/audio/voices<a class="headerlink" href="#get-v1-audio-voices" title="Link to this heading">¶</a></h2>
 <p>Retrieve a list of all available voices including predefined and cloned voices.</p>
 <p><strong>Request:</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span><span class="s2">&quot;https://ori-tts-test.oriserve.com/v1/audio/voices&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span data-line="2"><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer your-api-token&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">curl<span class="w"> </span>--location<span class="w"> </span>--request<span class="w"> </span>GET<span class="w"> </span><span class="s1">&#39;https://ori-tts-test.oriserve.com/v1/audio/voices&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span data-line="2"><span class="w">  </span>--header<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span data-line="3"><span class="w">  </span>--header<span class="w"> </span><span class="s1">&#39;Authorization: Bearer your-api-token&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span data-line="4"><span class="w">  </span>--data<span class="w"> </span><span class="s1">&#39;{</span>
+</span><span data-line="5"><span class="s1">    &quot;user_id&quot;: &quot;your-user-id&quot;</span>
+</span><span data-line="6"><span class="s1">  }&#39;</span>
 </span></pre></div>
 </div>
 <p><strong>Response:</strong></p>
@@ -216,11 +218,11 @@ data-aria-dark="Switch to auto color mode">
 <h2>POST /v1/voice_clone<a class="headerlink" href="#post-v1-voice-clone" title="Link to this heading">¶</a></h2>
 <p>Clone a voice from an audio sample. The audio must be between 5 seconds and 5 minutes in duration.</p>
 <p><strong>Request:</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s2">&quot;https://ori-tts-test.oriserve.com/v1/voice_clone&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span data-line="2"><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer your-api-token&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span data-line="3"><span class="w">  </span>-F<span class="w"> </span><span class="s2">&quot;speaker_name=my_voice&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span data-line="4"><span class="w">  </span>-F<span class="w"> </span><span class="s2">&quot;user_id=user123&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span data-line="5"><span class="w">  </span>-F<span class="w"> </span><span class="s2">&quot;audio=@sample.wav&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">curl<span class="w"> </span>--location<span class="w"> </span>--request<span class="w"> </span>POST<span class="w"> </span><span class="s1">&#39;https://ori-tts-test.oriserve.com/v1/voice_clone&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span data-line="2"><span class="w">  </span>--header<span class="w"> </span><span class="s1">&#39;Authorization: Bearer your-api-token&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span data-line="3"><span class="w">  </span>--form<span class="w"> </span><span class="s1">&#39;speaker_name=&quot;my_voice&quot;&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span data-line="4"><span class="w">  </span>--form<span class="w"> </span><span class="s1">&#39;user_id=&quot;user123&quot;&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span data-line="5"><span class="w">  </span>--form<span class="w"> </span><span class="s1">&#39;audio=@&quot;sample.wav&quot;&#39;</span>
 </span></pre></div>
 </div>
 <p><strong>Request Parameters (multipart/form-data):</strong></p>

@@ -12,8 +12,12 @@ Retrieve a list of all available voices including predefined and cloned voices.
 
 .. code-block:: bash
 
-   curl -X GET "https://ori-tts-test.oriserve.com/v1/audio/voices" \
-     -H "Authorization: Bearer your-api-token"
+   curl --location --request GET 'https://ori-tts-test.oriserve.com/v1/audio/voices' \
+     --header 'Content-Type: application/json' \
+     --header 'Authorization: Bearer your-api-token' \
+     --data '{
+       "user_id": "your-user-id"
+     }'
 
 **Response:**
 
@@ -70,11 +74,11 @@ Clone a voice from an audio sample. The audio must be between 5 seconds and 5 mi
 
 .. code-block:: bash
 
-   curl -X POST "https://ori-tts-test.oriserve.com/v1/voice_clone" \
-     -H "Authorization: Bearer your-api-token" \
-     -F "speaker_name=my_voice" \
-     -F "user_id=user123" \
-     -F "audio=@sample.wav"
+   curl --location --request POST 'https://ori-tts-test.oriserve.com/v1/voice_clone' \
+     --header 'Authorization: Bearer your-api-token' \
+     --form 'speaker_name="my_voice"' \
+     --form 'user_id="user123"' \
+     --form 'audio=@"sample.wav"'
 
 **Request Parameters (multipart/form-data):**
 
