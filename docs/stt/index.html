@@ -54,18 +54,38 @@ data-aria-dark="Switch to auto color mode">
   <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
     <div class="sy-lside-inner md:sticky">
       <div class="sy-scrollbar p-6">
-        <div class="globaltoc" data-expand-depth="0"><p class="caption" role="heading" aria-level="3"><span class="caption-text">Speech-to-Text (STT)</span></p>
+        <div class="globaltoc" data-expand-depth="0"><p class="caption" role="heading" aria-level="3"><span class="caption-text">STT — Getting Started</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">OriSTT Documentation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="quickstart.html">Quick Start Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_reference.html">API Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/index.html">STT REST API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/api_reference.html">API Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/python_client.html">Python Client</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/api_reference.html">API Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/python_client.html">Python Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="websocket.html">WebSocket API Reference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python_client.html">Python Client</a></li>
 <li class="toctree-l2"><a class="reference internal" href="examples.html">Examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference.html">API Reference</a></li>
+</ul>
+<p class="caption" role="heading" aria-level="3"><span class="caption-text">STT — REST API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">STT REST API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/api_reference.html">API Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/python_client.html">Python Client</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/api_reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/python_client.html">Python Client</a></li>
+</ul>
+<p class="caption" role="heading" aria-level="3"><span class="caption-text">STT — WebSocket API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="websocket.html">WebSocket API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python_client.html">Python Client</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
@@ -106,7 +126,6 @@ data-aria-dark="Switch to auto color mode">
 <li><a class="reference internal" href="#overview">Overview</a></li>
 <li><a class="reference internal" href="#supported-languages">Supported Languages</a></li>
 <li><a class="reference internal" href="#supported-models">Supported Models</a></li>
-<li><a class="reference internal" href="#getting-started">Getting Started</a></li>
 <li><a class="reference internal" href="#contact">Contact</a></li>
 </ul>
 </div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div></div>
@@ -140,12 +159,31 @@ data-aria-dark="Switch to auto color mode">
   <article class="yue" role="main">
           <section id="oristt-documentation">
 <h1>OriSTT Documentation<a class="headerlink" href="#oristt-documentation" title="Link to this heading">¶</a></h1>
-<p>Welcome to the OriSTT (Oriserve Speech-to-Text) API documentation. OriSTT provides real-time speech transcription via WebSocket connections with support for Hindi and Hinglish languages.</p>
+<p>Welcome to the OriSTT (Oriserve Speech-to-Text) documentation. OriSTT provides
+two integration methods: a simple <strong>REST API</strong> for file-based transcription and a
+<strong>WebSocket API</strong> for real-time streaming — both supporting Hindi and Hinglish.</p>
 <div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference.html">API Reference</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">REST API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">STT REST API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/api_reference.html">API Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/python_client.html">Python Client</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/api_reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/python_client.html">Python Client</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">WebSocket API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="websocket.html">WebSocket API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python_client.html">Python Client</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
@@ -153,14 +191,17 @@ data-aria-dark="Switch to auto color mode">
 </div>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
-<p>OriSTT is a real-time speech-to-text service that uses WebSocket connections for streaming audio transcription. Key features include:</p>
-<ul class="simple">
-<li><p><strong>Real-time Streaming</strong>: Process audio in 20ms chunks for low-latency transcription</p></li>
-<li><p><strong>Multi-language Support</strong>: Hindi and Hinglish transcription</p></li>
-<li><p><strong>Noise Reduction</strong>: Optional audio filtering for improved accuracy</p></li>
-<li><p><strong>Word Boosting</strong>: Enhance recognition of specific vocabulary</p></li>
-<li><p><strong>Flexible Audio Formats</strong>: Support for LINEAR16 and μ-law encoding</p></li>
-</ul>
+<p>OriSTT offers two integration paths:</p>
+<dl class="simple">
+<dt><strong>REST API</strong></dt><dd><p>Upload an audio file via a single HTTP POST request and receive the
+transcription as a JSON response or a streaming SSE feed. Ideal for
+batch or on-demand transcription workflows.</p>
+</dd>
+<dt><strong>WebSocket API</strong></dt><dd><p>Stream raw audio in 20 ms chunks over a persistent WebSocket connection
+for real-time, low-latency transcription. Ideal for live call-centre
+and voice-bot integrations.</p>
+</dd>
+</dl>
 </section>
 <section id="supported-languages">
 <h2>Supported Languages<a class="headerlink" href="#supported-languages" title="Link to this heading">¶</a></h2>
@@ -177,7 +218,7 @@ data-aria-dark="Switch to auto color mode">
 </thead>
 <tbody>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hi</span></code></p></td>
-<td><p>Hindi</p></td>
+<td><p>Hindi (pure Hindi)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">en</span></code></p></td>
 <td><p>Hinglish (Hindi-English mix)</p></td>
@@ -188,23 +229,31 @@ data-aria-dark="Switch to auto color mode">
 </section>
 <section id="supported-models">
 <h2>Supported Models<a class="headerlink" href="#supported-models" title="Link to this heading">¶</a></h2>
-<ul class="simple">
-<li><p><strong>ori-prime-v2.3</strong>: Latest production model with improved accuracy</p></li>
-</ul>
-</section>
-<section id="getting-started">
-<h2>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading">¶</a></h2>
-<p>To get started with OriSTT:</p>
-<ol class="arabic simple">
-<li><p><a class="reference internal" href="quickstart.html"><span class="doc">Quick Start Guide</span></a> - Set up your first connection</p></li>
-<li><p><a class="reference internal" href="api_reference.html"><span class="doc">API Reference</span></a> - Understand the API parameters</p></li>
-<li><p><a class="reference internal" href="python_client.html"><span class="doc">Python Client</span></a> - Use the Python client library</p></li>
-<li><p><a class="reference internal" href="examples.html"><span class="doc">Examples</span></a> - See practical examples</p></li>
-</ol>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Model</p></th>
+<th class="head"><p>Use with</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ori-prime-v2.3</span></code></p></td>
+<td><p>REST API</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ori-prime-v2.3</span></code></p></td>
+<td><p>WebSocket API</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 <section id="contact">
 <h2>Contact<a class="headerlink" href="#contact" title="Link to this heading">¶</a></h2>
-<p>For API access and the WebSocket URL, please contact the Oriserve AI Team.</p>
+<p>Contact the Oriserve AI Team to obtain your server URL and API key.</p>
 </section>
 </section>
 
@@ -249,7 +298,7 @@ data-aria-dark="Switch to auto color mode">
   </div>
 </footer>
       <script src="../_static/documentation_options.js?v=8d563738"></script>
-      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
-      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/shibuya.js?v=cac61aee"></script></body>
 </html>

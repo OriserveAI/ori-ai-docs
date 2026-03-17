@@ -1,14 +1,29 @@
 OriSTT Documentation
 ====================
 
-Welcome to the OriSTT (Oriserve Speech-to-Text) API documentation. OriSTT provides real-time speech transcription via WebSocket connections with support for Hindi and Hinglish languages.
+Welcome to the OriSTT (Oriserve Speech-to-Text) documentation. OriSTT provides
+two integration methods: a simple **REST API** for file-based transcription and a
+**WebSocket API** for real-time streaming — both supporting Hindi and Hinglish.
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Getting Started
+
+   quickstart
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: REST API
 
-   quickstart
-   api_reference
+   api/index
+   api/api_reference
+   api/python_client
+
+.. toctree::
+   :maxdepth: 2
+   :caption: WebSocket API
+
+   websocket
    python_client
    examples
    troubleshooting
@@ -16,13 +31,17 @@ Welcome to the OriSTT (Oriserve Speech-to-Text) API documentation. OriSTT provid
 Overview
 --------
 
-OriSTT is a real-time speech-to-text service that uses WebSocket connections for streaming audio transcription. Key features include:
+OriSTT offers two integration paths:
 
-* **Real-time Streaming**: Process audio in 20ms chunks for low-latency transcription
-* **Multi-language Support**: Hindi and Hinglish transcription
-* **Noise Reduction**: Optional audio filtering for improved accuracy
-* **Word Boosting**: Enhance recognition of specific vocabulary
-* **Flexible Audio Formats**: Support for LINEAR16 and μ-law encoding
+**REST API**
+  Upload an audio file via a single HTTP POST request and receive the
+  transcription as a JSON response or a streaming SSE feed. Ideal for
+  batch or on-demand transcription workflows.
+
+**WebSocket API**
+  Stream raw audio in 20 ms chunks over a persistent WebSocket connection
+  for real-time, low-latency transcription. Ideal for live call-centre
+  and voice-bot integrations.
 
 Supported Languages
 -------------------
@@ -34,26 +53,25 @@ Supported Languages
    * - Code
      - Language
    * - ``hi``
-     - Hindi
+     - Hindi (pure Hindi)
    * - ``en``
      - Hinglish (Hindi-English mix)
 
 Supported Models
 ----------------
 
-* **ori-prime-v2.3**: Latest production model with improved accuracy
+.. list-table::
+   :header-rows: 1
+   :widths: 30 70
 
-Getting Started
----------------
-
-To get started with OriSTT:
-
-1. :doc:`quickstart` - Set up your first connection
-2. :doc:`api_reference` - Understand the API parameters
-3. :doc:`python_client` - Use the Python client library
-4. :doc:`examples` - See practical examples
+   * - Model
+     - Use with
+   * - ``ori-prime-v2.3``
+     - REST API
+   * - ``ori-prime-v2.3``
+     - WebSocket API
 
 Contact
 -------
 
-For API access and the WebSocket URL, please contact the Oriserve AI Team.
+Contact the Oriserve AI Team to obtain your server URL and API key.

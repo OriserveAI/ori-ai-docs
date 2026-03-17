@@ -4,12 +4,25 @@ Oriserve AI Services Documentation
 Welcome to the Oriserve AI Services documentation. This unified documentation covers both Speech-to-Text (STT) and Text-to-Speech (TTS) services.
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Speech-to-Text (STT)
+   :maxdepth: 1
+   :caption: STT — Getting Started
 
    stt/index
    stt/quickstart
-   stt/api_reference
+
+.. toctree::
+   :maxdepth: 2
+   :caption: STT — REST API
+
+   stt/api/index
+   stt/api/api_reference
+   stt/api/python_client
+
+.. toctree::
+   :maxdepth: 2
+   :caption: STT — WebSocket API
+
+   stt/websocket
    stt/python_client
    stt/examples
    stt/troubleshooting
