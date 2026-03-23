@@ -197,6 +197,7 @@ Basic usage with command-line arguments:
        URL = (
            'wss://ori-asr-test.oriserve.com/connect?'
            f'model={model_name}'
+           f'&encoding={encoding}'
            f'&sample_rate={sending_sample_rate}'
            f'&language={language}'
            f'&temperature={temperature}'
@@ -248,6 +249,7 @@ Import and use as a library in your code:
     ws_url = (
         "wss://ori-asr-test.oriserve.com/connect"
         "?model=ori-prime-v2.3"
+        "&encoding=linear16"
         "&sample_rate=16000"
         "&language=hi"
         "&temperature=0.0"

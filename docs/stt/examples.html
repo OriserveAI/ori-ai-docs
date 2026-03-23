@@ -75,11 +75,6 @@ data-aria-dark="Switch to auto color mode">
 </ul>
 <p class="caption" role="heading" aria-level="3"><span class="caption-text">STT — REST API</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="api/index.html">STT REST API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/api_reference.html">API Reference</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/python_client.html">Python Client</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="api/api_reference.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api/python_client.html">Python Client</a></li>
 </ul>
@@ -268,15 +263,15 @@ data-aria-dark="Switch to auto color mode">
 </span><span data-line="5">    <span class="n">url</span> <span class="o">=</span> <span class="p">(</span>
 </span><span data-line="6">        <span class="s2">&quot;wss://ori-asr-test.oriserve.com/connect&quot;</span>
 </span><span data-line="7">        <span class="s2">&quot;?model=ori-prime-v2.3&quot;</span>
-</span><span data-line="8">        <span class="s2">&quot;&amp;sample_rate=16000&quot;</span>
-</span><span data-line="9">        <span class="s2">&quot;&amp;language=hi&quot;</span>
-</span><span data-line="10">    <span class="p">)</span>
-</span><span data-line="11">
-</span><span data-line="12">    <span class="c1"># Use mulaw encoding (half the bandwidth of linear16)</span>
-</span><span data-line="13">    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">process_and_stream_audio</span><span class="p">(</span>
-</span><span data-line="14">        <span class="n">url</span><span class="p">,</span>
-</span><span data-line="15">        <span class="s2">&quot;audio.wav&quot;</span><span class="p">,</span>
-</span><span data-line="16">        <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;mulaw&quot;</span>
+</span><span data-line="8">        <span class="s2">&quot;&amp;encoding=mulaw&quot;</span>
+</span><span data-line="9">        <span class="s2">&quot;&amp;sample_rate=16000&quot;</span>
+</span><span data-line="10">        <span class="s2">&quot;&amp;language=hi&quot;</span>
+</span><span data-line="11">    <span class="p">)</span>
+</span><span data-line="12">
+</span><span data-line="13">    <span class="c1"># Use mulaw encoding (half the bandwidth of linear16)</span>
+</span><span data-line="14">    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">process_and_stream_audio</span><span class="p">(</span>
+</span><span data-line="15">        <span class="n">url</span><span class="p">,</span>
+</span><span data-line="16">        <span class="s2">&quot;audio.wav&quot;</span>
 </span><span data-line="17">    <span class="p">)</span>
 </span><span data-line="18">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Transcription: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </span><span data-line="19">

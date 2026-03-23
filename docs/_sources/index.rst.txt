@@ -14,7 +14,6 @@ Welcome to the Oriserve AI Services documentation. This unified documentation co
    :maxdepth: 2
    :caption: STT — REST API
 
-   stt/api/index
    stt/api/api_reference
    stt/api/python_client
 

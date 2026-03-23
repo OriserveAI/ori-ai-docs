@@ -72,6 +72,10 @@ Optional Parameters
      - integer
      - ``16000``
      - Audio sample rate in Hz (``8000`` or ``16000``)
+   * - ``encoding``
+     - string
+     - ``linear16``
+     - Audio encoding format (``linear16`` or ``mulaw``)
    * - ``interruption_words``
      - integer
      - ``2``
@@ -107,6 +111,11 @@ Parameter Details
 
   * ``8000`` - Telephone quality
   * ``16000`` - Standard quality (recommended)
+
+**encoding**
+  Audio encoding format. Supported values:
+  * ``linear16`` - 16-bit PCM uncompressed (recommended)
+  * ``mulaw`` - μ-law (compressed, smaller size)
 
 **prompt**
   A text prompt for word boosting to improve recognition of specific vocabulary. Maximum 5 words, URL-encoded.

@@ -75,11 +75,6 @@ data-aria-dark="Switch to auto color mode">
 </ul>
 <p class="caption" role="heading" aria-level="3"><span class="caption-text">STT — REST API</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="api/index.html">STT REST API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/api_reference.html">API Reference</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/python_client.html">Python Client</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="api/api_reference.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api/python_client.html">Python Client</a></li>
 </ul>
@@ -358,35 +353,36 @@ data-aria-dark="Switch to auto color mode">
 </span><span data-line="23">    <span class="n">URL</span> <span class="o">=</span> <span class="p">(</span>
 </span><span data-line="24">        <span class="s1">&#39;wss://ori-asr-test.oriserve.com/connect?&#39;</span>
 </span><span data-line="25">        <span class="sa">f</span><span class="s1">&#39;model=</span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s1">&#39;</span>
-</span><span data-line="26">        <span class="sa">f</span><span class="s1">&#39;&amp;sample_rate=</span><span class="si">{</span><span class="n">sending_sample_rate</span><span class="si">}</span><span class="s1">&#39;</span>
-</span><span data-line="27">        <span class="sa">f</span><span class="s1">&#39;&amp;language=</span><span class="si">{</span><span class="n">language</span><span class="si">}</span><span class="s1">&#39;</span>
-</span><span data-line="28">        <span class="sa">f</span><span class="s1">&#39;&amp;temperature=</span><span class="si">{</span><span class="n">temperature</span><span class="si">}</span><span class="s1">&#39;</span>
-</span><span data-line="29">        <span class="sa">f</span><span class="s1">&#39;&amp;call_id=</span><span class="si">{</span><span class="n">call_id</span><span class="si">}</span><span class="s1">&#39;</span>
-</span><span data-line="30">    <span class="p">)</span>
-</span><span data-line="31">
-</span><span data-line="32">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Processing audio file: </span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">filepath</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span data-line="33">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;WebSocket URI: </span><span class="si">{</span><span class="n">URL</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span data-line="34">    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
-</span><span data-line="35">
-</span><span data-line="36">    <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
-</span><span data-line="37">
-</span><span data-line="38">    <span class="k">try</span><span class="p">:</span>
-</span><span data-line="39">        <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">process_and_stream_audio</span><span class="p">(</span>
-</span><span data-line="40">            <span class="n">URL</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">filepath</span><span class="p">,</span> <span class="n">encoding</span>
-</span><span data-line="41">        <span class="p">)</span>
-</span><span data-line="42">        <span class="k">if</span> <span class="n">result</span><span class="p">:</span>
-</span><span data-line="43">            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Transcription successful!&quot;</span><span class="p">)</span>
-</span><span data-line="44">        <span class="k">else</span><span class="p">:</span>
-</span><span data-line="45">            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Transcription failed!&quot;</span><span class="p">)</span>
-</span><span data-line="46">
-</span><span data-line="47">    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-</span><span data-line="48">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Connection error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span data-line="49">
-</span><span data-line="50">    <span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
-</span><span data-line="51">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Total execution time: </span><span class="si">{</span><span class="n">end_time</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start_time</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
-</span><span data-line="52">
-</span><span data-line="53"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-</span><span data-line="54">    <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</span><span data-line="26">        <span class="sa">f</span><span class="s1">&#39;&amp;encoding=</span><span class="si">{</span><span class="n">encoding</span><span class="si">}</span><span class="s1">&#39;</span>
+</span><span data-line="27">        <span class="sa">f</span><span class="s1">&#39;&amp;sample_rate=</span><span class="si">{</span><span class="n">sending_sample_rate</span><span class="si">}</span><span class="s1">&#39;</span>
+</span><span data-line="28">        <span class="sa">f</span><span class="s1">&#39;&amp;language=</span><span class="si">{</span><span class="n">language</span><span class="si">}</span><span class="s1">&#39;</span>
+</span><span data-line="29">        <span class="sa">f</span><span class="s1">&#39;&amp;temperature=</span><span class="si">{</span><span class="n">temperature</span><span class="si">}</span><span class="s1">&#39;</span>
+</span><span data-line="30">        <span class="sa">f</span><span class="s1">&#39;&amp;call_id=</span><span class="si">{</span><span class="n">call_id</span><span class="si">}</span><span class="s1">&#39;</span>
+</span><span data-line="31">    <span class="p">)</span>
+</span><span data-line="32">
+</span><span data-line="33">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Processing audio file: </span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">filepath</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span data-line="34">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;WebSocket URI: </span><span class="si">{</span><span class="n">URL</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span data-line="35">    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
+</span><span data-line="36">
+</span><span data-line="37">    <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+</span><span data-line="38">
+</span><span data-line="39">    <span class="k">try</span><span class="p">:</span>
+</span><span data-line="40">        <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">process_and_stream_audio</span><span class="p">(</span>
+</span><span data-line="41">            <span class="n">URL</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">filepath</span><span class="p">,</span> <span class="n">encoding</span>
+</span><span data-line="42">        <span class="p">)</span>
+</span><span data-line="43">        <span class="k">if</span> <span class="n">result</span><span class="p">:</span>
+</span><span data-line="44">            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Transcription successful!&quot;</span><span class="p">)</span>
+</span><span data-line="45">        <span class="k">else</span><span class="p">:</span>
+</span><span data-line="46">            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Transcription failed!&quot;</span><span class="p">)</span>
+</span><span data-line="47">
+</span><span data-line="48">    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span><span data-line="49">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Connection error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span data-line="50">
+</span><span data-line="51">    <span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+</span><span data-line="52">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Total execution time: </span><span class="si">{</span><span class="n">end_time</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start_time</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+</span><span data-line="53">
+</span><span data-line="54"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+</span><span data-line="55">    <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
 </span></pre></div>
 </div>
 </section>
@@ -405,14 +401,15 @@ data-aria-dark="Switch to auto color mode">
 </span><span data-line="3"><span class="n">ws_url</span> <span class="o">=</span> <span class="p">(</span>
 </span><span data-line="4">    <span class="s2">&quot;wss://ori-asr-test.oriserve.com/connect&quot;</span>
 </span><span data-line="5">    <span class="s2">&quot;?model=ori-prime-v2.3&quot;</span>
-</span><span data-line="6">    <span class="s2">&quot;&amp;sample_rate=16000&quot;</span>
-</span><span data-line="7">    <span class="s2">&quot;&amp;language=hi&quot;</span>
-</span><span data-line="8">    <span class="s2">&quot;&amp;temperature=0.0&quot;</span>
-</span><span data-line="9">    <span class="s2">&quot;&amp;call_id=my_test_call&quot;</span>
-</span><span data-line="10"><span class="p">)</span>
-</span><span data-line="11">
-</span><span data-line="12"><span class="n">result</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">process_and_stream_audio</span><span class="p">(</span><span class="n">ws_url</span><span class="p">,</span> <span class="s2">&quot;chunk.wav&quot;</span><span class="p">))</span>
-</span><span data-line="13"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Transcription: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span data-line="6">    <span class="s2">&quot;&amp;encoding=linear16&quot;</span>
+</span><span data-line="7">    <span class="s2">&quot;&amp;sample_rate=16000&quot;</span>
+</span><span data-line="8">    <span class="s2">&quot;&amp;language=hi&quot;</span>
+</span><span data-line="9">    <span class="s2">&quot;&amp;temperature=0.0&quot;</span>
+</span><span data-line="10">    <span class="s2">&quot;&amp;call_id=my_test_call&quot;</span>
+</span><span data-line="11"><span class="p">)</span>
+</span><span data-line="12">
+</span><span data-line="13"><span class="n">result</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">process_and_stream_audio</span><span class="p">(</span><span class="n">ws_url</span><span class="p">,</span> <span class="s2">&quot;chunk.wav&quot;</span><span class="p">))</span>
+</span><span data-line="14"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Transcription: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </span></pre></div>
 </div>
 </section>

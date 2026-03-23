@@ -75,11 +75,6 @@ data-aria-dark="Switch to auto color mode">
 </ul>
 <p class="caption" role="heading" aria-level="3"><span class="caption-text">STT — REST API</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="api/index.html">STT REST API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/api_reference.html">API Reference</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/python_client.html">Python Client</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="api/api_reference.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api/python_client.html">Python Client</a></li>
 </ul>
@@ -273,17 +268,22 @@ data-aria-dark="Switch to auto color mode">
 <td><p><code class="docutils literal notranslate"><span class="pre">16000</span></code></p></td>
 <td><p>Audio sample rate in Hz (<code class="docutils literal notranslate"><span class="pre">8000</span></code> or <code class="docutils literal notranslate"><span class="pre">16000</span></code>)</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">interruption_words</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">encoding</span></code></p></td>
+<td><p>string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">linear16</span></code></p></td>
+<td><p>Audio encoding format (<code class="docutils literal notranslate"><span class="pre">linear16</span></code> or <code class="docutils literal notranslate"><span class="pre">mulaw</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">interruption_words</span></code></p></td>
 <td><p>integer</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">2</span></code></p></td>
 <td><p>Number of words required for interruption detection</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">temperature</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">temperature</span></code></p></td>
 <td><p>float</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code></p></td>
 <td><p>Decoding temperature (0.0 = deterministic)</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">prompt</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">prompt</span></code></p></td>
 <td><p>string</p></td>
 <td><p>empty</p></td>
 <td><p>Word boosting prompt (max 5 words, URL-encoded)</p></td>
@@ -313,6 +313,10 @@ data-aria-dark="Switch to auto color mode">
 <li><p><code class="docutils literal notranslate"><span class="pre">8000</span></code> - Telephone quality</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">16000</span></code> - Standard quality (recommended)</p></li>
 </ul>
+</dd>
+<dt><strong>encoding</strong></dt><dd><p>Audio encoding format. Supported values:
+* <code class="docutils literal notranslate"><span class="pre">linear16</span></code> - 16-bit PCM uncompressed (recommended)
+* <code class="docutils literal notranslate"><span class="pre">mulaw</span></code> - μ-law (compressed, smaller size)</p>
 </dd>
 <dt><strong>prompt</strong></dt><dd><p>A text prompt for word boosting to improve recognition of specific vocabulary. Maximum 5 words, URL-encoded.</p>
 <p>Example: <code class="docutils literal notranslate"><span class="pre">brandname%20entity%20specific-word</span></code></p>

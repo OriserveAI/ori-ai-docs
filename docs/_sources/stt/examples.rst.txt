@@ -116,6 +116,7 @@ Use μ-law encoding for bandwidth efficiency:
        url = (
            "wss://ori-asr-test.oriserve.com/connect"
            "?model=ori-prime-v2.3"
+           "&encoding=mulaw"
            "&sample_rate=16000"
            "&language=hi"
        )
@@ -123,8 +124,7 @@ Use μ-law encoding for bandwidth efficiency:
        # Use mulaw encoding (half the bandwidth of linear16)
        result = await process_and_stream_audio(
            url,
-           "audio.wav",
-           encoding="mulaw"
+           "audio.wav"
        )
        print(f"Transcription: {result}")
 
