@@ -71,7 +71,6 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start Guide</a></li>
 </ul>
 <p class="caption" role="heading" aria-level="3"><span class="caption-text">STT — REST API</span></p>
 <ul>
@@ -87,17 +86,6 @@ data-aria-dark="Switch to auto color mode">
 </ul>
 <p class="caption" role="heading" aria-level="3"><span class="caption-text">Text-to-Speech (TTS)</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../tts/index.html">Ori TTS API Documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tts/quickstart.html">Quickstart</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tts/api/index.html">API Reference</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../tts/api/tts.html">Text-to-Speech Endpoints</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../tts/api/voice.html">Voice Management Endpoints</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../tts/api/tts.html">Text-to-Speech Endpoints</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tts/api/voice.html">Voice Management Endpoints</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="../tts/quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tts/api/index.html">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../tts/api/tts.html">Text-to-Speech Endpoints</a></li>
@@ -314,9 +302,11 @@ data-aria-dark="Switch to auto color mode">
 <li><p><code class="docutils literal notranslate"><span class="pre">16000</span></code> - Standard quality (recommended)</p></li>
 </ul>
 </dd>
-<dt><strong>encoding</strong></dt><dd><p>Audio encoding format. Supported values:
-* <code class="docutils literal notranslate"><span class="pre">linear16</span></code> - 16-bit PCM uncompressed (recommended)
-* <code class="docutils literal notranslate"><span class="pre">mulaw</span></code> - μ-law (compressed, smaller size)</p>
+<dt><strong>encoding</strong></dt><dd><p>Audio encoding format. Supported values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">linear16</span></code> - 16-bit PCM uncompressed (recommended)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mulaw</span></code> - μ-law (compressed, smaller size)</p></li>
+</ul>
 </dd>
 <dt><strong>prompt</strong></dt><dd><p>A text prompt for word boosting to improve recognition of specific vocabulary. Maximum 5 words, URL-encoded.</p>
 <p>Example: <code class="docutils literal notranslate"><span class="pre">brandname%20entity%20specific-word</span></code></p>

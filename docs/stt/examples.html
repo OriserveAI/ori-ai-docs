@@ -71,7 +71,6 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start Guide</a></li>
 </ul>
 <p class="caption" role="heading" aria-level="3"><span class="caption-text">STT — REST API</span></p>
 <ul>
@@ -87,17 +86,6 @@ data-aria-dark="Switch to auto color mode">
 </ul>
 <p class="caption" role="heading" aria-level="3"><span class="caption-text">Text-to-Speech (TTS)</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../tts/index.html">Ori TTS API Documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tts/quickstart.html">Quickstart</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tts/api/index.html">API Reference</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../tts/api/tts.html">Text-to-Speech Endpoints</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../tts/api/voice.html">Voice Management Endpoints</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../tts/api/tts.html">Text-to-Speech Endpoints</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tts/api/voice.html">Voice Management Endpoints</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="../tts/quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tts/api/index.html">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../tts/api/tts.html">Text-to-Speech Endpoints</a></li>
@@ -122,6 +110,7 @@ data-aria-dark="Switch to auto color mode">
 <li><a class="reference internal" href="#hinglish-transcription">Hinglish Transcription</a></li>
 <li><a class="reference internal" href="#with-noise-reduction">With Noise Reduction</a></li>
 <li><a class="reference internal" href="#word-boosting">Word Boosting</a></li>
+<li><a class="reference internal" href="#linear16-encoding-recommended">Linear16 Encoding (Recommended)</a></li>
 <li><a class="reference internal" href="#law-encoding">&#956;-law Encoding</a></li>
 <li><a class="reference internal" href="#error-handling">Error Handling</a></li>
 <li><a class="reference internal" href="#performance-monitoring">Performance Monitoring</a></li>
@@ -253,6 +242,31 @@ data-aria-dark="Switch to auto color mode">
 </span></pre></div>
 </div>
 </section>
+<section id="linear16-encoding-recommended">
+<h2>Linear16 Encoding (Recommended)<a class="headerlink" href="#linear16-encoding-recommended" title="Link to this heading">¶</a></h2>
+<p>Use 16-bit PCM encoding for high-quality audio:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+</span><span data-line="2"><span class="kn">from</span><span class="w"> </span><span class="nn">client</span><span class="w"> </span><span class="kn">import</span> <span class="n">process_and_stream_audio</span>
+</span><span data-line="3">
+</span><span data-line="4"><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">transcribe_mulaw</span><span class="p">():</span>
+</span><span data-line="5">    <span class="n">url</span> <span class="o">=</span> <span class="p">(</span>
+</span><span data-line="6">        <span class="s2">&quot;wss://ori-asr-test.oriserve.com/connect&quot;</span>
+</span><span data-line="7">        <span class="s2">&quot;?model=ori-prime-v2.3&quot;</span>
+</span><span data-line="8">        <span class="s2">&quot;&amp;encoding=linear16&quot;</span>  <span class="c1"># Use linear16 encoding (full bandwidth)</span>
+</span><span data-line="9">        <span class="s2">&quot;&amp;sample_rate=16000&quot;</span>
+</span><span data-line="10">        <span class="s2">&quot;&amp;language=hi&quot;</span>
+</span><span data-line="11">    <span class="p">)</span>
+</span><span data-line="12">
+</span><span data-line="13">    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">process_and_stream_audio</span><span class="p">(</span>
+</span><span data-line="14">        <span class="n">url</span><span class="p">,</span>
+</span><span data-line="15">        <span class="s2">&quot;audio.wav&quot;</span>
+</span><span data-line="16">    <span class="p">)</span>
+</span><span data-line="17">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Transcription: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span data-line="18">
+</span><span data-line="19"><span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">transcribe_mulaw</span><span class="p">())</span>
+</span></pre></div>
+</div>
+</section>
 <section id="law-encoding">
 <h2>μ-law Encoding<a class="headerlink" href="#law-encoding" title="Link to this heading">¶</a></h2>
 <p>Use μ-law encoding for bandwidth efficiency:</p>
@@ -263,19 +277,18 @@ data-aria-dark="Switch to auto color mode">
 </span><span data-line="5">    <span class="n">url</span> <span class="o">=</span> <span class="p">(</span>
 </span><span data-line="6">        <span class="s2">&quot;wss://ori-asr-test.oriserve.com/connect&quot;</span>
 </span><span data-line="7">        <span class="s2">&quot;?model=ori-prime-v2.3&quot;</span>
-</span><span data-line="8">        <span class="s2">&quot;&amp;encoding=mulaw&quot;</span>
+</span><span data-line="8">        <span class="s2">&quot;&amp;encoding=mulaw&quot;</span>  <span class="c1"># Use mulaw encoding (half the bandwidth of linear16)</span>
 </span><span data-line="9">        <span class="s2">&quot;&amp;sample_rate=16000&quot;</span>
 </span><span data-line="10">        <span class="s2">&quot;&amp;language=hi&quot;</span>
 </span><span data-line="11">    <span class="p">)</span>
 </span><span data-line="12">
-</span><span data-line="13">    <span class="c1"># Use mulaw encoding (half the bandwidth of linear16)</span>
-</span><span data-line="14">    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">process_and_stream_audio</span><span class="p">(</span>
-</span><span data-line="15">        <span class="n">url</span><span class="p">,</span>
-</span><span data-line="16">        <span class="s2">&quot;audio.wav&quot;</span>
-</span><span data-line="17">    <span class="p">)</span>
-</span><span data-line="18">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Transcription: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span data-line="19">
-</span><span data-line="20"><span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">transcribe_mulaw</span><span class="p">())</span>
+</span><span data-line="13">    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">process_and_stream_audio</span><span class="p">(</span>
+</span><span data-line="14">        <span class="n">url</span><span class="p">,</span>
+</span><span data-line="15">        <span class="s2">&quot;audio.wav&quot;</span>
+</span><span data-line="16">    <span class="p">)</span>
+</span><span data-line="17">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Transcription: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span data-line="18">
+</span><span data-line="19"><span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">transcribe_mulaw</span><span class="p">())</span>
 </span></pre></div>
 </div>
 </section>

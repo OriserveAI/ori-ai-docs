@@ -114,6 +114,7 @@ Parameter Details
 
 **encoding**
   Audio encoding format. Supported values:
+  
   * ``linear16`` - 16-bit PCM uncompressed (recommended)
   * ``mulaw`` - μ-law (compressed, smaller size)
 

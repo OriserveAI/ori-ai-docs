@@ -102,6 +102,33 @@ Boost recognition of specific vocabulary (max 5 words):
 
    asyncio.run(transcribe_with_boosting())
 
+Linear16 Encoding (Recommended)
+--------------------------------
+
+Use 16-bit PCM encoding for high-quality audio:
+
+.. code-block:: python
+
+   import asyncio
+   from client import process_and_stream_audio
+
+   async def transcribe_mulaw():
+       url = (
+           "wss://ori-asr-test.oriserve.com/connect"
+           "?model=ori-prime-v2.3"
+           "&encoding=linear16"  # Use linear16 encoding (full bandwidth)
+           "&sample_rate=16000"
+           "&language=hi"
+       )
+
+       result = await process_and_stream_audio(
+           url,
+           "audio.wav"
+       )
+       print(f"Transcription: {result}")
+
+   asyncio.run(transcribe_mulaw())
+
 μ-law Encoding
 --------------
 
@@ -116,12 +143,11 @@ Use μ-law encoding for bandwidth efficiency:
        url = (
            "wss://ori-asr-test.oriserve.com/connect"
            "?model=ori-prime-v2.3"
-           "&encoding=mulaw"
+           "&encoding=mulaw"  # Use mulaw encoding (half the bandwidth of linear16)
            "&sample_rate=16000"
            "&language=hi"
        )
 
-       # Use mulaw encoding (half the bandwidth of linear16)
        result = await process_and_stream_audio(
            url,
            "audio.wav"

@@ -389,7 +389,7 @@ Getting Help
 If you continue to experience issues:
 
 1. **Check this troubleshooting guide**
-2. **Review the API Reference**: :doc:`api_reference`
+2. **Review the API Reference**: :doc:`websocket`
 3. **Check code examples**: :doc:`examples`
 4. **Contact Support**: Reach out to the Oriserve AI Team with:
 

@@ -109,6 +109,6 @@ Include your API key in the WebSocket connection headers:
 Next Steps
 ----------
 
-* :doc:`api_reference` - Learn about all available parameters
+* :doc:`websocket` - Learn about all available parameters
 * :doc:`python_client` - Use the full-featured Python client
 * :doc:`examples` - See complete working examples

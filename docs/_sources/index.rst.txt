@@ -8,7 +8,6 @@ Welcome to the Oriserve AI Services documentation. This unified documentation co
    :caption: STT — Getting Started
 
    stt/index
-   stt/quickstart
 
 .. toctree::
    :maxdepth: 2
@@ -30,7 +29,6 @@ Welcome to the Oriserve AI Services documentation. This unified documentation co
    :maxdepth: 2
    :caption: Text-to-Speech (TTS)
 
-   tts/index
    tts/quickstart
    tts/api/index
    tts/api/tts
