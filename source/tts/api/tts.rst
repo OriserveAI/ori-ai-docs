@@ -85,11 +85,11 @@ Generate speech from text using the OpenAI-compatible HTTP endpoint. Returns a s
    * - ``stitch_request``
      - boolean
      - No
-     - Enable request stitching for long texts (default: ``false``)
+     - Enable request stitching. When ``true``, ``speechReqId`` is required — each subsequent stitched request must use the same ``speechReqId`` as the request it is being stitched to.
    * - ``speechReqId``
      - string
      - No
-     - Custom request ID for tracking
+     - Custom request ID. Required when ``stitch_request`` is ``true``; must match the ``speechReqId`` of the predecessor request to stitch the speech together.
    * - ``user_id``
      - string
      - No
@@ -241,11 +241,11 @@ Send a JSON message with the following structure:
    * - ``stitch_request``
      - boolean
      - No
-     - Enable request stitching
+     - Enable request stitching. When ``true``, ``speechReqId`` is required — each subsequent stitched request must use the same ``speechReqId`` as the request it is being stitched to.
    * - ``speechReqId``
      - string
      - No
-     - Custom request ID
+     - Custom request ID. Required when ``stitch_request`` is ``true``; must match the ``speechReqId`` of the predecessor request to stitch the speech together.
    * - ``user_id``
      - string
      - No

@@ -241,12 +241,12 @@ Use <code class="docutils literal notranslate"><span class="pre">https://ori-tts
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">stitch_request</span></code></p></td>
 <td><p>boolean</p></td>
 <td><p>No</p></td>
-<td><p>Enable request stitching for long texts (default: <code class="docutils literal notranslate"><span class="pre">false</span></code>)</p></td>
+<td><p>Enable request stitching. When <code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">speechReqId</span></code> is required — each subsequent stitched request must use the same <code class="docutils literal notranslate"><span class="pre">speechReqId</span></code> as the request it is being stitched to.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">speechReqId</span></code></p></td>
 <td><p>string</p></td>
 <td><p>No</p></td>
-<td><p>Custom request ID for tracking</p></td>
+<td><p>Custom request ID. Required when <code class="docutils literal notranslate"><span class="pre">stitch_request</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code>; must match the <code class="docutils literal notranslate"><span class="pre">speechReqId</span></code> of the predecessor request to stitch the speech together.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">user_id</span></code></p></td>
 <td><p>string</p></td>
@@ -406,12 +406,12 @@ Use <code class="docutils literal notranslate"><span class="pre">wss://ori-tts-m
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">stitch_request</span></code></p></td>
 <td><p>boolean</p></td>
 <td><p>No</p></td>
-<td><p>Enable request stitching</p></td>
+<td><p>Enable request stitching. When <code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">speechReqId</span></code> is required — each subsequent stitched request must use the same <code class="docutils literal notranslate"><span class="pre">speechReqId</span></code> as the request it is being stitched to.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">speechReqId</span></code></p></td>
 <td><p>string</p></td>
 <td><p>No</p></td>
-<td><p>Custom request ID</p></td>
+<td><p>Custom request ID. Required when <code class="docutils literal notranslate"><span class="pre">stitch_request</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code>; must match the <code class="docutils literal notranslate"><span class="pre">speechReqId</span></code> of the predecessor request to stitch the speech together.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">user_id</span></code></p></td>
 <td><p>string</p></td>
@@ -588,7 +588,7 @@ Use <code class="docutils literal notranslate"><span class="pre">wss://ori-tts-m
   </div>
 </footer>
       <script src="../../_static/documentation_options.js?v=8d563738"></script>
-      <script src="../../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../../_static/shibuya.js?v=cac61aee"></script></body>
 </html>
