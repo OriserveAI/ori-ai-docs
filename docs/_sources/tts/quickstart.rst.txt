@@ -183,8 +183,12 @@ To get a list of all available voices:
 
 .. code-block:: bash
 
-   curl -X GET "https://ori-tts-test.oriserve.com/v1/audio/voices" \
-     -H "Authorization: Bearer your-api-token"
+   curl --location --request GET 'https://ori-tts-test.oriserve.com/v1/audio/voices' \
+    --header 'Content-Type: application/json' \
+    --header 'Authorization: Bearer your-api-token' \
+    --data '{
+        "user_id": "your-user-id"
+    }'
 
 Next Steps
 ----------

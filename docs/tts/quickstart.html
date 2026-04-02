@@ -312,8 +312,12 @@ data-aria-dark="Switch to auto color mode">
 <section id="listing-available-voices">
 <h2>Listing Available Voices<a class="headerlink" href="#listing-available-voices" title="Link to this heading">¶</a></h2>
 <p>To get a list of all available voices:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span><span class="s2">&quot;https://ori-tts-test.oriserve.com/v1/audio/voices&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span data-line="2"><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer your-api-token&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">curl<span class="w"> </span>--location<span class="w"> </span>--request<span class="w"> </span>GET<span class="w"> </span><span class="s1">&#39;https://ori-tts-test.oriserve.com/v1/audio/voices&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span data-line="2"><span class="w"> </span>--header<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span data-line="3"><span class="w"> </span>--header<span class="w"> </span><span class="s1">&#39;Authorization: Bearer your-api-token&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span data-line="4"><span class="w"> </span>--data<span class="w"> </span><span class="s1">&#39;{</span>
+</span><span data-line="5"><span class="s1">     &quot;user_id&quot;: &quot;your-user-id&quot;</span>
+</span><span data-line="6"><span class="s1"> }&#39;</span>
 </span></pre></div>
 </div>
 </section>
