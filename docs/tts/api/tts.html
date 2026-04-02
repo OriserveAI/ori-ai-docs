@@ -90,6 +90,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">API Reference</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Text-to-Speech Endpoints</a></li>
 <li class="toctree-l2"><a class="reference internal" href="voice.html">Voice Management Endpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="request-stitching.html">Request Stitching</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Text-to-Speech Endpoints</a></li>
@@ -238,23 +239,24 @@ Use <code class="docutils literal notranslate"><span class="pre">https://ori-tts
 <td><p>No</p></td>
 <td><p>Custom pronunciation mappings (default: <code class="docutils literal notranslate"><span class="pre">{}</span></code>)</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">stitch_request</span></code></p></td>
-<td><p>boolean</p></td>
-<td><p>No</p></td>
-<td><p>Enable request stitching. When <code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">speechReqId</span></code> is required — each subsequent stitched request must use the same <code class="docutils literal notranslate"><span class="pre">speechReqId</span></code> as the request it is being stitched to.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">speechReqId</span></code></p></td>
-<td><p>string</p></td>
-<td><p>No</p></td>
-<td><p>Custom request ID. Required when <code class="docutils literal notranslate"><span class="pre">stitch_request</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code>; must match the <code class="docutils literal notranslate"><span class="pre">speechReqId</span></code> of the predecessor request to stitch the speech together.</p></td>
-</tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">user_id</span></code></p></td>
 <td><p>string</p></td>
 <td><p>No</p></td>
 <td><p>User identifier</p></td>
 </tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">speechReqId</span></code></p></td>
+<td><p>string</p></td>
+<td><p>No</p></td>
+<td><p>Custom request ID.</p></td>
+</tr>
 </tbody>
 </table>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">stitch_request</span></code> and <code class="docutils literal notranslate"><span class="pre">speechReqId</span></code> parameters are <strong>not supported</strong> on the HTTP endpoint.
+Passing them will result in an error. Request stitching is only available via the
+<a class="reference internal" href="#tts-websocket"><span class="std std-ref">WebSocket endpoint</span></a>. See <a class="reference internal" href="request-stitching.html"><span class="doc">Request Stitching</span></a> for details.</p>
 </div>
 <p><strong>Response:</strong></p>
 <p>Returns a streaming audio response with the appropriate content type based on the format:</p>
@@ -301,7 +303,7 @@ Use <code class="docutils literal notranslate"><span class="pre">https://ori-tts
 </div>
 </section>
 <section id="websocket-ori-tts-socket">
-<h2>WebSocket /ori_tts_socket<a class="headerlink" href="#websocket-ori-tts-socket" title="Link to this heading">¶</a></h2>
+<span id="tts-websocket"></span><h2>WebSocket /ori_tts_socket<a class="headerlink" href="#websocket-ori-tts-socket" title="Link to this heading">¶</a></h2>
 <p>Real-time text-to-speech streaming via WebSocket connection.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -406,12 +408,12 @@ Use <code class="docutils literal notranslate"><span class="pre">wss://ori-tts-m
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">stitch_request</span></code></p></td>
 <td><p>boolean</p></td>
 <td><p>No</p></td>
-<td><p>Enable request stitching. When <code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">speechReqId</span></code> is required — each subsequent stitched request must use the same <code class="docutils literal notranslate"><span class="pre">speechReqId</span></code> as the request it is being stitched to.</p></td>
+<td><p>Enable request stitching. When <code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">speechReqId</span></code> is required — each subsequent stitched request must use the same <code class="docutils literal notranslate"><span class="pre">speechReqId</span></code> as the request it is being stitched to. See <a class="reference internal" href="request-stitching.html"><span class="doc">Request Stitching</span></a> for a full guide.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">speechReqId</span></code></p></td>
 <td><p>string</p></td>
 <td><p>No</p></td>
-<td><p>Custom request ID. Required when <code class="docutils literal notranslate"><span class="pre">stitch_request</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code>; must match the <code class="docutils literal notranslate"><span class="pre">speechReqId</span></code> of the predecessor request to stitch the speech together.</p></td>
+<td><p>Custom request ID. Required when <code class="docutils literal notranslate"><span class="pre">stitch_request</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code>; must match the <code class="docutils literal notranslate"><span class="pre">speechReqId</span></code> of the predecessor request to stitch the speech together. See <a class="reference internal" href="request-stitching.html"><span class="doc">Request Stitching</span></a> for a full guide.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">user_id</span></code></p></td>
 <td><p>string</p></td>

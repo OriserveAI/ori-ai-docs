@@ -187,3 +187,4 @@ Detailed Documentation
 
    tts
    voice
+   request-stitching
