@@ -2,7 +2,7 @@
 <html lang="en" data-accent-color="violet" data-content_root="../../">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Text-to-Speech Endpoints - Oriserve AI Services Documentation 1.0.0 documentation</title><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Voice Management Endpoints" href="voice.html" /><link rel="prev" title="API Reference" href="index.html" /><script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Text-to-Speech Endpoints - Oriserve AI Services Documentation 1.0.0 documentation</title><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Request Stitching" href="request-stitching.html" /><link rel="prev" title="API Reference" href="index.html" /><script>
     function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
     setColorMode(localStorage._theme||"auto");
   </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=e1a1ceaf" />
@@ -89,6 +89,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">API Reference</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Text-to-Speech Endpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="request-stitching.html">Request Stitching</a></li>
 <li class="toctree-l2"><a class="reference internal" href="voice.html">Voice Management Endpoints</a></li>
 </ul>
 </li>
@@ -166,6 +167,12 @@ Use <code class="docutils literal notranslate"><span class="pre">https://ori-tts
 </span><span data-line="9"><span class="s1">  }&#39;</span>
 </span></pre></div>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">stitch_request</span></code> parameter is <strong>not supported</strong> on the HTTP POST endpoint. Passing
+<code class="docutils literal notranslate"><span class="pre">stitch_request</span></code> in the request body will result in an error. Request stitching is only
+available via the <a class="reference internal" href="#websocket-tts"><span class="std std-ref">WebSocket endpoint</span></a>. See <a class="reference internal" href="request-stitching.html"><span class="doc">Request Stitching</span></a> for details.</p>
+</div>
 <p><strong>Request Body Parameters:</strong></p>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
@@ -238,20 +245,15 @@ Use <code class="docutils literal notranslate"><span class="pre">https://ori-tts
 <td><p>No</p></td>
 <td><p>Custom pronunciation mappings (default: <code class="docutils literal notranslate"><span class="pre">{}</span></code>)</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">stitch_request</span></code></p></td>
-<td><p>boolean</p></td>
-<td><p>No</p></td>
-<td><p>Enable request stitching. When <code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">speechReqId</span></code> is required — each subsequent stitched request must use the same <code class="docutils literal notranslate"><span class="pre">speechReqId</span></code> as the request it is being stitched to.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">speechReqId</span></code></p></td>
-<td><p>string</p></td>
-<td><p>No</p></td>
-<td><p>Custom request ID. Required when <code class="docutils literal notranslate"><span class="pre">stitch_request</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code>; must match the <code class="docutils literal notranslate"><span class="pre">speechReqId</span></code> of the predecessor request to stitch the speech together.</p></td>
-</tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">user_id</span></code></p></td>
 <td><p>string</p></td>
 <td><p>No</p></td>
 <td><p>User identifier</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">speechReqId</span></code></p></td>
+<td><p>string</p></td>
+<td><p>No</p></td>
+<td><p>Custom request ID.</p></td>
 </tr>
 </tbody>
 </table>
@@ -301,7 +303,7 @@ Use <code class="docutils literal notranslate"><span class="pre">https://ori-tts
 </div>
 </section>
 <section id="websocket-ori-tts-socket">
-<h2>WebSocket /ori_tts_socket<a class="headerlink" href="#websocket-ori-tts-socket" title="Link to this heading">¶</a></h2>
+<span id="websocket-tts"></span><h2>WebSocket /ori_tts_socket<a class="headerlink" href="#websocket-ori-tts-socket" title="Link to this heading">¶</a></h2>
 <p>Real-time text-to-speech streaming via WebSocket connection.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -406,7 +408,7 @@ Use <code class="docutils literal notranslate"><span class="pre">wss://ori-tts-m
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">stitch_request</span></code></p></td>
 <td><p>boolean</p></td>
 <td><p>No</p></td>
-<td><p>Enable request stitching. When <code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">speechReqId</span></code> is required — each subsequent stitched request must use the same <code class="docutils literal notranslate"><span class="pre">speechReqId</span></code> as the request it is being stitched to.</p></td>
+<td><p>Enable request stitching. When <code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">speechReqId</span></code> is required — each subsequent stitched request must use the same <code class="docutils literal notranslate"><span class="pre">speechReqId</span></code> as the request it is being stitched to. See <a class="reference internal" href="request-stitching.html"><span class="doc">Request Stitching</span></a> for details.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">speechReqId</span></code></p></td>
 <td><p>string</p></td>
@@ -559,10 +561,10 @@ Use <code class="docutils literal notranslate"><span class="pre">wss://ori-tts-m
         <span>Previous</span><div class="title">API Reference</div></div>
     </a>
   </div><div class="navigation-next">
-    <a href="voice.html">
+    <a href="request-stitching.html">
       <div class="page-info">
         <span>Next</span>
-        <div class="title">Voice Management Endpoints</div>
+        <div class="title">Request Stitching</div>
       </div>
       <i class="i-lucide chevron-right"></i>
     </a>

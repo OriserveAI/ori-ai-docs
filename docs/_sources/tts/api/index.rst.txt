@@ -186,4 +186,5 @@ Detailed Documentation
    :maxdepth: 1
 
    tts
+   request-stitching
    voice

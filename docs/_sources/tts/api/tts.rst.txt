@@ -28,6 +28,12 @@ Generate speech from text using the OpenAI-compatible HTTP endpoint. Returns a s
        "response_format": "mp3_44100_128"
      }'
 
+.. warning::
+
+   The ``stitch_request`` parameter is **not supported** on the HTTP POST endpoint. Passing
+   ``stitch_request`` in the request body will result in an error. Request stitching is only
+   available via the :ref:`WebSocket endpoint <websocket-tts>`. See :doc:`request-stitching` for details.
+
 **Request Body Parameters:**
 
 .. list-table::
@@ -82,18 +88,14 @@ Generate speech from text using the OpenAI-compatible HTTP endpoint. Returns a s
      - object
      - No
      - Custom pronunciation mappings (default: ``{}``)
-   * - ``stitch_request``
-     - boolean
-     - No
-     - Enable request stitching. When ``true``, ``speechReqId`` is required — each subsequent stitched request must use the same ``speechReqId`` as the request it is being stitched to.
-   * - ``speechReqId``
-     - string
-     - No
-     - Custom request ID. Required when ``stitch_request`` is ``true``; must match the ``speechReqId`` of the predecessor request to stitch the speech together.
    * - ``user_id``
      - string
      - No
      - User identifier
+   * - ``speechReqId``
+     - string
+     - No
+     - Custom request ID.
 
 **Response:**
 
@@ -142,6 +144,8 @@ Returns a streaming audio response with the appropriate content type based on th
    with open("output.mp3", "wb") as f:
        for chunk in response.iter_content(chunk_size=8192):
            f.write(chunk)
+
+.. _websocket-tts:
 
 WebSocket /ori_tts_socket
 -------------------------
@@ -241,7 +245,7 @@ Send a JSON message with the following structure:
    * - ``stitch_request``
      - boolean
      - No
-     - Enable request stitching. When ``true``, ``speechReqId`` is required — each subsequent stitched request must use the same ``speechReqId`` as the request it is being stitched to.
+     - Enable request stitching. When ``true``, ``speechReqId`` is required — each subsequent stitched request must use the same ``speechReqId`` as the request it is being stitched to. See :doc:`request-stitching` for details.
    * - ``speechReqId``
      - string
      - No
