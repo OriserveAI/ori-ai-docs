@@ -181,7 +181,7 @@ Send a JSON message with the following structure:
      "voice_id": "0fQopeE3S42LxYNQSllH",
      "language": "hi",
      "encoding": "pcm_24000",
-     "speech_rate": 1.0,
+     "speed": 1.0,
      "expressive": 0.1,
      "stability": 1,
      "clarity": 0.1,
@@ -218,7 +218,7 @@ Send a JSON message with the following structure:
      - string
      - No
      - Audio format (default: ``pcm_24000``)
-   * - ``speech_rate``
+   * - ``speed``
      - float
      - No
      - Speech rate multiplier (default: ``1.0``)
@@ -316,7 +316,7 @@ The server will ignore ping messages and not send a response.
                "voice_id": voice_id,
                "language": language,
                "encoding": "pcm_24000",
-               "speech_rate": 1.0
+               "speed": 1.0
            }
            await ws.send(json.dumps(request))
 

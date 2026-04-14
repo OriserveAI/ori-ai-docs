@@ -91,7 +91,7 @@ Python Example
                    "voice_id": voice_id,
                    "language": language,
                    "encoding": "pcm_24000",
-                   "speech_rate": 1.0,
+                   "speed": 1.0,
                    "stitch_request": True,
                    "speechReqId": speech_req_id,
                }
@@ -145,7 +145,7 @@ JavaScript Example
          voice_id: voiceId,
          language: language,
          encoding: 'pcm_24000',
-         speech_rate: 1.0,
+         speed: 1.0,
          stitch_request: true,
          speechReqId: speechReqId,
        }));
